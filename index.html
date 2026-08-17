@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>なにたべ - SNSのレシピをURLで保存・AI整理</title>
+  <meta name="description" content="SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。無料で始められます。" />
+
+  <!-- OGP -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nanitabe.app" />
+  <meta property="og:title" content="なにたべ - SNSのレシピをURLで保存・AI整理" />
+  <meta property="og:description" content="SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:site_name" content="なにたべ" />
+  <meta property="og:locale" content="ja_JP" />
+  <link rel="canonical" href="https://nanitabe.app" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="なにたべ - SNSのレシピをURLで保存・AI整理" />
+  <meta name="twitter:description" content="SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。" />
+  <meta name="twitter:image" content="assets/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <meta name="theme-color" content="#5a8a5a" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:  '#5a8a5a',
+            bg:       '#f5f3ef',
+            surface:  '#ffffff',
+            border:   '#e8e4df',
+            muted:    '#f0ede8',
+            textmain: '#1a1a1a',
+            textsub:  '#888888',
+            premium:  '#c0892a',
+          },
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"Noto Sans JP"', '"Segoe UI"', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Google Fonts: Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans JP', 'Segoe UI', sans-serif; }
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] > summary .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s ease; }
+    @keyframes fadein { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fadein { animation: fadein 0.6s ease both; }
+    .badge-recommended {
+      background: #5a8a5a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .plan-card { border: 2px solid #e8e4df; border-radius: 20px; padding: 28px 24px; background: #fff; display: flex; flex-direction: column; gap: 16px; }
+    .plan-card.featured { border-color: #5a8a5a; }
+    .plan-card.premium-card { border-color: #c0892a; }
+    .check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .check-list li { font-size: 14px; color: #444; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .check-list li::before { content: '✓'; color: #5a8a5a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .check-list li.muted::before { color: #ccc; }
+    .check-list li.muted { color: #bbb; }
+    details { border-top: 1px solid #e8e4df; }
+    details:last-child { border-bottom: 1px solid #e8e4df; }
+    details summary { padding: 18px 4px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 15px; color: #1a1a1a; user-select: none; }
+    details p { padding: 0 4px 18px; color: #555; font-size: 14px; line-height: 1.8; white-space: pre-line; }
+  </style>
+</head>
+<body class="bg-bg text-textmain" style="min-height:100vh;">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-50 bg-white" style="border-bottom:1px solid #e8e4df;">
+    <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between">
+      <img src="assets/logo.png" alt="なにたべ" style="height:36px;" class="object-contain" />
+      <a href="https://nanitabe.app"
+         class="font-bold text-sm text-white px-5 py-2.5 rounded-full transition-opacity hover:opacity-85"
+         style="background:#5a8a5a;">
+        アプリを使う →
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="bg-bg fadein" style="padding:64px 20px 72px;">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+      <!-- テキスト -->
+      <div class="flex-1 text-center md:text-left">
+        <p class="text-sm font-bold tracking-widest mb-3" style="color:#5a8a5a;">レシピ管理アプリ</p>
+        <h1 class="font-black leading-tight mb-4" style="font-size:clamp(28px,6vw,48px);color:#1a1a1a;letter-spacing:-0.5px;">
+          なにたべたい？を<br />URLで解決。
+        </h1>
+        <p class="text-base leading-relaxed mb-8 max-w-md mx-auto md:mx-0" style="color:#555;">
+          SNSやYouTubeで見つけたレシピを、URLをコピペするだけで保存。<br />
+          AIが材料・手順を自動で整理します。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <a href="https://nanitabe.app"
+             class="font-bold text-white text-center px-8 py-4 rounded-full text-base transition-opacity hover:opacity-85"
+             style="background:#5a8a5a;">
+            無料で始める →
+          </a>
+          <a href="#pricing"
+             class="font-bold text-center px-8 py-4 rounded-full text-base transition-colors"
+             style="color:#5a8a5a;background:#fff;border:1.5px solid #5a8a5a;">
+            料金プランを見る
+          </a>
+        </div>
+        <p class="text-xs mt-4" style="color:#aaa;">クレジットカード不要・登録30秒</p>
+      </div>
+
+      <!-- スクリーンショット -->
+      <div class="flex-1 flex justify-center">
+        <div style="max-width:280px;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.14),0 4px 16px rgba(0,0,0,0.08);border:1px solid #e8e4df;">
+          <img src="assets/og-image.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ブランドバー ===== -->
+  <div style="background:#fff;border-top:1px solid #e8e4df;border-bottom:1px solid #e8e4df;padding:18px 20px;">
+    <p class="text-center text-xs font-bold tracking-widest" style="color:#aaa;">こんなサービスのURLに対応</p>
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-3">
+      <span class="text-sm font-bold" style="color:#555;">X（旧Twitter）</span>
+      <span class="text-sm font-bold" style="color:#555;">Instagram</span>
+      <span class="text-sm font-bold" style="color:#555;">YouTube</span>
+      <span class="text-sm font-bold" style="color:#555;">クックパッド</span>
+      <span class="text-sm font-bold" style="color:#555;">クラシル</span>
+      <span class="text-sm font-bold" style="color:#555;">その他レシピ記事</span>
+    </div>
+  </div>
+
+  <!-- ===== Features ===== -->
+  <section id="features" style="padding:80px 20px;">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FEATURES</p>
+      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">主な機能</h2>
+      <p class="text-center text-sm mb-12" style="color:#888;">毎日の「あのレシピ、どこだっけ？」をなくす7つの機能</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+        <!-- 機能1 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">🔗</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">URLコピペで即保存</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動で取得します。
+          </p>
+        </div>
+
+        <!-- 機能2 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">✨</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AIが材料・手順を自動解析</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            AIがレシピ名・材料・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
+          </p>
+        </div>
+
+        <!-- 機能3 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">📅</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">「今日作る」で調理を記録</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            ボタン一つで調理履歴が積み上がる。「計○回・○日前に作った」が一目でわかり、レパートリー管理がラクになります。
+          </p>
+        </div>
+
+        <!-- 機能4 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">📂</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">フォルダ＋AI自動振り分け</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            「離乳食」「お弁当用」などフォルダで整理。レシピを保存するとAIが最適なフォルダを自動で提案してくれます。
+          </p>
+        </div>
+
+        <!-- 機能5 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">🤖</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AIに相談</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            「この食材、代用できる？」「冷凍できる？」―レシピを見ながらChatGPT・Claude・Perplexityに直接相談できます。
+          </p>
+        </div>
+
+        <!-- 機能6 -->
+        <div class="bg-white rounded-2xl p-6" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">🌍</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">なにたべ広場</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            ユーザーが公開したレシピが集まるフィード。アクセス順・保存順でランキング表示し、気に入ったレシピを保存できます。
+          </p>
+        </div>
+
+        <!-- 機能7（中央寄せ） -->
+        <div class="bg-white rounded-2xl p-6 sm:col-span-2 md:col-span-1" style="border:1px solid #e8e4df;">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">食生活を分析</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。自分の食の傾向が一目でわかります。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section id="pricing" style="padding:80px 20px;background:#f5f3ef;">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">PRICING</p>
+      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">料金プラン</h2>
+      <p class="text-center text-sm mb-12" style="color:#888;">まずは無料でお試しください</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+        <!-- フリー -->
+        <div class="plan-card">
+          <div>
+            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">フリー</p>
+            <p class="font-black text-3xl" style="color:#1a1a1a;">無料</p>
+          </div>
+          <ul class="check-list">
+            <li>レシピ最大50件</li>
+            <li>AI解析 月10回</li>
+            <li>AI検索 月10回</li>
+            <li>キーワード・ベクター検索</li>
+            <li>フォルダ1個</li>
+            <li>今日作るボタン（記録のみ）</li>
+            <li class="muted">今日作るリスト</li>
+            <li class="muted">分析タブ</li>
+            <li class="muted">AIフォルダ振り分け</li>
+            <li class="muted">なにたべ広場</li>
+          </ul>
+          <a href="https://nanitabe.app"
+             class="block text-center font-bold py-3 rounded-full text-sm transition-opacity hover:opacity-85"
+             style="background:#e8e4df;color:#555;">
+            無料で始める
+          </a>
+        </div>
+
+        <!-- スタンダード（おすすめ） -->
+        <div class="plan-card featured">
+          <div>
+            <span class="badge-recommended">おすすめ</span>
+            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">スタンダード</p>
+            <p class="font-black text-3xl" style="color:#1a1a1a;">¥300<span class="text-sm font-normal" style="color:#888;">/月</span></p>
+          </div>
+          <ul class="check-list">
+            <li>レシピ最大200件</li>
+            <li>AI解析 月30回</li>
+            <li>AI検索 月30回</li>
+            <li>キーワード・ベクター検索</li>
+            <li>フォルダ最大3個</li>
+            <li>今日作るリスト</li>
+            <li>分析タブ</li>
+            <li>AIフォルダ自動振り分け</li>
+            <li>なにたべ広場閲覧</li>
+            <li>広告なし</li>
+            <li>独自Gemini APIキー設定（実質無制限）</li>
+          </ul>
+          <a href="https://nanitabe.app"
+             class="block text-center font-bold py-3 rounded-full text-sm text-white transition-opacity hover:opacity-85"
+             style="background:#5a8a5a;">
+            スタンダードで始める
+          </a>
+        </div>
+
+        <!-- プレミアム -->
+        <div class="plan-card premium-card">
+          <div>
+            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">プレミアム</p>
+            <p class="font-black text-3xl" style="color:#1a1a1a;">¥980<span class="text-sm font-normal" style="color:#888;">/月</span></p>
+          </div>
+          <ul class="check-list">
+            <li>レシピ<strong>無制限</strong></li>
+            <li>AI解析 月100回</li>
+            <li>AI検索 月100回</li>
+            <li>キーワード・ベクター検索</li>
+            <li>フォルダ最大3個</li>
+            <li>今日作るリスト</li>
+            <li>分析タブ</li>
+            <li>AIフォルダ自動振り分け</li>
+            <li>なにたべ広場閲覧＋レシピ保存</li>
+            <li>広告なし</li>
+            <li>独自Gemini APIキー設定</li>
+          </ul>
+          <a href="https://nanitabe.app"
+             class="block text-center font-bold py-3 rounded-full text-sm transition-opacity hover:opacity-85"
+             style="background:#c0892a;color:#fff;">
+            プレミアムで始める
+          </a>
+        </div>
+
+      </div>
+
+      <p class="text-center text-xs mt-8" style="color:#aaa;">
+        ・AI解析・AI検索の回数は毎月1日にリセットされます<br />
+        ・いつでも解約できます。解約後は次の更新日まで利用可能です<br />
+        ・月の途中でアップグレードした場合、使用済み回数はそのまま引き継がれます
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" style="padding:80px 20px;background:#fff;">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FAQ</p>
+      <h2 class="text-center font-black text-2xl md:text-3xl mb-12" style="color:#1a1a1a;">よくある質問</h2>
+
+      <details>
+        <summary>
+          どんなURLでも保存できますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>X（旧Twitter）・Instagram・YouTube・クックパッド・クラシルなど、ほとんどのレシピページのURLに対応しています。URLをコピーして貼り付けるだけです。</p>
+      </details>
+
+      <details>
+        <summary>
+          AI解析とは何ですか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>AIがレシピページを解析し、材料・分量・調理手順・カテゴリを自動で整理する機能です。AI解析なしの場合はタイトルと画像のみ保存されます。後からでも追加できます。</p>
+      </details>
+
+      <details>
+        <summary>
+          フリープランはずっと無料ですか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>はい。クレジットカード登録なしで、レシピ50件・AI解析月10回の範囲で無料でお使いいただけます。</p>
+      </details>
+
+      <details>
+        <summary>
+          いつでも解約できますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>はい。設定画面の「プラン詳細」からいつでも解約できます。解約後は次の更新日まで引き続き利用できます。</p>
+      </details>
+
+      <details>
+        <summary>
+          「AIに相談」はアプリ内でAIと会話するのですか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>いいえ。タップするとChatGPT・Claude・Perplexityなど、ふだんお使いのAIが別タブで開きます。レシピの材料・手順がプロンプトに自動で入力された状態でスタートします。アプリ内ではなく、使い慣れたAI環境でそのまま会話できます。</p>
+      </details>
+
+      <details>
+        <summary>
+          独自のGemini APIキーを使えますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>スタンダードプラン以上で対応しています。自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で使えます。</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ===== CTA Banner ===== -->
+  <section style="padding:80px 20px;background:#5a8a5a;">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-black text-2xl md:text-3xl mb-3 text-white">今すぐ無料で始めよう</h2>
+      <p class="text-sm mb-8" style="color:rgba(255,255,255,0.8);">レシピ50件・AI解析10回が無料でお試し。クレジットカード不要。</p>
+      <a href="https://nanitabe.app"
+         class="inline-block font-bold text-base px-10 py-4 rounded-full transition-opacity hover:opacity-85"
+         style="background:#fff;color:#5a8a5a;">
+        無料で始める →
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer style="background:#1a1a1a;padding:32px 20px;">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="なにたべ" style="height:28px;filter:brightness(0) invert(1);opacity:0.6;" class="object-contain" />
+        <span class="text-xs" style="color:#666;">© 2026 なにたべ</span>
+      </div>
+      <div class="flex gap-5">
+        <a href="https://nanitabe.app" class="text-xs transition-colors hover:text-white" style="color:#666;">アプリを開く</a>
+        <a href="https://nanitabe.app/help" class="text-xs transition-colors hover:text-white" style="color:#666;">ヘルプ</a>
+        <a href="https://nanitabe.app/privacy" class="text-xs transition-colors hover:text-white" style="color:#666;">プライバシーポリシー</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
