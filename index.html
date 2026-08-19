@@ -132,10 +132,30 @@
         <p class="text-xs mt-4" style="color:#aaa;">無料で登録してすぐ使えます。クレジットカード不要。</p>
       </div>
 
-      <!-- スクリーンショット -->
+      <!-- スクリーンショット（iPhoneフレーム） -->
       <div class="flex-1 flex justify-center">
-        <div style="max-width:280px;width:100%;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.14),0 4px 16px rgba(0,0,0,0.08);border:1px solid #e8e4df;">
-          <img src="assets/og-image.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
+        <div style="position:relative;width:240px;flex-shrink:0;">
+          <!-- フレーム本体 -->
+          <div style="background:#1a1a1a;border-radius:44px;padding:10px;box-shadow:0 40px 80px rgba(0,0,0,0.22),0 8px 24px rgba(0,0,0,0.12),inset 0 0 0 1px #3a3a3a;">
+            <!-- Dynamic Island -->
+            <div style="position:relative;z-index:2;display:flex;justify-content:center;padding:8px 0 4px;">
+              <div style="width:90px;height:26px;background:#000;border-radius:20px;"></div>
+            </div>
+            <!-- スクリーン -->
+            <div style="border-radius:34px;overflow:hidden;background:#fff;">
+              <img src="assets/app-screenshot.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
+            </div>
+            <!-- ホームバー -->
+            <div style="display:flex;justify-content:center;padding:10px 0 6px;">
+              <div style="width:80px;height:4px;background:#444;border-radius:4px;"></div>
+            </div>
+          </div>
+          <!-- サイドボタン（音量） -->
+          <div style="position:absolute;left:-3px;top:90px;width:3px;height:28px;background:#2a2a2a;border-radius:2px 0 0 2px;"></div>
+          <div style="position:absolute;left:-3px;top:126px;width:3px;height:28px;background:#2a2a2a;border-radius:2px 0 0 2px;"></div>
+          <div style="position:absolute;left:-3px;top:162px;width:3px;height:28px;background:#2a2a2a;border-radius:2px 0 0 2px;"></div>
+          <!-- 電源ボタン -->
+          <div style="position:absolute;right:-3px;top:110px;width:3px;height:52px;background:#2a2a2a;border-radius:0 2px 2px 0;"></div>
         </div>
       </div>
     </div>
