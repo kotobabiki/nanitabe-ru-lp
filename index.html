@@ -11,7 +11,9 @@
   <meta property="og:url" content="https://nanitabe-ru.netlify.app" />
   <meta property="og:title" content="なにたべ - SNSのレシピをURLで保存・AI整理" />
   <meta property="og:description" content="SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。" />
-  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image" content="https://nanitabe-ru.netlify.app/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="なにたべ" />
   <meta property="og:locale" content="ja_JP" />
   <link rel="canonical" href="https://nanitabe-ru.netlify.app" />
@@ -20,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="なにたべ - SNSのレシピをURLで保存・AI整理" />
   <meta name="twitter:description" content="SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。" />
-  <meta name="twitter:image" content="assets/og-image.png" />
+  <meta name="twitter:image" content="https://nanitabe-ru.netlify.app/assets/og-image.png" />
 
   <!-- Favicon（テキストなしアイコン） -->
   <link rel="icon" type="image/png" href="assets/icon.png" />
@@ -92,6 +94,40 @@
     details summary { padding: 18px 4px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 15px; color: #1a1a1a; user-select: none; }
     details p { padding: 0 4px 18px; color: #555; font-size: 14px; line-height: 1.8; white-space: pre-line; }
   </style>
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "なにたべ",
+    "url": "https://nanitabe-ru.netlify.app",
+    "description": "SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "フリープラン",
+        "price": "0",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "スタンダードプラン",
+        "price": "300",
+        "priceCurrency": "JPY"
+      },
+      {
+        "@type": "Offer",
+        "name": "プレミアムプラン",
+        "price": "980",
+        "priceCurrency": "JPY"
+      }
+    ],
+    "inLanguage": "ja"
+  }
+  </script>
 </head>
 <body class="bg-bg text-textmain" style="min-height:100vh;">
 
