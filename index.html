@@ -26,6 +26,9 @@
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <meta name="theme-color" content="#5a8a5a" />
 
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -182,7 +185,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">📱</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="smartphone" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">SNSのレシピが散らばって管理できない</p>
             <p class="text-xs leading-relaxed" style="color:#888;">X・Instagram・YouTubeそれぞれに保存されてバラバラ。どこに何があるか把握できない。</p>
@@ -190,7 +193,7 @@
         </div>
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">🔍</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="file-search" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">「あのレシピ、どこだっけ？」が頻発する</p>
             <p class="text-xs leading-relaxed" style="color:#888;">いざ作ろうとした時に見つからない。ブックマークやいいね欄を延々さかのぼる羽目に。</p>
@@ -198,7 +201,7 @@
         </div>
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">🎥</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="video" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">YouTubeはいちいち動画を開き直さないといけない</p>
             <p class="text-xs leading-relaxed" style="color:#888;">材料を確認するだけなのに動画再生が必要。調理中に何度も行き来するのが手間。</p>
@@ -206,7 +209,7 @@
         </div>
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">🖼️</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="image-off" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">他アプリは画像が取り込めず文字だけ</p>
             <p class="text-xs leading-relaxed" style="color:#888;">SNSの動画レシピは画像なしで登録されてしまう。文字だけではどんな料理か思い出しにくい。</p>
@@ -214,7 +217,7 @@
         </div>
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">📴</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="moon" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">調理中にスマホが暗くなりページが最初に戻る</p>
             <p class="text-xs leading-relaxed" style="color:#888;">SNSでレシピを開いたまま調理していると画面が消えてリセット。またリストから探し直しに。</p>
@@ -222,7 +225,7 @@
         </div>
 
         <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <span class="text-2xl flex-shrink-0 mt-0.5">👶</span>
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="layers" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
           <div>
             <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">離乳食など特定カテゴリが混じって使いにくい</p>
             <p class="text-xs leading-relaxed" style="color:#888;">普通のレシピと離乳食が混在すると探しにくい。カテゴリ別に分けて管理したい。</p>
@@ -250,7 +253,7 @@
 
         <!-- 機能1 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4" style="background:#e8f3ff;">🔗</div>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f3ff;"><i data-lucide="link" style="width:22px;height:22px;stroke:#3b82f6;stroke-width:1.75;fill:none;"></i></div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">URLコピペで即保存</h3>
           <p class="text-sm leading-relaxed" style="color:#555;">
             X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動で取得します。
@@ -259,7 +262,7 @@
 
         <!-- 機能2 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4" style="background:#fef9e7;">✨</div>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#fef9e7;"><i data-lucide="wand-2" style="width:22px;height:22px;stroke:#d97706;stroke-width:1.75;fill:none;"></i></div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AIが材料・手順を自動解析</h3>
           <p class="text-sm leading-relaxed" style="color:#555;">
             AIがレシピ名・材料・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
@@ -268,7 +271,7 @@
 
         <!-- 機能3 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4" style="background:#e8f0fe;">🔍</div>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f0fe;"><i data-lucide="search" style="width:22px;height:22px;stroke:#6366f1;stroke-width:1.75;fill:none;"></i></div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AI検索</h3>
           <p class="text-sm leading-relaxed" style="color:#555;">
             「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索できます。キーワード検索とAIの意味検索を組み合わせてぴったりのレシピを探せます。
@@ -277,7 +280,7 @@
 
         <!-- 機能4 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4" style="background:#f0f0f0;">🤖</div>
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#f0f0f0;"><i data-lucide="bot" style="width:22px;height:22px;stroke:#6b7280;stroke-width:1.75;fill:none;"></i></div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">いつものAIに相談</h3>
           <p class="text-sm leading-relaxed" style="color:#555;">
             ChatGPT・Claude・Perplexityなど、ふだん使っているAIにそのまま相談できます。材料・手順がプロンプトに自動入力された状態で開くので、コピペ不要。
@@ -289,7 +292,7 @@
         <!-- 機能5 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background:#f3e8fd;">📅</div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#f3e8fd;"><i data-lucide="calendar-check" style="width:22px;height:22px;stroke:#9333ea;stroke-width:1.75;fill:none;"></i></div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
           </div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">「今日作るリスト」で管理</h3>
@@ -301,7 +304,7 @@
         <!-- 機能6 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background:#fef0e8;">📂</div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fef0e8;"><i data-lucide="folder-open" style="width:22px;height:22px;stroke:#ea580c;stroke-width:1.75;fill:none;"></i></div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
           </div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">フォルダ＋AI自動振り分け</h3>
@@ -313,7 +316,7 @@
         <!-- 機能7 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background:#e8f5e9;">🌍</div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#e8f5e9;"><i data-lucide="users" style="width:22px;height:22px;stroke:#16a34a;stroke-width:1.75;fill:none;"></i></div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
           </div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">なにたべ広場</h3>
@@ -325,7 +328,7 @@
         <!-- 機能8 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background:#fce8f0;">📊</div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fce8f0;"><i data-lucide="bar-chart-2" style="width:22px;height:22px;stroke:#db2777;stroke-width:1.75;fill:none;"></i></div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
           </div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">食生活を分析</h3>
@@ -337,7 +340,7 @@
         <!-- 機能9 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl" style="background:#fff8e8;">🔑</div>
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fff8e8;"><i data-lucide="key-round" style="width:22px;height:22px;stroke:#d97706;stroke-width:1.75;fill:none;"></i></div>
             <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
           </div>
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">独自APIキーで無制限に</h3>
@@ -563,5 +566,6 @@
     </div>
   </footer>
 
+  <script>lucide.createIcons();</script>
 </body>
 </html>
