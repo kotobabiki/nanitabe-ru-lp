@@ -65,6 +65,9 @@
     details[open] > summary .chevron { transform: rotate(180deg); }
     .chevron { transition: transform 0.2s ease; }
     @keyframes fadein { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes carousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .carousel-track { animation: carousel 44s linear infinite; }
+    .carousel-track:hover { animation-play-state: paused; }
     .fadein { animation: fadein 0.6s ease both; }
     .badge-recommended {
       background: #5a8a5a;
@@ -133,7 +136,7 @@
 
       <!-- スクリーンショット（iPhoneフレーム） -->
       <div class="flex-1 flex justify-center">
-        <div style="position:relative;width:260px;flex-shrink:0;">
+        <div style="position:relative;width:290px;flex-shrink:0;">
           <!-- フレーム本体 -->
           <div style="background:#1c1c1e;border-radius:50px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 32px 64px rgba(0,0,0,0.22),0 8px 20px rgba(0,0,0,0.1);position:relative;">
             <!-- サイレントスイッチ -->
@@ -146,7 +149,7 @@
             <!-- スクリーン -->
             <div style="border-radius:46px;overflow:hidden;position:relative;background:#000;">
               <!-- ノッチ -->
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:108px;height:26px;background:#1c1c1e;border-radius:0 0 16px 16px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:72px;height:24px;background:#1c1c1e;border-radius:0 0 14px 14px;z-index:10;"></div>
               <img src="assets/app-screenshot.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
               <!-- ホームインジケーター -->
               <div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:88px;height:3px;background:rgba(0,0,0,0.22);border-radius:3px;"></div>
@@ -253,6 +256,119 @@
       <p class="text-center text-sm font-bold mt-10" style="color:#5a8a5a;">
         → なにたべは、これらをひとつひとつ解消するために作りました。
       </p>
+    </div>
+  </section>
+
+  <!-- ===== スクリーンショットカルーセル ===== -->
+  <section style="padding:72px 0;background:#111;overflow:hidden;">
+    <div class="max-w-5xl mx-auto px-5 mb-12 text-center">
+      <p class="text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">GALLERY</p>
+      <h2 class="font-black text-2xl md:text-3xl" style="color:#fff;">こんな画面で使えます</h2>
+    </div>
+    <div style="overflow:hidden;">
+      <div class="carousel-track" style="display:flex;gap:20px;padding:8px 0;width:max-content;">
+
+        <!-- ── 1セット目 ── -->
+        <!-- screen01 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen01.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- screen02 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen02.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- screen03 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen03.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- screen04 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen04.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- screen05 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen05.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+        <!-- screen06 -->
+        <div style="position:relative;width:200px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
+            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
+              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
+              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+              <img src="assets/screen06.png" style="width:100%;display:block;" />
+              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 2セット目（ループ用コピー） ── -->
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen01.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen02.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen03.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen04.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen05.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen06.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+
+      </div>
     </div>
   </section>
 
@@ -552,6 +668,28 @@
         <p>スタンダードプラン以上で対応しています。自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で使えます。</p>
       </details>
 
+      <details>
+        <summary>
+          iPhoneアプリ・Androidアプリはありますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>現在、App Store・Google Playへの公開は準備中です。ただし、ブラウザからホーム画面に追加することで、アプリのように使うことができます。ご準備ができ次第あらためてご案内します。</p>
+      </details>
+
+      <details>
+        <summary>
+          ホーム画面への追加方法を教えてください
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>【iPhoneの場合】
+Safariでなにたべを開く → 画面下の共有ボタン（四角に上矢印のアイコン）をタップ → 「ホーム画面に追加」を選択 → 右上の「追加」をタップ
+
+【Androidの場合】
+ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタップ → 「ホーム画面に追加」を選択 → 「追加」をタップ
+
+ホーム画面にアイコンが追加され、アプリのように起動できます。</p>
+      </details>
+
     </div>
   </section>
 
@@ -569,17 +707,8 @@
   </section>
 
   <!-- ===== Footer ===== -->
-  <footer style="background:#1a1a1a;padding:32px 20px;">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo.png" alt="なにたべ" style="height:28px;filter:brightness(0) invert(1);opacity:0.6;" class="object-contain" />
-        <span class="text-xs" style="color:#666;">© 2026 なにたべ</span>
-      </div>
-      <div class="flex gap-5">
-        <a href="https://nanitabe-ru.vercel.app" class="text-xs transition-colors hover:text-white" style="color:#666;">アプリを開く</a>
-        <a href="https://nanitabe-ru.vercel.app/help" class="text-xs transition-colors hover:text-white" style="color:#666;">ヘルプ</a>
-      </div>
-    </div>
+  <footer style="background:#1a1a1a;padding:24px 20px;">
+    <p class="text-center text-xs" style="color:#555;">© 2026 なにたべ</p>
   </footer>
 
   <script>lucide.createIcons();</script>
