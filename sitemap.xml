@@ -12,4 +12,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://nanitabe-ru.netlify.app/column.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/recipe-app-comparison.html</loc><lastmod>2026-09-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/baby-food-recipe.html</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/obento-recipe-management.html</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/cooking-screen-lock.html</loc><lastmod>2026-08-30</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/beyond-cookpad.html</loc><lastmod>2026-08-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/youtube-recipe-video.html</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/recipe-lost-and-found.html</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/ai-recipe-auto-organize.html</loc><lastmod>2026-08-22</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/instagram-recipe-url.html</loc><lastmod>2026-08-20</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
