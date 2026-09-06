@@ -143,6 +143,41 @@
     "inLanguage": "ja"
   }
   </script>
+
+  <!-- JSON-LD FAQPage構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "どんなURLでも保存できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "X（旧Twitter）・Instagram・YouTube・クックパッド・クラシルなど、ほとんどのレシピページのURLに対応しています。URLをコピーして貼り付けるだけです。" }
+      },
+      {
+        "@type": "Question",
+        "name": "クックパッドの代わりに使えますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "クックパッドのレシピURLも保存できるほか、Instagram・X・YouTube・TikTokなどSNSのレシピもまとめて管理できます。クックパッドでは対応していないSNSレシピの一元管理に強みがあります。" }
+      },
+      {
+        "@type": "Question",
+        "name": "無料で使えるレシピ管理アプリですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、無料で使えます。クレジットカード登録なしで、レシピ50件・AI解析月10回までフリープランでご利用いただけます。" }
+      },
+      {
+        "@type": "Question",
+        "name": "レシピをフォルダ分けして管理できますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "できます。「離乳食」「お弁当用」「週末料理」など自由にフォルダを作成でき、レシピ保存時にAIが最適なフォルダを自動で提案してくれます（スタンダードプラン以上）。" }
+      },
+      {
+        "@type": "Question",
+        "name": "フリープランはずっと無料ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい。クレジットカード登録なしで、レシピ50件・AI解析月10回の範囲で無料でお使いいただけます。" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-bg text-textmain" style="min-height:100vh;">
 
@@ -568,6 +603,54 @@
     </div>
   </section>
 
+  <!-- ===== こんな方におすすめ（SEO） ===== -->
+  <section style="padding:80px 20px;background:#fff;">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FOR YOU</p>
+      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">こんな方におすすめです</h2>
+      <p class="text-center text-sm mb-12" style="color:#888;">レシピ管理アプリを探している方はこんな悩みをお持ちのことが多いです</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">クックパッド以外でレシピ管理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">クックパッドに載っていないSNS・動画のレシピもまとめて管理できる無料のレシピ管理アプリです。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">InstagramのレシピURLを保存・整理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">InstagramのレシピURLを貼るだけで自動保存。手入力なしで材料・手順が整理されます。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">YouTubeのレシピ動画を保存・管理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">YouTubeのレシピ動画も、動画を開き直さず材料・手順をテキストで確認できます。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">保存したレシピがどこにあるか分からなくなる方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">SNSごとにバラバラだったレシピを一箇所に集約。AI検索で「あのレシピ」もすぐ見つかります。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">離乳食レシピをまとめて管理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">離乳食レシピをフォルダで分けて管理できます。普段のレシピと混ざらず整理できます。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">お弁当レシピを管理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">お弁当用フォルダを作ってレシピを整理。忙しい朝でもすぐ献立を選べます。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">無料のレシピ管理アプリを探している方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">クレジットカード登録不要、フリープランでレシピ50件・AI解析月10回まで無料で使えます。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">AIでレシピを自動整理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">URLを貼るだけでAIが材料・分量・手順・カテゴリを自動解析。手入力の手間がありません。</p>
+        </div>
+        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
+          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">レシピをフォルダ分けして管理したい方</p>
+          <p class="text-xs leading-relaxed" style="color:#888;">「週末料理」「子ども向け」などフォルダで整理。保存時にAIが最適なフォルダを提案してくれます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Pricing ===== -->
   <section id="pricing" style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
@@ -773,6 +856,30 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
 ホーム画面にアイコンが追加され、アプリのように起動できます。</p>
       </details>
 
+      <details>
+        <summary>
+          クックパッドの代わりに使えますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>クックパッドのレシピURLも保存できるほか、Instagram・X・YouTube・TikTokなどSNSのレシピもまとめて管理できます。クックパッドでは対応していないSNSレシピの一元管理に強みがあります。</p>
+      </details>
+
+      <details>
+        <summary>
+          無料で使えるレシピ管理アプリですか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>はい、無料で使えます。クレジットカード登録なしで、レシピ50件・AI解析月10回までフリープランでご利用いただけます。もっと使いたい場合は月額300円のスタンダードプランもご用意しています。</p>
+      </details>
+
+      <details>
+        <summary>
+          レシピをフォルダ分けして管理できますか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>できます。「離乳食」「お弁当用」「週末料理」など自由にフォルダを作成でき、レシピ保存時にAIが最適なフォルダを自動で提案してくれます（スタンダードプラン以上）。</p>
+      </details>
+
     </div>
   </section>
 
@@ -792,6 +899,8 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
   <!-- ===== Footer ===== -->
   <footer style="background:#1a1a1a;padding:24px 20px;">
     <p class="text-center text-xs mb-2">
+      <a href="updates.html" style="color:#888;text-decoration:underline;">お知らせ・アップデート情報</a>
+      <span style="color:#444;margin:0 8px;">|</span>
       <a href="privacy.html" style="color:#888;text-decoration:underline;">プライバシーポリシー</a>
     </p>
     <p class="text-center text-xs" style="color:#555;">© 2026 なにたべ</p>
