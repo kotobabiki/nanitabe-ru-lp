@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>レシピ整理が続かないのは、やり方ではなく仕組みの問題かもしれない | なにたべコラム</title>
+  <meta name="description" content="レシピの整理が続かない理由と、AIに任せることで解決できる考え方を紹介します。" />
+  <link rel="canonical" href="https://nanitabe-ru.netlify.app/column/ai-recipe-auto-organize.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="レシピ整理が続かないのは、やり方ではなく仕組みの問題かもしれない" />
+  <meta property="og:description" content="レシピの整理が続かない理由と、AIに任せることで解決できる考え方を紹介します。" />
+  <meta property="og:url" content="https://nanitabe-ru.netlify.app/column/ai-recipe-auto-organize.html" />
+  <meta property="og:image" content="https://nanitabe-ru.netlify.app/assets/og-image.png" />
+  <link rel="icon" type="image/png" href="../assets/icon.png" />
+  <meta name="theme-color" content="#5a8a5a" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { theme: { extend: { colors: { primary: '#5a8a5a', bg: '#f5f3ef', textmain: '#1a1a1a', textsub: '#888888' } } } };</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans JP', 'Segoe UI', sans-serif; }
+    .article h2 { font-size: 20px; font-weight: 900; color: #1a1a1a; margin: 40px 0 14px; }
+    .article h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 28px 0 10px; }
+    .article p { font-size: 15px; line-height: 1.95; color: #444; margin-bottom: 16px; }
+    .article ul { list-style: disc; padding-left: 22px; margin-bottom: 16px; }
+    .article li { font-size: 15px; line-height: 1.9; color: #444; margin-bottom: 6px; }
+    .article figure { margin: 20px 0; text-align: center; }
+    .article figcaption { font-size: 12px; color: #aaa; text-align: center; margin-top: 8px; }
+    .article img { border-radius: 16px; max-width: 280px; width: 100%; display: block; margin: 0 auto; }
+  </style>
+  <script type="application/ld+json">
+  { "@context": "https://schema.org", "@type": "Article",
+    "headline": "レシピ整理が続かないのは、やり方ではなく仕組みの問題かもしれない",
+    "description": "レシピの整理が続かない理由と、AIに任せることで解決できる考え方を紹介します。",
+    "datePublished": "2026-08-22", "dateModified": "2026-08-22",
+    "author": { "@type": "Organization", "name": "なにたべ" },
+    "publisher": { "@type": "Organization", "name": "なにたべ" },
+    "mainEntityOfPage": "https://nanitabe-ru.netlify.app/column/ai-recipe-auto-organize.html" }
+  </script>
+</head>
+<body class="bg-bg text-textmain">
+  <header class="sticky top-0 z-50 bg-white" style="border-bottom:1px solid #e8e4df;">
+    <div class="max-w-2xl mx-auto px-5 py-3 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2"><img src="../assets/logo.png" alt="なにたべ" style="height:40px;" class="object-contain" /></a>
+      <a href="../index.html" class="text-sm font-bold" style="color:#5a8a5a;">← トップに戻る</a>
+    </div>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-5 py-10">
+    <p class="text-xs font-bold tracking-widest mb-3" style="color:#5a8a5a;">RECIPE COLUMN</p>
+    <h1 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;line-height:1.4;">レシピ整理が続かないのは、やり方ではなく仕組みの問題かもしれない</h1>
+    <p class="text-xs mb-10" style="color:#aaa;">2026年8月22日</p>
+
+    <div class="article">
+      <p>レシピを保存しても、整理が長続きしないという方は多いと思います。InstagramやYouTubeで見つけたレシピをとりあえずブックマークしたものの、時間が経つと何を保存したのかすら思い出せなくなる。カテゴリ分けしようとしても面倒で後回しにしてしまう。</p>
+
+      <p>これは意志が弱いからではなく、そもそも「手動で整理する」というやり方自体に無理があるからだと考えています。</p>
+
+      <h2>手動整理が続かない構造的な理由</h2>
+      <ul>
+        <li>URLを保存するたびに、自分でカテゴリを判断して設定する必要がある</li>
+        <li>材料・手順を別途メモしないと、調理中に見返せない</li>
+        <li>動画のレシピはテキスト化されないため、後から検索できない</li>
+        <li>フォルダ分けのルールを自分で決めるうちに複雑になり、結局崩壊する</li>
+      </ul>
+      <p>整理という作業を人間の手に依存させている限り、この問題はなくなりません。</p>
+
+      <h2>「整理する」をAIに渡すという発想</h2>
+      <p>私たちが作っている<strong>なにたべ</strong>は、この整理作業をAIに任せる設計にしています。URLを貼り付けるだけで、材料・手順・カテゴリをAIが自動で解析します。</p>
+
+      <figure>
+        <img src="../assets/screen04.png" alt="AIによる自動解析画面" />
+        <figcaption>AIが材料・手順・カテゴリを自動解析して整理する</figcaption>
+      </figure>
+
+      <h3>材料・手順の自動取得</h3>
+      <p>Instagram・YouTube・X・クックパッドなど、どのサービスのURLでも同じ流れで処理されます。URLを貼るだけで、AIが材料・分量・調理手順を自動でテキスト化します。</p>
+
+      <h3>カテゴリの自動分類</h3>
+      <p>例えば鶏の唐揚げのレシピを保存すると、「主菜・揚げ物・鶏肉」のようなカテゴリが自動で付与されます。手動でタグ付けする手間がありません。</p>
+
+      <h3>フォルダへの自動振り分け提案</h3>
+      <figure>
+        <img src="../assets/screen01.png" alt="保存済みレシピのカード一覧" />
+        <figcaption>保存したレシピはカード形式でまとめられる</figcaption>
+      </figure>
+      <p>「お弁当用」「週末料理」のようなフォルダを作っておくと、保存のたびにAIが内容を読み取り最適なフォルダを提案します。人が判断するのは、その提案を承認するだけです。</p>
+
+      <h2>調理中にもAIが効いてくる</h2>
+      <h3>自然な言葉での検索</h3>
+      <figure>
+        <img src="../assets/screen03.png" alt="自然言語検索の画面" />
+        <figcaption>感覚的な言葉でも検索できる</figcaption>
+      </figure>
+      <p>「鶏肉で作れるもの」「さっぱりしたい日のやつ」のような曖昧な言葉でも、AIが意味を汲み取って検索してくれます。タグやカテゴリ名を正確に覚えている必要はありません。</p>
+
+      <h3>手順ごとの材料表示</h3>
+      <figure>
+        <img src="../assets/screen05.png" alt="手順ごとの材料表示画面" />
+        <figcaption>手順ごとに使う材料の量が表示される</figcaption>
+      </figure>
+      <p>調理中は「この工程で使う材料」がまとめて表示されるので、材料一覧と手順を何度も見比べる手間がなくなります。</p>
+
+      <p>整理を続けようと頑張るのではなく、そもそも整理が要らない仕組みに切り替える。それが、レシピ管理を長続きさせる一番シンプルな方法だと考えています。</p>
+    </div>
+
+    <div class="rounded-2xl p-6 mt-10 text-center" style="background:#f0faf0;border:1px solid #c8e6c9;">
+      <p class="font-bold text-sm mb-3" style="color:#1a1a1a;">URLを貼るだけでレシピを自動整理できます</p>
+      <a href="https://nanitabe-ru.vercel.app/login" class="inline-block font-bold text-sm px-6 py-3 rounded-full" style="background:#5a8a5a;color:#fff;">なにたべを無料で試す →</a>
+    </div>
+
+    <p class="text-center mt-10"><a href="../column.html" class="text-sm font-bold" style="color:#5a8a5a;">← コラム一覧へ戻る</a></p>
+  </main>
+
+  <footer style="background:#1a1a1a;padding:24px 20px;margin-top:40px;">
+    <p class="text-center text-xs mb-2">
+      <a href="../updates.html" style="color:#888;text-decoration:underline;">お知らせ・アップデート情報</a>
+      <span style="color:#444;margin:0 8px;">|</span>
+      <a href="../privacy.html" style="color:#888;text-decoration:underline;">プライバシーポリシー</a>
+    </p>
+    <p class="text-center text-xs" style="color:#555;">© 2026 なにたべ</p>
+  </footer>
+</body>
+</html>
