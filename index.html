@@ -543,9 +543,18 @@
           </p>
         </div>
 
+        <!-- 機能5: なにたべ広場（無料） -->
+        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f5e9;"><i data-lucide="users" style="width:22px;height:22px;stroke:#16a34a;stroke-width:1.75;fill:none;"></i></div>
+          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">なにたべ広場</h3>
+          <p class="text-sm leading-relaxed" style="color:#555;">
+            ユーザーが公開したレシピが集まるフィード。アクセス順・保存順・いいね順でランキング表示し、気に入ったレシピはいいね・保存が自由にできます。
+          </p>
+        </div>
+
         <!-- ── スタンダード以上の機能 ── -->
 
-        <!-- 機能5 -->
+        <!-- 機能6 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
             <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#f3e8fd;"><i data-lucide="calendar-check" style="width:22px;height:22px;stroke:#9333ea;stroke-width:1.75;fill:none;"></i></div>
@@ -557,7 +566,7 @@
           </p>
         </div>
 
-        <!-- 機能6 -->
+        <!-- 機能7 -->
         <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
           <div class="flex items-start justify-between mb-4">
             <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fef0e8;"><i data-lucide="folder-open" style="width:22px;height:22px;stroke:#ea580c;stroke-width:1.75;fill:none;"></i></div>
@@ -566,18 +575,6 @@
           <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">フォルダ＋AI自動振り分け</h3>
           <p class="text-sm leading-relaxed" style="color:#555;">
             「離乳食」「お弁当用」などフォルダで整理。レシピを保存するとAIが最適なフォルダを自動で提案してくれます。
-          </p>
-        </div>
-
-        <!-- 機能7 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#e8f5e9;"><i data-lucide="users" style="width:22px;height:22px;stroke:#16a34a;stroke-width:1.75;fill:none;"></i></div>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
-          </div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">なにたべ広場</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            ユーザーが公開したレシピが集まるフィード。アクセス順・保存順でランキング表示し、気に入ったレシピを保存できます。
           </p>
         </div>
 
@@ -679,10 +676,10 @@
             <li>キーワード・ベクター検索</li>
             <li>フォルダ1個</li>
             <li>今日作るボタン（記録のみ）</li>
+            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
             <li class="muted">今日作るリスト</li>
             <li class="muted">分析タブ</li>
             <li class="muted">AIフォルダ振り分け</li>
-            <li class="muted">なにたべ広場</li>
           </ul>
           <a href="https://nanitabe-ru.vercel.app/login"
              class="block text-center font-bold py-3 rounded-full text-sm transition-opacity hover:opacity-85"
@@ -707,7 +704,7 @@
             <li>今日作るリスト</li>
             <li>分析タブ</li>
             <li>AIフォルダ自動振り分け</li>
-            <li>なにたべ広場閲覧</li>
+            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
             <li>広告なし</li>
             <li>独自Gemini APIキー設定（実質無制限）</li>
           </ul>
@@ -733,7 +730,7 @@
             <li>今日作るリスト</li>
             <li>分析タブ</li>
             <li>AIフォルダ自動振り分け</li>
-            <li>なにたべ広場閲覧＋レシピ保存</li>
+            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
             <li>広告なし</li>
             <li>独自Gemini APIキー設定</li>
           </ul>
@@ -789,7 +786,7 @@
           なにたべ広場でレシピを保存できますか？
           <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <p>広場の閲覧はスタンダードプラン以上、レシピの保存（自分のリストへの追加）はプレミアムプランで利用できます。広場のレシピをタップして「保存する」ボタンで追加できます。</p>
+        <p>できます。フリープランを含む全プランで、広場の閲覧・いいね・レシピの保存（自分のリストへの追加）がすべて利用できます。広場のレシピをタップして「保存する」ボタンで追加できます。</p>
       </details>
 
       <details>
