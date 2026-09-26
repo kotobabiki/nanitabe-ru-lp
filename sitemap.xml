@@ -8,16 +8,17 @@
   </url>
   <url>
     <loc>https://nanitabe-ru.netlify.app/updates.html</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://nanitabe-ru.netlify.app/column.html</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://nanitabe-ru.netlify.app/column/cooking-record-history.html</loc><lastmod>2026-09-26</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://nanitabe-ru.netlify.app/column/recipe-app-comparison.html</loc><lastmod>2026-09-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://nanitabe-ru.netlify.app/column/baby-food-recipe.html</loc><lastmod>2026-09-03</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://nanitabe-ru.netlify.app/column/obento-recipe-management.html</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
