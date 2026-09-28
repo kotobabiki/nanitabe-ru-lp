@@ -196,6 +196,77 @@
       transform: scale(1.1);
     }
 
+  
+    /* Pain Points (お悩み) Cards - アイコンに逃げない共感型デザイン */
+    .pain-card {
+      background: #ffffff;
+      border: 1px solid #e8e4df;
+      border-radius: 18px;
+      padding: 22px 24px;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+    }
+    .pain-card:hover {
+      border-color: #d1cbc2;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+    .pain-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .pain-num {
+      font-size: 10px;
+      font-weight: 800;
+      color: #888;
+      background: #f5f3ef;
+      padding: 2px 7px;
+      border-radius: 5px;
+      letter-spacing: 0.5px;
+    }
+    .pain-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #dc2626;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* Target / Recommended (おすすめ) Cards - 目的別タグ型デザイン */
+    .target-card {
+      background: #ffffff;
+      border: 1px solid #e8e4df;
+      border-radius: 18px;
+      padding: 24px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+    }
+    .target-card:hover {
+      border-color: #5a8a5a;
+      box-shadow: 0 10px 24px rgba(90, 138, 90, 0.09);
+      transform: translateY(-3px);
+    }
+    .target-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: #f0faf0;
+      color: #3b7a3b;
+      border: 1px solid #cde5cd;
+      align-self: flex-start;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -375,93 +446,147 @@
     </div>
   </div>
 
-  <!-- ===== お悩みセクション ===== -->
+    <!-- ===== お悩みセクション ===== -->
   <section style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
-      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">PROBLEM</p>
-      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">こんなお悩みありませんか？</h2>
-      <p class="text-center text-sm mb-12" style="color:#888;">レシピ管理でこんな不満、感じたことはないですか</p>
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">PROBLEM</p>
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんなお悩み、感じたことはありませんか？</h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
+          SNSレシピが身近になったからこそ生まれる、日々の小さなストレス
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="smartphone" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">SNSのレシピが散らばって管理できない</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">X・Instagram・YouTubeそれぞれに保存されてバラバラ。どこに何があるか把握できない。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">01</span>
+            <span class="pain-label">✕ 保存先がバラバラ</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「X・インスタ・YouTube… どこに保存したか思い出せない」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            各アプリのブックマークやいいね欄に散らばって、いざ作ろうとした時に探すだけで時間が過ぎてしまう。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="file-search" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">「あのレシピ、どこだっけ？」が頻発する</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">いざ作ろうとした時に見つからない。ブックマークやいいね欄を延々さかのぼる羽目に。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">02</span>
+            <span class="pain-label">✕ レシピ迷子</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「『あの絶品レシピ、どこだっけ？』が毎回起きる」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            タイムラインを延々さかのぼったり、キーワード検索してもなかなか見つからず結局諦める羽目に。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="video" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">YouTubeはいちいち動画を開き直さないといけない</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">材料を確認するだけなのに動画再生が必要。調理中に何度も行き来するのが手間。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">03</span>
+            <span class="pain-label">✕ 動画の一時停止ストレス</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「YouTubeの動画、材料確認のたびに再生・巻き戻しが面倒」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            「醤油何ccだっけ？」を確認するだけで動画を行き来。濡れた手でシークバーを触るストレス。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="image-off" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">他アプリは画像が取り込めず文字だけ</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">SNSの動画レシピは画像なしで登録されてしまう。文字だけではどんな料理か思い出しにくい。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">04</span>
+            <span class="pain-label">✕ 画像なし問題</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「他のレシピ管理アプリだと、動画レシピの画像が取り込めない」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            文字だけの無機質なリストになってしまい、どんな仕上がり・見た目の料理だったか思い出せない。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="moon" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">調理中にスマホが暗くなりページが最初に戻る</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">SNSでレシピを開いたまま調理していると画面が消えてリセット。またリストから探し直しに。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">05</span>
+            <span class="pain-label">✕ 画面スリープ</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「調理中にスマホが消灯して、開いたらページが最初に戻った」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            SNSのアプリ内ブラウザで開いていると、画面が消えてリセット。また最初から探し直す羽目に。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="layers" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">離乳食など特定カテゴリが混じって使いにくい</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">普通のレシピと離乳食が混在すると探しにくい。カテゴリ別に分けて管理したい。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">06</span>
+            <span class="pain-label">✕ カテゴリ混在</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「普段の料理と、離乳食・お弁当レシピが混ざって見にくい」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            カテゴリ別に整理したいのに、保存した順にずらっと並ぶだけで目当ての料理が埋もれてしまう。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="arrow-left-right" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">材料と手順を行き来するのが面倒</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">手順を見ながら材料の量を確認しようとすると画面を行き来することになる。どこまでやったかも分からなくなる。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">07</span>
+            <span class="pain-label">✕ 行き来の手間</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「手順を見ながら、材料の分量確認で何度も上下スクロール」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            「この調味料、いつ入れるんだっけ？」と手順と材料一覧を行き来するうちに工程を見失う。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="layout-list" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">一覧に情報が少なくて選べない</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">他アプリは画像とタイトルだけで、作りたいか判断しにくい。カテゴリや調理時間などもう少し情報があれば選びやすいのに。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">08</span>
+            <span class="pain-label">✕ 判断材料不足</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「保存一覧を見ても、今日作りたい料理がサッと選べない」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            タイトルだけでは調理時間や主材料がパッと分からず、どれを作るか決めるのに時間がかかる。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="zap-off" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">検索するたびにAIを消費してしまう</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">ちょっとキーワードで探したいだけなのにAI検索しか使えないアプリも。普通の検索とAI検索を使い分けたい。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">09</span>
+            <span class="pain-label">✕ AI消費の制約</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「ちょっと探したいだけなのに、AI機能の制限を気にしてしまう」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            単純なキーワード検索でいい場面でも回数を消費させられ、気軽に検索できない。
+          </p>
         </div>
 
-        <div class="bg-white rounded-2xl p-5 flex gap-4 items-start" style="border:1px solid #e8e4df;">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style="background:#f0ede8;"><i data-lucide="rotate-ccw" style="width:20px;height:20px;stroke:#999;stroke-width:1.75;fill:none;"></i></div>
-          <div>
-            <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">別アプリを開いたらレシピが消えてまた最初から</p>
-            <p class="text-xs leading-relaxed" style="color:#888;">「今夜これ作ろう」と決めて買い物に行ったら画面が初期化。また探し直す羽目になる。</p>
+        <div class="pain-card">
+          <div class="pain-meta">
+            <span class="pain-num">10</span>
+            <span class="pain-label">✕ 画面初期化の罠</span>
           </div>
+          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
+            「買い出し中に別アプリを開いたら、レシピ画面が消えてしまった」
+          </h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            「今夜これを作ろう」と決めてスーパーに行ったのに、LINEやメモを開いた隙にページが閉じてしまう。
+          </p>
         </div>
 
       </div>
@@ -717,115 +842,79 @@
     </div>
   </section>
 
-    <!-- ===== こんな方におすすめ（SEO） ===== -->
+      <!-- ===== こんな方におすすめ（SEO） ===== -->
   <section style="padding:90px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
         <p class="text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FOR YOU</p>
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんなお悩み・ご要望ありませんか？</h2>
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんな方にぴったりのサービスです</h2>
         <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          レシピ管理にまつわる日常のプチストレス、「なにたべ」ならすべて解決できます
+          あなたの料理スタイルや目的に合わせて、毎日のレシピ管理を劇的にシンプルに
         </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         <!-- 1 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-orange">
-            <i data-lucide="utensils" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">クックパッド以外でまとめたい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">クックパッドだけでなくSNSや動画など、Web上に散らばるレシピを一箇所に集約できます。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># SNSレシピ一括管理</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">クックパッド以外のレシピもまとめたい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">クックパッドはもちろん、Instagram・YouTube・X・TikTokに散らばるWebレシピをこれ1つに集約できます。</p>
         </div>
 
         <!-- 2 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-rose">
-            <i data-lucide="camera" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">InstagramのレシピURLを保存したい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">投稿URLを貼るだけで材料と手順をAIが自動取得。動画を見返さなくてもパッと確認できます。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># Instagramレシピ</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">リールや投稿をパッと保存したい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">投稿URLを貼るだけで材料と手順をAIが自動抽出。調理中に動画を見返さなくても手際よく料理できます。</p>
         </div>
 
         <!-- 3 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-red">
-            <i data-lucide="play-circle" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">YouTubeレシピ動画を効率化したい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">調理中に動画を一時停止・巻き戻しする手間ゼロ。テキスト化されたレシピで手際よく調理。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># YouTube料理動画</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">動画を巻き戻さずテキストで見たい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">調理中に動画を一時停止・巻き戻しする手間ゼロ。テキスト化された材料と手順で手際よく調理に集中。</p>
         </div>
 
         <!-- 4 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-indigo">
-            <i data-lucide="compass" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">「あのレシピどこ？」をなくしたい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">各SNSのブックマークを探し回る必要なし。AI検索で「鶏肉 さっぱり」など感覚的な言葉でヒット。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># レシピ迷子卒業</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">「あのレシピどこ？」をなくしたい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">各SNSを探し回る必要なし。「鶏肉 さっぱり」など感覚的な言葉で探せるAI検索で目当ての料理がすぐヒット。</p>
         </div>
 
         <!-- 5 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-amber">
-            <i data-lucide="heart" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">離乳食レシピを分けて整理したい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">大人の普段の料理と混ざらないようフォルダ分け。月齢別・アレルギー対応の管理もスムーズ。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># 育児・離乳食</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">離乳食レシピを分けて整理したい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">普段の大人の料理と混ざらないよう専用フォルダで分類。月齢別・アレルギー別のストック管理も快適。</p>
         </div>
 
         <!-- 6 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-emerald">
-            <i data-lucide="sun" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">忙しい朝のお弁当おかずを決めたい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">お弁当専用フォルダからサッと呼び出し。朝の貴重な時間を献立決めで無駄にしません。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># お弁当作り</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">忙しい朝のおかずをパッと決めたい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">お弁当専用フォルダからサッと候補を呼び出し。朝の貴重な時間を献立決めで無駄にしません。</p>
         </div>
 
         <!-- 7 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-blue">
-            <i data-lucide="shield-check" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">まずは無料で気軽に使いたい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で今すぐ使い始められます。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># ずっと安心無料</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">まずは無料で気軽に使いたい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で今すぐ使い始められます。</p>
         </div>
 
         <!-- 8 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-purple">
-            <i data-lucide="wand-2" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">手入力の手間を一切なくしたい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">材料や分量をポチポチ打ち込む面倒な作業はすべてAIにお任せ。貼るだけで即完了です。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># 手入力ゼロ</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">手入力の手間を一切なくしたい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">材料や分量をポチポチ打ち込む面倒な作業はすべてAIにお任せ。URLを貼るだけで即座にカード化されます。</p>
         </div>
 
         <!-- 9 -->
-        <div class="recommend-card">
-          <div class="recommend-icon icon-sky">
-            <i data-lucide="folder-tree" style="width:22px;height:22px;stroke-width:2;"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">フォルダで綺麗に分類したい</h3>
-            <p class="text-xs text-[#555] leading-relaxed">「週末のごちそう」「時短10分」など好みのテーマでフォルダ分け。AIの自動提案も活用できます。</p>
-          </div>
+        <div class="target-card">
+          <span class="target-tag"># カテゴリ整理</span>
+          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">フォルダで綺麗に分類したい</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">「週末のごちそう」「時短10分」など好みのテーマでフォルダ分け。AIによるフォルダ自動提案も活用できます。</p>
         </div>
       </div>
     </div>
