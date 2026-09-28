@@ -130,13 +130,13 @@
       {
         "@type": "Offer",
         "name": "スタンダードプラン",
-        "price": "300",
+        "price": "130",
         "priceCurrency": "JPY"
       },
       {
         "@type": "Offer",
         "name": "プレミアムプラン",
-        "price": "980",
+        "price": "380",
         "priceCurrency": "JPY"
       }
     ],
@@ -695,7 +695,11 @@
           <div>
             <span class="badge-recommended">おすすめ</span>
             <p class="font-bold text-base mb-1" style="color:#1a1a1a;">スタンダード</p>
-            <p class="font-black text-3xl" style="color:#1a1a1a;">¥300<span class="text-sm font-normal" style="color:#888;">/月</span></p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm line-through text-gray-400 font-normal">¥300</span>
+              <p class="font-black text-3xl" style="color:#1a1a1a;">¥130<span class="text-sm font-normal text-gray-500">/月</span></p>
+            </div>
+            <p class="text-[11px] font-bold text-[#5a8a5a] mt-1">※早期限定特別価格</p>
           </div>
           <ul class="check-list">
             <li>レシピ最大200件</li>
@@ -721,7 +725,11 @@
         <div class="plan-card premium-card">
           <div>
             <p class="font-bold text-base mb-1" style="color:#1a1a1a;">プレミアム</p>
-            <p class="font-black text-3xl" style="color:#1a1a1a;">¥980<span class="text-sm font-normal" style="color:#888;">/月</span></p>
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm line-through text-gray-400 font-normal">¥980</span>
+              <p class="font-black text-3xl" style="color:#1a1a1a;">¥380<span class="text-sm font-normal text-gray-500">/月</span></p>
+            </div>
+            <p class="text-[11px] font-bold text-[#c0892a] mt-1">※早期限定特別価格</p>
           </div>
           <ul class="check-list">
             <li>レシピ<strong>無制限</strong></li>
@@ -746,6 +754,7 @@
       </div>
 
       <p class="text-center text-xs mt-8" style="color:#aaa;">
+        ・早期限定価格（¥130・¥380）で登録された方は、解約されない限りずっと現在の特別価格のままご利用いただけます<br />
         ・AI解析・AI検索の回数は毎月1日にリセットされます<br />
         ・いつでも解約できます。解約後は次の更新日まで利用可能です<br />
         ・月の途中でアップグレードした場合、使用済み回数はそのまま引き継がれます
@@ -871,10 +880,17 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
 
       <details>
         <summary>
+          ¥130・¥380の料金はずっと続きますか？いつまでの価格ですか？
+          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p>現在は早期ユーザー向けの特別価格でご案内しています。将来的に通常価格（スタンダード¥300・プレミアム¥980）に戻す可能性がありますが、今のうちに登録いただいた方は、解約されない限りずっと特別価格（¥130・¥380）のままご利用いただけます。</p>
+      </details>
+      <details>
+        <summary>
           無料で使えるレシピ管理アプリですか？
           <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <p>はい、無料で使えます。クレジットカード登録なしで、レシピ50件・AI解析月10回までフリープランでご利用いただけます。もっと使いたい場合は月額300円のスタンダードプランもご用意しています。</p>
+        <p>はい、無料で使えます。クレジットカード登録なしで、レシピ50件・AI解析月10回までフリープランでご利用いただけます。もっと使いたい場合は月額130円のスタンダードプランもご用意しています。</p>
       </details>
 
       <details>
