@@ -7,6 +7,17 @@
   <meta name="robots" content="noindex" />
   <link rel="icon" type="image/png" href="assets/icon.png" />
   <meta name="theme-color" content="#5a8a5a" />
+    <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PJJQYL0MD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2PJJQYL0MD');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2305698527235695" crossorigin="anonymous"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -26,26 +37,32 @@
   </style>
 </head>
 <body class="bg-bg text-textmain">
-    <header class="sticky top-0 z-50 bg-white" style="border-bottom:1px solid #e8e4df;">
-    <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between gap-4">
-      <div class="flex items-center gap-6">
-        <a href="index.html"><img src="assets/logo.png" alt="なにたべ" style="height:52px;flex-shrink:0;" class="object-contain" /></a>
-        <nav class="hidden sm:flex items-center gap-5">
-          <a href="column.html" class="text-sm font-medium transition-colors hover:opacity-70" style="color:#666;">コラム</a>
-          <a href="updates.html" class="text-sm font-medium transition-colors hover:opacity-70" style="color:#666;">お知らせ</a>
-
-          <a href="https://nanitabe-ru.vercel.app/reviews" class="text-sm font-medium transition-colors hover:opacity-70" style="color:#666;">口コミ</a>
+      <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-50 bg-white" style="border-bottom:1px solid #e8e4df;">
+    <div class="max-w-5xl mx-auto px-4 sm:px-5 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-4 sm:gap-6">
+        <a href="index.html"><img src="assets/logo.png" alt="なにたべ" style="height:44px;flex-shrink:0;" class="object-contain sm:h-[52px]" /></a>
+        <nav class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium">
+          <a href="column.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">コラム</a>
+          <a href="updates.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">お知らせ</a>
+          <a href="https://nanitabe-ru.vercel.app/reviews" class="transition-colors hover:text-[#5a8a5a] hidden sm:inline" style="color:#444;">口コミ</a>
+          <a href="about.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">サイト情報</a>
         </nav>
       </div>
       <a href="https://nanitabe-ru.vercel.app"
-         class="font-bold text-sm text-white px-5 py-2.5 rounded-full transition-opacity hover:opacity-85 flex-shrink-0"
+         class="font-bold text-xs sm:text-sm text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-opacity hover:opacity-85 flex-shrink-0"
          style="background:#5a8a5a;">
         アプリを使う →
       </a>
     </div>
   </header>
 
-  <main class="max-w-2xl mx-auto px-5 py-12">
+    <!-- パンくずリスト -->
+  <nav class="max-w-2xl mx-auto px-5 pt-6 text-xs text-gray-500">
+    <a href="index.html" class="hover:underline">ホーム</a> &gt; <span>プライバシーポリシー</span>
+  </nav>
+
+  <main class="max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl mb-2" style="color:#1a1a1a;">プライバシーポリシー</h1>
     <p class="text-xs" style="color:#aaa;">最終更新日：2026年9月6日</p>
 
@@ -98,11 +115,52 @@
     <p><a href="mailto:nanitaberu.app@gmail.com">nanitaberu.app@gmail.com</a></p>
   </main>
 
-  <footer style="background:#1a1a1a;padding:24px 20px;">
-    <p class="text-center text-xs mb-2">
-      <a href="updates.html" style="color:#888;text-decoration:underline;">お知らせ・アップデート情報</a>
-    </p>
-    <p class="text-center text-xs" style="color:#555;">© 2026 なにたべ</p>
+    <!-- ===== Footer ===== -->
+  <footer style="background:#1a1a1a;color:#ccc;padding:48px 20px 32px;margin-top:60px;">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-left">
+      <div>
+        <div class="flex items-center gap-2 mb-3">
+          <span class="font-black text-lg text-white">なにたべ</span>
+        </div>
+        <p class="text-xs leading-relaxed text-gray-400 mb-4">
+          SNSや動画のレシピURLを貼るだけで、材料や手順をAIが自動整理。日々の料理をもっと手軽に、スマートにするレシピ管理サービスです。
+        </p>
+        <p class="text-xs text-gray-400">
+          お問い合わせ: <a href="mailto:nanitaberu.app@gmail.com" class="text-gray-300 underline">nanitaberu.app@gmail.com</a>
+        </p>
+      </div>
+      <div>
+        <h3 class="font-bold text-sm text-white mb-3 tracking-wider">サービス</h3>
+        <ul class="text-xs space-y-2 text-gray-400">
+          <li><a href="index.html#features" class="hover:text-white transition-colors">主な機能</a></li>
+          <li><a href="index.html#pricing" class="hover:text-white transition-colors">料金プラン</a></li>
+          <li><a href="index.html#faq" class="hover:text-white transition-colors">よくある質問</a></li>
+          <li><a href="https://nanitabe-ru.vercel.app" class="hover:text-white transition-colors">なにたべアプリを開く →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-sm text-white mb-3 tracking-wider">お役立ちコラム</h3>
+        <ul class="text-xs space-y-2 text-gray-400">
+          <li><a href="column/recipe-app-comparison.html" class="hover:text-white transition-colors">レシピ管理アプリの選び方</a></li>
+          <li><a href="column/instagram-recipe-url.html" class="hover:text-white transition-colors">Instagramレシピ保存のコツ</a></li>
+          <li><a href="column/youtube-recipe-video.html" class="hover:text-white transition-colors">YouTube料理動画の管理術</a></li>
+          <li><a href="column/baby-food-recipe.html" class="hover:text-white transition-colors">離乳食レシピの月齢別整理</a></li>
+          <li><a href="column.html" class="text-[#8bc34a] hover:underline font-bold">コラム一覧を見る（全10件） →</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-bold text-sm text-white mb-3 tracking-wider">サイト情報・サポート</h3>
+        <ul class="text-xs space-y-2 text-gray-400">
+          <li><a href="about.html" class="hover:text-white transition-colors">運営者情報・お問い合わせ</a></li>
+          <li><a href="updates.html" class="hover:text-white transition-colors">お知らせ・更新情報</a></li>
+          <li><a href="https://nanitabe-ru.vercel.app/reviews" class="hover:text-white transition-colors">ユーザーの口コミ・評判</a></li>
+          <li><a href="privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto pt-6 border-t border-gray-800 text-center text-xs text-gray-400">
+      <p>© 2026 なにたべ（nanitabe） All Rights Reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
