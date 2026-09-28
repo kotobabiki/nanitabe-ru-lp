@@ -108,6 +108,94 @@
     details:last-child { border-bottom: 1px solid #e8e4df; }
     details summary { padding: 18px 4px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 15px; color: #1a1a1a; user-select: none; }
     details p { padding: 0 4px 18px; color: #555; font-size: 14px; line-height: 1.8; white-space: pre-line; }
+    /* Premium Feature & Recommendation Cards */
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 8px 24px rgba(0, 0, 0, 0.03);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+      border-color: rgba(90, 138, 90, 0.4);
+    }
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .feature-card:hover .icon-box {
+      transform: scale(1.08);
+    }
+    .icon-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.15); color: #2563eb; }
+    .icon-amber { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fde68a; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15); color: #d97706; }
+    .icon-indigo { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 1px solid #c7d2fe; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.15); color: #4f46e5; }
+    .icon-slate { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; box-shadow: 0 4px 14px rgba(71, 85, 105, 0.12); color: #475569; }
+    .icon-emerald { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15); color: #059669; }
+    .icon-purple { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 1px solid #e9d5ff; box-shadow: 0 4px 14px rgba(168, 85, 247, 0.15); color: #9333ea; }
+    .icon-orange { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 1px solid #fed7aa; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15); color: #ea580c; }
+    .icon-pink { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border: 1px solid #fbcfe8; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.15); color: #db2777; }
+    .icon-yellow { background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%); border: 1px solid #fef08a; box-shadow: 0 4px 14px rgba(202, 138, 4, 0.15); color: #ca8a04; }
+    .icon-rose { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border: 1px solid #fecdd3; box-shadow: 0 4px 14px rgba(244, 63, 94, 0.15); color: #e11d48; }
+    .icon-red { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 1px solid #fecaca; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15); color: #dc2626; }
+    .icon-sky { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #bae6fd; box-shadow: 0 4px 14px rgba(14, 165, 233, 0.15); color: #0284c7; }
+
+    .plan-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: #f0f7f0;
+      color: #3b7a3b;
+      border: 1px solid #cde5cd;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .recommend-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 0, 0, 0.015);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .recommend-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+      border-color: rgba(90, 138, 90, 0.35);
+    }
+    .recommend-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .recommend-card:hover .recommend-icon {
+      transform: scale(1.1);
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -497,109 +585,131 @@
     </div>
   </section>
 
-  <!-- ===== Features ===== -->
-  <section id="features" style="padding:80px 20px;background:#fff;">
+    <!-- ===== Features ===== -->
+  <section id="features" style="padding:90px 20px;background:#fff;">
     <div class="max-w-5xl mx-auto">
-      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FEATURES</p>
-      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">主な機能</h2>
-      <p class="text-center text-sm mb-12" style="color:#888;">上の悩みを解消する9つの機能</p>
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FEATURES</p>
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">毎日の料理をスマートにする機能</h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
+          URLを貼るだけの簡単保存から、AI解析、整理、調理中のサポートまで充実
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
         <!-- ── フリーで使える機能 ── -->
 
         <!-- 機能1 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f3ff;"><i data-lucide="link" style="width:22px;height:22px;stroke:#3b82f6;stroke-width:1.75;fill:none;"></i></div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">URLコピペで即保存</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
+        <div class="feature-card">
+          <div class="icon-box icon-blue">
+            <i data-lucide="link" style="width:24px;height:24px;stroke-width:2;"></i>
+          </div>
+          <h3 class="font-black text-base text-[#111827] mb-2">URLコピペで即保存</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
             X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動で取得します。
           </p>
         </div>
 
         <!-- 機能2 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#fef9e7;"><i data-lucide="wand-2" style="width:22px;height:22px;stroke:#d97706;stroke-width:1.75;fill:none;"></i></div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AIが材料・手順を自動解析</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
+        <div class="feature-card">
+          <div class="icon-box icon-amber">
+            <i data-lucide="sparkles" style="width:24px;height:24px;stroke-width:2;"></i>
+          </div>
+          <h3 class="font-black text-base text-[#111827] mb-2">AIが材料・手順を自動解析</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
             AIがレシピ名・材料・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
           </p>
         </div>
 
         <!-- 機能3 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f0fe;"><i data-lucide="search" style="width:22px;height:22px;stroke:#6366f1;stroke-width:1.75;fill:none;"></i></div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">AI検索</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索できます。キーワード検索とAIの意味検索を組み合わせてぴったりのレシピを探せます。
+        <div class="feature-card">
+          <div class="icon-box icon-indigo">
+            <i data-lucide="search" style="width:24px;height:24px;stroke-width:2;"></i>
+          </div>
+          <h3 class="font-black text-base text-[#111827] mb-2">AI自然言語検索</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索。キーワード検索とAIの意味検索でぴったりのレシピが見つかります。
           </p>
         </div>
 
         <!-- 機能4 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#f0f0f0;"><i data-lucide="bot" style="width:22px;height:22px;stroke:#6b7280;stroke-width:1.75;fill:none;"></i></div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">いつものAIに相談</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            ChatGPT・Claude・Perplexityなど、ふだん使っているAIにそのまま相談できます。材料・手順がプロンプトに自動入力された状態で開くので、コピペ不要。
+        <div class="feature-card">
+          <div class="icon-box icon-slate">
+            <i data-lucide="bot" style="width:24px;height:24px;stroke-width:2;"></i>
+          </div>
+          <h3 class="font-black text-base text-[#111827] mb-2">いつものAIに相談</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            ChatGPT・Claude・Perplexityなど、普段使いのAIにそのまま相談可能。材料・手順が自動入力された状態で開きます。
           </p>
         </div>
 
         <!-- 機能5: なにたべ広場（無料） -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
-          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-4" style="background:#e8f5e9;"><i data-lucide="users" style="width:22px;height:22px;stroke:#16a34a;stroke-width:1.75;fill:none;"></i></div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">なにたべ広場</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            ユーザーが公開したレシピが集まるフィード。アクセス順・保存順・いいね順でランキング表示し、気に入ったレシピはいいね・保存が自由にできます。
+        <div class="feature-card">
+          <div class="icon-box icon-emerald">
+            <i data-lucide="users" style="width:24px;height:24px;stroke-width:2;"></i>
+          </div>
+          <h3 class="font-black text-base text-[#111827] mb-2">なにたべ広場</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            ユーザーが公開した人気レシピが集まる共有フィード。ランキング表示やいいね・保存がフリープランから楽しめます。
           </p>
         </div>
 
         <!-- ── スタンダード以上の機能 ── -->
 
         <!-- 機能6 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
+        <div class="feature-card">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#f3e8fd;"><i data-lucide="calendar-check" style="width:22px;height:22px;stroke:#9333ea;stroke-width:1.75;fill:none;"></i></div>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
+            <div class="icon-box icon-purple mb-0">
+              <i data-lucide="calendar-check" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
           </div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">「今日作るリスト」で管理</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            その日に「今日作る」を押したレシピだけを一覧表示。調理履歴も同時に積み上がり、「計○回・○日前」が一目でわかります。
+          <h3 class="font-black text-base text-[#111827] mb-2">「今日作るリスト」で管理</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            その日に作るレシピだけをスマートに一覧表示。調理履歴も自動で積み上がり、「計○回・○日前」が一目でわかります。
           </p>
         </div>
 
         <!-- 機能7 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
+        <div class="feature-card">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fef0e8;"><i data-lucide="folder-open" style="width:22px;height:22px;stroke:#ea580c;stroke-width:1.75;fill:none;"></i></div>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
+            <div class="icon-box icon-orange mb-0">
+              <i data-lucide="folder-tree" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
           </div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">フォルダ＋AI自動振り分け</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            「離乳食」「お弁当用」などフォルダで整理。レシピを保存するとAIが最適なフォルダを自動で提案してくれます。
+          <h3 class="font-black text-base text-[#111827] mb-2">フォルダ＋AI自動振り分け</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            「離乳食」「お弁当用」などフォルダで整理。レシピ保存時にAIが最適なフォルダを自動提案してくれます。
           </p>
         </div>
 
         <!-- 機能8 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
+        <div class="feature-card">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fce8f0;"><i data-lucide="bar-chart-2" style="width:22px;height:22px;stroke:#db2777;stroke-width:1.75;fill:none;"></i></div>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
+            <div class="icon-box icon-pink mb-0">
+              <i data-lucide="bar-chart-3" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
           </div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">食生活を分析</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。自分の食の傾向が一目でわかります。
+          <h3 class="font-black text-base text-[#111827] mb-2">食生活・食材の傾向分析</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。偏りがちな食生活の改善に役立ちます。
           </p>
         </div>
 
         <!-- 機能9 -->
-        <div class="bg-white rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:shadow-md cursor-default" style="border:1px solid #e8e4df;">
+        <div class="feature-card">
           <div class="flex items-start justify-between mb-4">
-            <div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background:#fff8e8;"><i data-lucide="key-round" style="width:22px;height:22px;stroke:#d97706;stroke-width:1.75;fill:none;"></i></div>
-            <span class="text-xs font-bold px-2.5 py-1 rounded-full" style="background:#f0f7f0;color:#5a8a5a;">スタンダード以上</span>
+            <div class="icon-box icon-yellow mb-0">
+              <i data-lucide="key" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
           </div>
-          <h3 class="font-bold text-base mb-2" style="color:#1a1a1a;">独自APIキーで無制限に</h3>
-          <p class="text-sm leading-relaxed" style="color:#555;">
-            自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で利用できます。月の上限を気にせず使いたい方に。
+          <h3 class="font-black text-base text-[#111827] mb-2">独自APIキーで無制限</h3>
+          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+            自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で利用可能。上限を気にせずフル活用できます。
           </p>
         </div>
 
@@ -607,49 +717,115 @@
     </div>
   </section>
 
-  <!-- ===== こんな方におすすめ（SEO） ===== -->
-  <section style="padding:80px 20px;background:#fff;">
+    <!-- ===== こんな方におすすめ（SEO） ===== -->
+  <section style="padding:90px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
-      <p class="text-center text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FOR YOU</p>
-      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">こんな方におすすめです</h2>
-      <p class="text-center text-sm mb-12" style="color:#888;">レシピ管理アプリを探している方はこんな悩みをお持ちのことが多いです</p>
+      <div class="text-center mb-12">
+        <p class="text-xs font-bold tracking-widest mb-2" style="color:#5a8a5a;">FOR YOU</p>
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんなお悩み・ご要望ありませんか？</h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
+          レシピ管理にまつわる日常のプチストレス、「なにたべ」ならすべて解決できます
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">クックパッド以外でレシピ管理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">クックパッドに載っていないSNS・動画のレシピもまとめて管理できる無料のレシピ管理アプリです。</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+        <!-- 1 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-orange">
+            <i data-lucide="utensils" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">クックパッド以外でまとめたい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">クックパッドだけでなくSNSや動画など、Web上に散らばるレシピを一箇所に集約できます。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">InstagramのレシピURLを保存・整理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">InstagramのレシピURLを貼るだけで自動保存。手入力なしで材料・手順が整理されます。</p>
+
+        <!-- 2 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-rose">
+            <i data-lucide="camera" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">InstagramのレシピURLを保存したい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">投稿URLを貼るだけで材料と手順をAIが自動取得。動画を見返さなくてもパッと確認できます。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">YouTubeのレシピ動画を保存・管理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">YouTubeのレシピ動画も、動画を開き直さず材料・手順をテキストで確認できます。</p>
+
+        <!-- 3 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-red">
+            <i data-lucide="play-circle" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">YouTubeレシピ動画を効率化したい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">調理中に動画を一時停止・巻き戻しする手間ゼロ。テキスト化されたレシピで手際よく調理。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">保存したレシピがどこにあるか分からなくなる方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">SNSごとにバラバラだったレシピを一箇所に集約。AI検索で「あのレシピ」もすぐ見つかります。</p>
+
+        <!-- 4 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-indigo">
+            <i data-lucide="compass" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">「あのレシピどこ？」をなくしたい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">各SNSのブックマークを探し回る必要なし。AI検索で「鶏肉 さっぱり」など感覚的な言葉でヒット。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">離乳食レシピをまとめて管理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">離乳食レシピをフォルダで分けて管理できます。普段のレシピと混ざらず整理できます。</p>
+
+        <!-- 5 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-amber">
+            <i data-lucide="heart" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">離乳食レシピを分けて整理したい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">大人の普段の料理と混ざらないようフォルダ分け。月齢別・アレルギー対応の管理もスムーズ。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">お弁当レシピを管理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">お弁当用フォルダを作ってレシピを整理。忙しい朝でもすぐ献立を選べます。</p>
+
+        <!-- 6 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-emerald">
+            <i data-lucide="sun" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">忙しい朝のお弁当おかずを決めたい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">お弁当専用フォルダからサッと呼び出し。朝の貴重な時間を献立決めで無駄にしません。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">無料のレシピ管理アプリを探している方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">クレジットカード登録不要、フリープランでレシピ50件・AI解析月10回まで無料で使えます。</p>
+
+        <!-- 7 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-blue">
+            <i data-lucide="shield-check" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">まずは無料で気軽に使いたい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で今すぐ使い始められます。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">AIでレシピを自動整理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">URLを貼るだけでAIが材料・分量・手順・カテゴリを自動解析。手入力の手間がありません。</p>
+
+        <!-- 8 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-purple">
+            <i data-lucide="wand-2" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">手入力の手間を一切なくしたい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">材料や分量をポチポチ打ち込む面倒な作業はすべてAIにお任せ。貼るだけで即完了です。</p>
+          </div>
         </div>
-        <div class="bg-bg rounded-2xl p-5" style="border:1px solid #e8e4df;">
-          <p class="font-bold text-sm mb-1" style="color:#1a1a1a;">レシピをフォルダ分けして管理したい方</p>
-          <p class="text-xs leading-relaxed" style="color:#888;">「週末料理」「子ども向け」などフォルダで整理。保存時にAIが最適なフォルダを提案してくれます。</p>
+
+        <!-- 9 -->
+        <div class="recommend-card">
+          <div class="recommend-icon icon-sky">
+            <i data-lucide="folder-tree" style="width:22px;height:22px;stroke-width:2;"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">フォルダで綺麗に分類したい</h3>
+            <p class="text-xs text-[#555] leading-relaxed">「週末のごちそう」「時短10分」など好みのテーマでフォルダ分け。AIの自動提案も活用できます。</p>
+          </div>
         </div>
       </div>
     </div>
