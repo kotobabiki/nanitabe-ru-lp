@@ -746,6 +746,32 @@
       background: linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%) !important;
     }
 
+  
+    /* デモ枠のコンパクト最適化（見切れ防止） */
+    .demo-recipe-body {
+      padding: 24px 28px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .demo-recipe-body {
+        grid-template-columns: 1fr;
+        padding: 18px 16px 16px;
+        gap: 20px;
+      }
+    }
+    .ingredient-check-item {
+      padding: 7px 12px !important;
+      margin-bottom: 5px !important;
+    }
+    .step-list-item {
+      padding: 10px 12px !important;
+      margin-bottom: 8px !important;
+      font-size: 12.5px !important;
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -1087,13 +1113,13 @@
             <span id="stage-tag-text" class="text-xs font-black text-gray-800">感覚的な言葉で10秒検索</span>
           </div>
 
-          <!-- iPhone風モックアップ -->
-          <div class="relative w-[240px] sm:w-[260px] bg-[#1c1c1e] rounded-[44px] p-2.5 shadow-2xl border-[3px] border-[#3a3a3c]">
+          <!-- iPhone風モックアップ（画像の自然な比率で100%欠けなし表示） -->
+          <div class="relative w-[260px] sm:w-[280px] bg-[#1c1c1e] rounded-[48px] p-3 shadow-2xl border-[2.5px] border-[#3a3a3c]">
             <!-- ノッチ -->
-            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#1c1c1e] rounded-full z-20"></div>
+            <div class="absolute top-3.5 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#1c1c1e] rounded-full z-20"></div>
             <!-- 画面コンテンツ -->
-            <div class="rounded-[36px] overflow-hidden bg-white aspect-[9/19.5] relative">
-              <img id="stage-img" src="assets/screen03.png" alt="なにたべ画面プレビュー" class="w-full h-full object-cover transition-all duration-300" />
+            <div class="rounded-[38px] overflow-hidden bg-white relative">
+              <img id="stage-img" src="assets/screen03.png" alt="なにたべ画面プレビュー" class="w-full h-auto block transition-all duration-300" />
             </div>
           </div>
         </div>
@@ -1902,22 +1928,20 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         platformBadgeClass: "bg-red-100 text-red-700",
         url: "https://www.youtube.com/watch?v=sample_chicken_nanban",
         title: "料理研究家が教える 至高のチキン南蛮",
-        desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレが絶品の黄金比レシピ。",
+        desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。",
         time: "⏱ 約15分",
         kcal: "🔥 約520kcal",
         ingredients: [
-          { name: "鶏もも肉", amount: "300g（1枚）" },
-          { name: "塩コショウ", amount: "少々" },
-          { name: "小麦粉", amount: "大さじ2" },
-          { name: "卵（衣用）", amount: "1個" },
-          { name: "ゆで卵（タルタル用）", amount: "1個" },
-          { name: "マヨネーズ", amount: "大さじ3" },
-          { name: "ポン酢（甘酢用）", amount: "大さじ3" }
+          { name: "鶏もも肉", amount: "300g" },
+          { name: "小麦粉・卵（衣用）", amount: "各大さじ2 / 1個" },
+          { name: "ゆで卵・マヨネーズ", amount: "1個 / 大さじ3" },
+          { name: "特製ポン酢甘酢ダレ", amount: "大さじ3" },
+          { name: "塩コショウ", amount: "少々" }
         ],
         steps: [
-          "鶏肉の厚みを均等にし、フォークで数カ所刺して塩コショウを振る。",
-          "小麦粉を薄くまぶし、溶き卵にくぐらせてフライパンで揚げ焼きにする。",
-          "熱いうちにポン酢にくぐらせ、刻んだゆで卵とマヨのタルタルをたっぷりかける。"
+          "鶏肉の厚みを均等にし、フォークで刺して塩コショウを振る。",
+          "小麦粉と溶き卵にくぐらせ、フライパンで揚げ焼きにする。",
+          "熱いうちに甘酢ダレにくぐらせ、特製タルタルをたっぷりかける。"
         ]
       },
       {
