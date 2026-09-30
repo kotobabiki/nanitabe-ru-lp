@@ -48,666 +48,34 @@
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+    <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary:  '#5a8a5a',
-            bg:       '#f5f3ef',
+            brand: {
+              50:  '#f2f7f3',
+              100: '#e1ede3',
+              200: '#c5dcc9',
+              500: '#438b57',
+              600: '#347246',
+              700: '#285836',
+              800: '#1e3f28',
+              900: '#14291b',
+            },
+            primary:  '#347246',
+            accent:   '#c0892a',
+            bgmain:   '#faf8f5',
             surface:  '#ffffff',
-            border:   '#e8e4df',
-            muted:    '#f0ede8',
-            textmain: '#1a1a1a',
-            textsub:  '#888888',
-            premium:  '#c0892a',
+            bordercol:'#e8e4df',
           },
           fontFamily: {
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"Noto Sans JP"', '"Segoe UI"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans JP"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
           },
         },
       },
     };
-  </script>
-
-  <!-- Google Fonts: Noto Sans JP -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
-
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans JP', 'Segoe UI', sans-serif; }
-    details > summary { list-style: none; }
-    details > summary::-webkit-details-marker { display: none; }
-    details[open] > summary .chevron { transform: rotate(180deg); }
-    .chevron { transition: transform 0.2s ease; }
-    @keyframes fadein { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes carousel { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .carousel-track { animation: carousel 44s linear infinite; }
-    .carousel-track:hover { animation-play-state: paused; }
-    .fadein { animation: fadein 0.6s ease both; }
-    .badge-recommended {
-      background: #5a8a5a;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 10px;
-      border-radius: 9999px;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-    .plan-card { border: 2px solid #e8e4df; border-radius: 20px; padding: 28px 24px; background: #fff; display: flex; flex-direction: column; gap: 16px; }
-    .plan-card.featured { border-color: #5a8a5a; }
-    .plan-card.premium-card { border-color: #c0892a; }
-    .check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-    .check-list li { font-size: 14px; color: #444; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
-    .check-list li::before { content: '✓'; color: #5a8a5a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .check-list li.muted::before { color: #ccc; }
-    .check-list li.muted { color: #bbb; }
-    details { border-top: 1px solid #e8e4df; }
-    details:last-child { border-bottom: 1px solid #e8e4df; }
-    details summary { padding: 18px 4px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 15px; color: #1a1a1a; user-select: none; }
-    details p { padding: 0 4px 18px; color: #555; font-size: 14px; line-height: 1.8; white-space: pre-line; }
-    /* Premium Feature & Recommendation Cards */
-    .feature-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 20px;
-      padding: 28px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 8px 24px rgba(0, 0, 0, 0.03);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-      border-color: rgba(90, 138, 90, 0.4);
-    }
-    .icon-box {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      flex-shrink: 0;
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .feature-card:hover .icon-box {
-      transform: scale(1.08);
-    }
-    .icon-blue { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; box-shadow: 0 4px 14px rgba(59, 130, 246, 0.15); color: #2563eb; }
-    .icon-amber { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 1px solid #fde68a; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15); color: #d97706; }
-    .icon-indigo { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); border: 1px solid #c7d2fe; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.15); color: #4f46e5; }
-    .icon-slate { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0; box-shadow: 0 4px 14px rgba(71, 85, 105, 0.12); color: #475569; }
-    .icon-emerald { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 1px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15); color: #059669; }
-    .icon-purple { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 1px solid #e9d5ff; box-shadow: 0 4px 14px rgba(168, 85, 247, 0.15); color: #9333ea; }
-    .icon-orange { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 1px solid #fed7aa; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15); color: #ea580c; }
-    .icon-pink { background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%); border: 1px solid #fbcfe8; box-shadow: 0 4px 14px rgba(236, 72, 153, 0.15); color: #db2777; }
-    .icon-yellow { background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%); border: 1px solid #fef08a; box-shadow: 0 4px 14px rgba(202, 138, 4, 0.15); color: #ca8a04; }
-    .icon-rose { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border: 1px solid #fecdd3; box-shadow: 0 4px 14px rgba(244, 63, 94, 0.15); color: #e11d48; }
-    .icon-red { background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 1px solid #fecaca; box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15); color: #dc2626; }
-    .icon-sky { background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 1px solid #bae6fd; box-shadow: 0 4px 14px rgba(14, 165, 233, 0.15); color: #0284c7; }
-
-    .plan-pill {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 9999px;
-      background: #f0f7f0;
-      color: #3b7a3b;
-      border: 1px solid #cde5cd;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .recommend-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 18px;
-      padding: 22px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 18px rgba(0, 0, 0, 0.015);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .recommend-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
-      border-color: rgba(90, 138, 90, 0.35);
-    }
-    .recommend-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .recommend-card:hover .recommend-icon {
-      transform: scale(1.1);
-    }
-
-  
-    /* Pain Points (お悩み) Cards - アイコンに逃げない共感型デザイン */
-    .pain-card {
-      background: #ffffff;
-      border: 1px solid #e8e4df;
-      border-radius: 18px;
-      padding: 22px 24px;
-      position: relative;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-    }
-    .pain-card:hover {
-      border-color: #d1cbc2;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
-      transform: translateY(-2px);
-    }
-    .pain-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .pain-num {
-      font-size: 10px;
-      font-weight: 800;
-      color: #888;
-      background: #f5f3ef;
-      padding: 2px 7px;
-      border-radius: 5px;
-      letter-spacing: 0.5px;
-    }
-    .pain-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: #dc2626;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    /* Target / Recommended (おすすめ) Cards - 目的別タグ型デザイン */
-    .target-card {
-      background: #ffffff;
-      border: 1px solid #e8e4df;
-      border-radius: 18px;
-      padding: 24px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-    }
-    .target-card:hover {
-      border-color: #5a8a5a;
-      box-shadow: 0 10px 24px rgba(90, 138, 90, 0.09);
-      transform: translateY(-3px);
-    }
-    .target-tag {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 6px;
-      background: #f0faf0;
-      color: #3b7a3b;
-      border: 1px solid #cde5cd;
-      align-self: flex-start;
-      margin-bottom: 12px;
-      letter-spacing: 0.2px;
-    }
-
-  
-    /* 6事例を参考にした新デザインCSS */
-    .reason-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 22px;
-      padding: 32px 28px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .reason-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(90, 138, 90, 0.1);
-      border-color: rgba(90, 138, 90, 0.35);
-    }
-    .reason-tag {
-      font-size: 11px;
-      font-weight: 800;
-      color: #5a8a5a;
-      background: #f0faf0;
-      border: 1px solid #cde5cd;
-      padding: 3px 12px;
-      border-radius: 9999px;
-      align-self: flex-start;
-      margin-bottom: 16px;
-    }
-
-    .compare-box-before {
-      background: #fdfbf9;
-      border: 1.5px dashed #dcd6cc;
-      border-radius: 22px;
-      padding: 32px 28px;
-    }
-    .compare-box-after {
-      background: #ffffff;
-      border: 2px solid #5a8a5a;
-      border-radius: 22px;
-      padding: 32px 28px;
-      box-shadow: 0 10px 32px rgba(90, 138, 90, 0.08);
-      position: relative;
-    }
-    .compare-badge-before {
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 14px;
-      border-radius: 9999px;
-      background: #ebe5dc;
-      color: #666;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-    .compare-badge-after {
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 14px;
-      border-radius: 9999px;
-      background: #5a8a5a;
-      color: #fff;
-      display: inline-block;
-      margin-bottom: 16px;
-    }
-
-    .step-divider {
-      position: relative;
-      padding-left: 20px;
-    }
-    .step-divider::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 4px;
-      bottom: 4px;
-      width: 4px;
-      border-radius: 2px;
-      background: #5a8a5a;
-    }
-
-  
-    /* Visual Before/After Cards */
-    .proof-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .proof-img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 1px solid #e8e4df;
-      background: #fdfbf9;
-    }
-
-    /* Review Cards (Social Proof) */
-    .review-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 20px;
-      padding: 26px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-    .review-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-      border-color: rgba(90, 138, 90, 0.3);
-    }
-    .stars {
-      color: #f59e0b;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
-
-  
-        /* ===== 100点デザイン用 プロフェッショナルCSS (v2) ===== */
-    
-    .section-pro {
-      padding: 96px 20px;
-    }
-    @media (max-width: 640px) {
-      .section-pro {
-        padding: 60px 16px;
-      }
-    }
-
-    /* セクション共通タイトル周り */
-    .pro-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: #eaf3ea;
-      color: #3b6b3b;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      border-radius: 9999px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-
-    /* ─── 1. インタラクティブ・レシピ体験デモ ─── */
-    .demo-wrapper {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 28px;
-      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
-      max-width: 860px;
-      margin: 0 auto;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .demo-nav-bar {
-      display: flex;
-      gap: 8px;
-      padding: 16px 20px;
-      background: #fbfaf8;
-      border-bottom: 1px solid #edebe8;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .demo-nav-bar::-webkit-scrollbar { display: none; }
-    .demo-preset-btn {
-      padding: 8px 16px;
-      border-radius: 9999px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #555;
-      background: #fff;
-      border: 1px solid #e0dcd6;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .demo-preset-btn:hover {
-      border-color: #5a8a5a;
-      color: #1a1a1a;
-    }
-    .demo-preset-btn.active {
-      background: #111827;
-      color: #fff;
-      border-color: #111827;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .demo-url-header {
-      padding: 14px 24px;
-      background: #f7f6f3;
-      border-bottom: 1px solid #eae7e2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .demo-url-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      border: 1px solid #e2ded9;
-      border-radius: 10px;
-      padding: 7px 14px;
-      flex: 1;
-      max-width: 580px;
-      font-family: monospace;
-      font-size: 12px;
-      color: #444;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .demo-recipe-body {
-      padding: 32px 28px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-    @media (max-width: 768px) {
-      .demo-recipe-body {
-        grid-template-columns: 1fr;
-        padding: 20px 16px;
-        gap: 20px;
-      }
-    }
-    .ingredient-check-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 9px 12px;
-      border-radius: 8px;
-      background: #fcfbf9;
-      border: 1px solid #eeebe6;
-      margin-bottom: 6px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s ease;
-    }
-    .ingredient-check-item:hover {
-      background: #f5f3ef;
-    }
-    .ingredient-check-item.checked {
-      background: #edf5ed;
-      border-color: #cde4cd;
-      color: #718096;
-      text-decoration: line-through;
-    }
-    .ingredient-check-item input {
-      accent-color: #5a8a5a;
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
-    .step-list-item {
-      display: flex;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: #fbfaf8;
-      border-left: 3px solid #5a8a5a;
-      margin-bottom: 10px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: #2d3748;
-    }
-    .step-num-badge {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #5a8a5a;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ─── 2. Before / After 対比ステージ (TOKIUM / hacomono スタイル) ─── */
-    .stage-tabs-wrap {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-bottom: 36px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-    }
-    .stage-tab-btn {
-      padding: 12px 24px;
-      border-radius: 9999px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #555;
-      background: #f5f3ef;
-      border: 1.5px solid #e5e1db;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-    }
-    .stage-tab-btn:hover {
-      background: #eadecd;
-      color: #111;
-    }
-    .stage-tab-btn.active {
-      background: #5a8a5a;
-      color: #ffffff;
-      border-color: #5a8a5a;
-      box-shadow: 0 8px 24px rgba(90, 138, 90, 0.3);
-      transform: translateY(-2px);
-    }
-    .stage-main-card {
-      background: #ffffff;
-      border: 1px solid #e8e4df;
-      border-radius: 32px;
-      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.07);
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    @media (max-width: 860px) {
-      .stage-main-card {
-        grid-template-columns: 1fr;
-        padding: 24px;
-        gap: 32px;
-        border-radius: 24px;
-      }
-    }
-
-    /* ─── 3. 洗練されたBento Grid（Features） ─── */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 20px;
-    }
-    .bento-card {
-      background: #ffffff;
-      border: 1px solid #e8e4df;
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    .bento-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.07);
-      border-color: #d1cdc7;
-    }
-    .bento-card-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .bento-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: #f5f3ef;
-      color: #333;
-    }
-    .bento-icon.green {
-      background: #eaf3ea;
-      color: #5a8a5a;
-    }
-    .bento-icon.gold {
-      background: #fbf5e6;
-      color: #c0892a;
-    }
-    .bento-tag {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 9999px;
-      background: #f0ede8;
-      color: #666;
-    }
-    .bento-tag.primary {
-      background: #eaf3ea;
-      color: #436e43;
-    }
-
-  </style>
-
-  <!-- JSON-LD 構造化データ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "なにたべ",
-    "url": "https://nanitabe-ru.netlify.app",
-    "description": "SNSやYouTubeのレシピURLをコピペするだけで保存。AIが材料・手順を自動で整理するレシピ管理アプリ。",
-    "applicationCategory": "LifestyleApplication",
-    "operatingSystem": "Web",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "フリープラン",
-        "price": "0",
-        "priceCurrency": "JPY"
-      },
-      {
-        "@type": "Offer",
-        "name": "スタンダードプラン",
-        "price": "130",
-        "priceCurrency": "JPY"
-      },
-      {
-        "@type": "Offer",
-        "name": "プレミアムプラン",
-        "price": "380",
-        "priceCurrency": "JPY"
-      }
-    ],
-    "inLanguage": "ja"
-  }
   </script>
 
   <!-- JSON-LD FAQPage構造化データ -->
@@ -748,84 +116,146 @@
 <body class="bg-bg text-textmain" style="min-height:100vh;">
 
     <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white" style="border-bottom:1px solid #e8e4df;">
-    <div class="max-w-5xl mx-auto px-4 sm:px-5 py-3 flex items-center justify-between gap-3">
-      <div class="flex items-center gap-4 sm:gap-6">
-        <a href="index.html"><img src="assets/logo.png" alt="なにたべ" style="height:44px;flex-shrink:0;" class="object-contain sm:h-[52px]" /></a>
-        <nav class="flex items-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium">
-          <a href="column.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">コラム</a>
-          <a href="updates.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">お知らせ</a>
+    <!-- ===== Floating Island Header (Awwwards Style) ===== -->
+  <div class="floating-header-container">
+    <header class="floating-header">
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <img src="assets/logo.png" alt="なにたべ" style="height:38px;" class="object-contain transition-transform group-hover:scale-105" />
+        </a>
+        <nav class="hidden md:flex items-center gap-5 text-xs font-bold text-gray-600">
+          <a href="#demo" class="hover:text-[#347246] transition-colors">デモ体験</a>
+          <a href="#features" class="hover:text-[#347246] transition-colors">機能と特長</a>
+          <a href="#pricing" class="hover:text-[#347246] transition-colors">料金プラン</a>
+          <a href="column.html" class="hover:text-[#347246] transition-colors">コラム</a>
+          <a href="updates.html" class="hover:text-[#347246] transition-colors">お知らせ</a>
         </nav>
       </div>
-      <a href="https://nanitabe-ru.vercel.app"
-         class="font-bold text-xs sm:text-sm text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full transition-opacity hover:opacity-85 flex-shrink-0"
-         style="background:#5a8a5a;">
-        アプリを使う →
-      </a>
-    </div>
-  </header>
-
-  <!-- ===== Hero ===== -->
-  <section class="bg-bg fadein" style="padding:64px 20px 72px;">
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-      <!-- テキスト -->
-      <div class="flex-1 text-center md:text-left">
-        <p class="text-sm font-bold tracking-widest mb-3" style="color:#5a8a5a;">レシピ管理アプリ</p>
-        <h1 class="font-black leading-tight mb-4" style="font-size:clamp(26px,5.8vw,48px);color:#1a1a1a;letter-spacing:-0.5px;">
-          <span class="inline-block">SNSのレシピURLを貼るだけ。</span><br />
-          <span class="inline-block text-[#5a8a5a]">AIが材料・手順を自動整理。</span>
-        </h1>
-        <p class="leading-relaxed mb-6 max-w-md mx-auto md:mx-0 text-sm md:text-base text-[#555]">
-          <span class="inline-block">Instagram・YouTube・Xで見つけたレシピのURLを貼るだけ。</span>
-          <span class="inline-block">材料も手順もAIが自動取得し、</span>
-          <span class="inline-block">調理中に動画を巻き戻す必要はもうありません。</span>
-        </p>
-        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8 text-xs font-bold text-gray-500">
-          <span class="flex items-center gap-1.5"><span class="text-[#5a8a5a]">✓</span> クレジットカード登録不要</span>
-          <span class="flex items-center gap-1.5"><span class="text-[#5a8a5a]">✓</span> レシピ50件までずっと無料</span>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a href="https://nanitabe-ru.vercel.app/login"
-             class="font-bold text-white text-center px-8 py-4 rounded-full text-base transition-opacity hover:opacity-85"
-             style="background:#5a8a5a;">
-            無料で始める →
-          </a>
-          <a href="#pricing"
-             class="font-bold text-center px-8 py-4 rounded-full text-base transition-colors"
-             style="color:#5a8a5a;background:#fff;border:1.5px solid #5a8a5a;">
-            料金プランを見る
-          </a>
-        </div>
+      <div class="flex items-center gap-3">
+        <a href="https://nanitabe-ru.vercel.app/login"
+           class="text-xs font-bold text-gray-700 hover:text-black hidden sm:inline-block px-3 py-1.5 transition-colors">
+          ログイン
+        </a>
+        <a href="https://nanitabe-ru.vercel.app/login"
+           class="text-xs font-extrabold text-white px-5 py-2.5 rounded-full shadow-sm transition-all hover:shadow-md hover:scale-105"
+           style="background: linear-gradient(135deg, #3d8050 0%, #285836 100%);">
+          無料で始める →
+        </a>
       </div>
+    </header>
+  </div>
 
-      <!-- スクリーンショット（iPhoneフレーム） -->
-      <div class="flex-1 flex justify-center">
-        <div style="position:relative;width:290px;flex-shrink:0;">
-          <!-- フレーム本体 -->
-          <div style="background:#1c1c1e;border-radius:50px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 32px 64px rgba(0,0,0,0.22),0 8px 20px rgba(0,0,0,0.1);position:relative;">
-            <!-- サイレントスイッチ -->
-            <div style="position:absolute;left:-2px;top:62px;width:2px;height:20px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <!-- 音量ボタン -->
-            <div style="position:absolute;left:-2px;top:90px;width:2px;height:28px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:126px;width:2px;height:28px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <!-- 電源ボタン -->
-            <div style="position:absolute;right:-2px;top:100px;width:2px;height:48px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <!-- スクリーン -->
-            <div style="border-radius:46px;overflow:hidden;position:relative;background:#000;">
-              <!-- ノッチ -->
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:72px;height:24px;background:#1c1c1e;border-radius:0 0 14px 14px;z-index:10;"></div>
-              <img src="assets/app-screenshot.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
-              <!-- ホームインジケーター -->
-              <div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:88px;height:3px;background:rgba(0,0,0,0.22);border-radius:3px;"></div>
-            </div>
+    <!-- ===== Hero Section (Award-Winning Depth & Ambience) ===== -->
+  <section class="relative pt-12 pb-24 md:pt-20 md:pb-36 overflow-hidden">
+    <!-- アンビエントオーロラグロー -->
+    <div class="ambient-glow-wrap">
+      <div class="ambient-glow-1"></div>
+      <div class="ambient-glow-2"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-5 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-14 lg:gap-16">
+        
+        <!-- 左：メッセージ ＆ CTA -->
+        <div class="flex-1 text-center lg:text-left">
+          <!-- ライブパルス・ステータスバッジ -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-gray-200/80 shadow-sm mb-6 backdrop-blur">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-[11px] font-extrabold tracking-wider text-gray-800 uppercase">Gemini 1.5 自動解析搭載</span>
+            <span class="text-[11px] text-gray-400 font-bold">|</span>
+            <span class="text-[11px] font-bold text-[#347246]">初期費用・月額完全無料枠あり</span>
+          </div>
+
+          <!-- メイン見出し -->
+          <h1 class="font-black tracking-tight text-gray-900 leading-[1.12] mb-6" style="font-size:clamp(30px, 5.2vw, 54px);">
+            SNSのレシピURLを貼るだけ。<br />
+            <span class="bg-gradient-to-r from-[#285836] via-[#3d8050] to-[#c0892a] bg-clip-text text-transparent">
+              AIが材料・手順を一瞬で整理。
+            </span>
+          </h1>
+
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0 font-medium">
+            Instagram・YouTube・Xで見つけた美味しいレシピ。URLをコピーするだけで、AIが材料リスト・分量・手順を自動生成。調理中に動画を行き来するストレスから完全に解放されます。
+          </p>
+
+          <!-- CTAボタングループ -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href="https://nanitabe-ru.vercel.app/login" class="btn-award-primary w-full sm:w-auto text-sm md:text-base">
+              <span>今すぐ無料で始める</span>
+              <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+            </a>
+            <a href="#demo" class="btn-award-secondary w-full sm:w-auto text-sm md:text-base">
+              <i data-lucide="play" style="width:15px;height:15px;color:#347246;"></i>
+              <span>3秒デモを試す</span>
+            </a>
+          </div>
+
+          <!-- ソーシャルプルーフ・マイクロバッジ -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs font-bold text-gray-500 pt-2 border-t border-gray-200/60">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" style="width:15px;height:15px;color:#347246;"></i>
+              クレカ登録不要
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" style="width:15px;height:15px;color:#347246;"></i>
+              レシピ50件まで永年無料
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" style="width:15px;height:15px;color:#347246;"></i>
+              主要SNSすべて対応
+            </span>
           </div>
         </div>
+
+        <!-- 右：3D iPhoneモック ＋ フローティング注釈カード -->
+        <div class="flex-1 flex justify-center relative w-full max-w-md lg:max-w-none">
+          
+          <!-- フローティングバッジ左上（URL貼り付け中） -->
+          <div class="hero-float-badge -top-4 -left-4 sm:left-4">
+            <div class="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="youtube" style="width:20px;height:20px;"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-extrabold text-gray-400 block tracking-wider uppercase">URLから自動抽出</span>
+              <span class="text-xs font-bold text-gray-800">至高のチキン南蛮.mp4</span>
+            </div>
+          </div>
+
+          <!-- フローティングバッジ右下（材料テキスト化完了） -->
+          <div class="hero-float-badge badge-right -bottom-6 -right-2 sm:right-6">
+            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="sparkles" style="width:20px;height:20px;"></i>
+            </div>
+            <div>
+              <span class="text-[10px] font-extrabold text-emerald-600 block tracking-wider uppercase">AI解析完了 (1.1秒)</span>
+              <span class="text-xs font-bold text-gray-800">材料7種・分量リスト生成</span>
+            </div>
+          </div>
+
+          <!-- iPhone実機モックアップ -->
+          <div style="position:relative;width:280px;sm:width:300px;flex-shrink:0;">
+            <div style="background:#1c1c1e;border-radius:52px;padding:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.1),0 0 0 1.5px #080808,0 36px 80px -15px rgba(0,0,0,0.25),0 12px 28px rgba(0,0,0,0.12);position:relative;">
+              <!-- サイドボタン類 -->
+              <div style="position:absolute;left:-2px;top:68px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+              <div style="position:absolute;left:-2px;top:98px;width:2px;height:32px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+              <div style="position:absolute;left:-2px;top:138px;width:2px;height:32px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
+              <div style="position:absolute;right:-2px;top:110px;width:2px;height:52px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
+              <!-- スクリーン -->
+              <div style="border-radius:46px;overflow:hidden;position:relative;background:#000;">
+                <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:76px;height:24px;background:#1c1c1e;border-radius:0 0 16px 16px;z-index:10;"></div>
+                <img src="assets/app-screenshot.png" alt="なにたべ アプリ画面" style="width:100%;display:block;" />
+                <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:96px;height:3.5px;background:rgba(0,0,0,0.2);border-radius:3px;"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
 
-  
-    <!-- ===== インタラクティブ・デモ体験（本物の手触り感を体感） ===== -->
+  <!-- ===== インタラクティブ・デモ体験（本物の手触り感を体感） ===== -->
   <section id="demo" class="section-pro" style="background:#f5f3ef;border-top:1px solid #eae7e2;border-bottom:1px solid #eae7e2;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-10">
@@ -842,7 +272,8 @@
         </p>
       </div>
 
-      <div class="demo-wrapper">
+      <div class="demo-wrapper" id="demo-wrapper-box">
+        <div class="demo-scanner-line" id="demo-scanner"></div>
         <!-- プリセット切り替えバー -->
         <div class="demo-nav-bar">
           <span class="text-xs font-bold text-gray-400 self-center mr-2 hidden sm:inline">人気動画で体験:</span>
@@ -1032,119 +463,109 @@
     </div>
   </section>
 
-  <!-- ===== スクリーンショットカルーセル ===== -->
-  <section style="padding:72px 0;background:#111;overflow:hidden;">
-    <div class="max-w-5xl mx-auto px-5 mb-12 text-center">
-      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider text-emerald-400 bg-white/10 mb-3 border border-white/15">
-        <i data-lucide="layout" style="width:12px;height:12px;"></i> APP INTERFACE
+    <!-- ===== スクリーンショットカルーセル (Dark Cinema Theater) ===== -->
+  <section class="carousel-theater py-20 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-5 mb-14 text-center">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-[11px] font-extrabold tracking-wider text-emerald-400 bg-white/10 mb-3 border border-white/15 backdrop-blur uppercase">
+        <i data-lucide="layout" style="width:12px;height:12px;"></i>
+        App Interface Showcase
       </span>
-      <h2 class="font-black text-2xl md:text-4xl text-white mb-3">直感的に迷わず使えるUIデザイン</h2>
+      <h2 class="font-black text-2xl md:text-4xl text-white mb-3 tracking-tight">直感的に迷わず使える洗練されたUI</h2>
       <p class="text-xs md:text-sm text-gray-400 max-w-lg mx-auto leading-relaxed">
-        複雑な操作は一切なし。料理中でも片手でサクサク使えるシンプルなインターフェースです。
+        余計な装飾を削ぎ落とし、キッチンで立ったまま片手で心地よく操作できるミニマルデザインです。
       </p>
     </div>
+
     <div style="overflow:hidden;">
-      <div class="carousel-track" style="display:flex;gap:20px;padding:8px 0;width:max-content;">
+      <div class="carousel-track" style="display:flex;gap:28px;padding:12px 0;width:max-content;">
 
         <!-- ── 1セット目 ── -->
-        <!-- screen01 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen01.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
-        <!-- screen02 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen02.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
-        <!-- screen03 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen03.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
-        <!-- screen04 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen04.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
-        <!-- screen05 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen05.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
-        <!-- screen06 -->
-        <div style="position:relative;width:200px;flex-shrink:0;">
-          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);">
-            <div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div>
-            <div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div>
-            <div style="border-radius:40px;overflow:hidden;position:relative;background:#000;">
-              <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div>
-              <div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
               <img src="assets/screen06.png" style="width:100%;display:block;" />
-              <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div>
             </div>
           </div>
         </div>
 
-        <!-- ── 2セット目（ループ用コピー） ── -->
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen01.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen02.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen03.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen04.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen05.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
-        <div style="position:relative;width:200px;flex-shrink:0;"><div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 20px 50px rgba(0,0,0,0.5);"><div style="position:absolute;left:-2px;top:52px;width:2px;height:16px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:76px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;left:-2px;top:106px;width:2px;height:22px;background:#3a3a3c;border-radius:2px 0 0 2px;"></div><div style="position:absolute;right:-2px;top:82px;width:2px;height:38px;background:#3a3a3c;border-radius:0 2px 2px 0;"></div><div style="border-radius:40px;overflow:hidden;position:relative;background:#000;"><div style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:20px;background:#1c1c1e;border-radius:0 0 12px 12px;z-index:10;"></div><div style="position:absolute;top:0;left:0;right:0;height:62px;background:linear-gradient(to bottom,#1c1c1e 40%,transparent);z-index:5;border-radius:40px 40px 0 0;pointer-events:none;"></div><img src="assets/screen06.png" style="width:100%;display:block;" /><div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:70px;height:3px;background:rgba(255,255,255,0.15);border-radius:3px;"></div></div></div></div>
+        <!-- ── 2セット目（ループ用） ── -->
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen01.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen02.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen03.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen04.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen05.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
+        <div style="width:205px;flex-shrink:0;">
+          <div style="background:#1c1c1e;border-radius:44px;padding:5px;box-shadow:0 24px 60px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.12);">
+            <div style="border-radius:40px;overflow:hidden;background:#000;">
+              <img src="assets/screen06.png" style="width:100%;display:block;" />
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -1422,253 +843,232 @@
     </div>
   </section>
 
-  <!-- ===== Pricing ===== -->
-  <section id="pricing" style="padding:80px 20px;background:#f5f3ef;">
+    <!-- ===== Pricing (Award-Winning Clean SaaS Architecture) ===== -->
+  <section id="pricing" class="section-award" style="background:#f5f3ef;border-top:1px solid #eae7e2;border-bottom:1px solid #eae7e2;">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-center font-black text-2xl md:text-3xl mb-2" style="color:#1a1a1a;">料金プラン</h2>
-      <p class="text-center text-sm mb-12" style="color:#888;">まずは無料でお試しください</p>
+      <div class="text-center mb-14">
+        <span class="pro-badge">
+          <i data-lucide="sparkles" style="width:13px;height:13px;"></i>
+          TRANSPARENT PRICING
+        </span>
+        <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3 tracking-tight">
+          シンプルで透明な料金プラン
+        </h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-lg mx-auto leading-relaxed">
+          まずは無料のフリープランから。クレジットカード不要で、勝手な自動課金も一切ありません。
+        </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- 永久価格保証バッジ -->
+        <div class="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-[#eaf3ea] border border-[#cde5cd] text-xs font-bold text-[#2e5e2e]">
+          <i data-lucide="shield-check" style="width:15px;height:15px;color:#2e5e2e;"></i>
+          <span>早期限定特別価格：ご登録時の月額が生涯保証されます（値上げなし）</span>
+        </div>
+      </div>
 
-        <!-- フリー -->
-        <div class="plan-card">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- フリープラン -->
+        <div class="award-pricing-card">
           <div>
-            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">フリー</p>
-            <p class="font-black text-3xl" style="color:#1a1a1a;">無料</p>
+            <span class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">Entry</span>
+            <h3 class="font-black text-xl text-gray-900 mb-2">フリー</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="font-black text-4xl text-gray-900">¥0</span>
+              <span class="text-xs font-bold text-gray-400">/ ずっと無料</span>
+            </div>
+            <p class="text-xs text-gray-500 leading-relaxed mb-6 pb-6 border-b border-gray-100">
+              まずは気軽にレシピを保存して試してみたい方に最適な完全無料プラン。
+            </p>
+            <ul class="space-y-3 mb-8 text-xs font-medium text-gray-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>レシピ最大 <strong>50件</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>AI自動解析 <strong>月10回</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>AI自然言語検索 <strong>月10回</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>フォルダ作成 1個</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>なにたべ広場（閲覧・保存）</span>
+              </li>
+            </ul>
           </div>
-          <ul class="check-list">
-            <li>レシピ最大50件</li>
-            <li>AI解析 月10回</li>
-            <li>AI検索 月10回</li>
-            <li>キーワード・ベクター検索</li>
-            <li>フォルダ1個</li>
-            <li>今日作るボタン（記録のみ）</li>
-            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
-            <li class="muted">今日作るリスト</li>
-            <li class="muted">分析タブ</li>
-            <li class="muted">AIフォルダ振り分け</li>
-          </ul>
           <a href="https://nanitabe-ru.vercel.app/login"
-             class="block text-center font-bold py-3 rounded-full text-sm transition-opacity hover:opacity-85"
-             style="background:#e8e4df;color:#555;">
-            無料で始める
+             class="block text-center font-bold text-xs py-3.5 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+            無料で始める →
           </a>
         </div>
 
-        <!-- スタンダード（おすすめ） -->
-        <div class="plan-card featured">
+        <!-- スタンダード（一番人気） -->
+        <div class="award-pricing-card featured">
+          <div class="badge-best-value">一番人気 • おすすめ</div>
           <div>
-            <span class="badge-recommended">おすすめ</span>
-            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">スタンダード</p>
-            <div class="flex items-baseline gap-2">
+            <span class="text-xs font-bold text-[#347246] uppercase tracking-wider block mb-1">Popular</span>
+            <h3 class="font-black text-xl text-gray-900 mb-2">スタンダード</h3>
+            <div class="flex items-baseline gap-2 mb-1">
               <span class="text-sm line-through text-gray-400 font-normal">¥300</span>
-              <p class="font-black text-3xl" style="color:#1a1a1a;">¥130<span class="text-sm font-normal text-gray-500">/月</span></p>
+              <span class="font-black text-4xl text-gray-900">¥130</span>
+              <span class="text-xs font-bold text-gray-500">/ 月</span>
             </div>
-            <p class="text-[11px] font-bold text-[#5a8a5a] mt-1">※早期限定特別価格</p>
+            <div class="text-[11px] font-bold text-emerald-700 mb-6 pb-6 border-b border-emerald-100 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              早期特別価格（通常価格の57%OFF）
+            </div>
+            <ul class="space-y-3 mb-8 text-xs font-medium text-gray-800">
+              <li class="flex items-center gap-2 font-bold text-[#285836]">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>レシピ最大 <strong>200件</strong></span>
+              </li>
+              <li class="flex items-center gap-2 font-bold text-[#285836]">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>AI自動解析 <strong>月30回</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>今日作るリスト ＆ 調理履歴</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>AIフォルダ自動振り分け（最大3個）</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>広告なし ＆ 食生活の傾向分析</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#347246;" class="flex-shrink-0"></i>
+                <span>独自Gemini APIキー登録で無制限</span>
+              </li>
+            </ul>
           </div>
-          <ul class="check-list">
-            <li>レシピ最大200件</li>
-            <li>AI解析 月30回</li>
-            <li>AI検索 月30回</li>
-            <li>キーワード・ベクター検索</li>
-            <li>フォルダ最大3個</li>
-            <li>今日作るリスト</li>
-            <li>分析タブ</li>
-            <li>AIフォルダ自動振り分け</li>
-            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
-            <li>広告なし</li>
-            <li>独自Gemini APIキー設定（実質無制限）</li>
-          </ul>
           <a href="https://nanitabe-ru.vercel.app/login"
-             class="block text-center font-bold py-3 rounded-full text-sm text-white transition-opacity hover:opacity-85"
-             style="background:#5a8a5a;">
-            スタンダードで始める
+             class="btn-award-primary block text-center text-xs py-3.5 shadow-md">
+            スタンダードで始める →
           </a>
         </div>
 
         <!-- プレミアム -->
-        <div class="plan-card premium-card">
+        <div class="award-pricing-card gold-card">
           <div>
-            <p class="font-bold text-base mb-1" style="color:#1a1a1a;">プレミアム</p>
-            <div class="flex items-baseline gap-2">
+            <span class="text-xs font-bold text-[#c0892a] uppercase tracking-wider block mb-1">Pro / Unlimited</span>
+            <h3 class="font-black text-xl text-gray-900 mb-2">プレミアム</h3>
+            <div class="flex items-baseline gap-2 mb-1">
               <span class="text-sm line-through text-gray-400 font-normal">¥980</span>
-              <p class="font-black text-3xl" style="color:#1a1a1a;">¥380<span class="text-sm font-normal text-gray-500">/月</span></p>
+              <span class="font-black text-4xl text-gray-900">¥380</span>
+              <span class="text-xs font-bold text-gray-500">/ 月</span>
             </div>
-            <p class="text-[11px] font-bold text-[#c0892a] mt-1">※早期限定特別価格</p>
+            <div class="text-[11px] font-bold text-[#c0892a] mb-6 pb-6 border-b border-amber-100 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#c0892a]"></span>
+              早期特別価格（通常価格の61%OFF）
+            </div>
+            <ul class="space-y-3 mb-8 text-xs font-medium text-gray-700">
+              <li class="flex items-center gap-2 font-bold text-[#8c6019]">
+                <i data-lucide="sparkles" style="width:14px;height:14px;color:#c0892a;" class="flex-shrink-0"></i>
+                <span>レシピ保存数 <strong>完全無制限</strong></span>
+              </li>
+              <li class="flex items-center gap-2 font-bold text-[#8c6019]">
+                <i data-lucide="sparkles" style="width:14px;height:14px;color:#c0892a;" class="flex-shrink-0"></i>
+                <span>AI自動解析 <strong>月100回</strong></span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#c0892a;" class="flex-shrink-0"></i>
+                <span>スタンダードの全機能</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" style="width:14px;height:14px;color:#c0892a;" class="flex-shrink-0"></i>
+                <span>料理家・自炊ヘビーユーザー向け</span>
+              </li>
+            </ul>
           </div>
-          <ul class="check-list">
-            <li>レシピ<strong>無制限</strong></li>
-            <li>AI解析 月100回</li>
-            <li>AI検索 月100回</li>
-            <li>キーワード・ベクター検索</li>
-            <li>フォルダ最大3個</li>
-            <li>今日作るリスト</li>
-            <li>分析タブ</li>
-            <li>AIフォルダ自動振り分け</li>
-            <li>なにたべ広場（閲覧・いいね・保存すべて利用可）</li>
-            <li>広告なし</li>
-            <li>独自Gemini APIキー設定</li>
-          </ul>
           <a href="https://nanitabe-ru.vercel.app/login"
-             class="block text-center font-bold py-3 rounded-full text-sm transition-opacity hover:opacity-85"
-             style="background:#c0892a;color:#fff;">
-            プレミアムで始める
+             class="block text-center font-bold text-xs py-3.5 rounded-full bg-[#c0892a] text-white hover:opacity-90 transition-opacity shadow-sm">
+            プレミアムで始める →
           </a>
         </div>
 
       </div>
-
-      <p class="text-center text-xs mt-8" style="color:#aaa;">
-        ・早期限定価格（¥130・¥380）で登録された方は、解約されない限りずっと現在の特別価格のままご利用いただけます<br />
-        ・AI解析・AI検索の回数は毎月1日にリセットされます<br />
-        ・いつでも解約できます。解約後は次の更新日まで利用可能です<br />
-        ・月の途中でアップグレードした場合、使用済み回数はそのまま引き継がれます
-      </p>
     </div>
   </section>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq" style="padding:80px 20px;background:#fff;">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-center font-black text-2xl md:text-3xl mb-12" style="color:#1a1a1a;">よくある質問</h2>
+    <!-- ===== FAQ (Award-Winning Smooth Accordion) ===== -->
+  <section id="faq" class="section-award" style="background:#ffffff;">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="pro-badge">
+          <i data-lucide="help-circle" style="width:13px;height:13px;"></i>
+          FAQ
+        </span>
+        <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3 tracking-tight">
+          よくあるご質問
+        </h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-lg mx-auto leading-relaxed">
+          サービスのご利用に関する疑問にお答えします。その他ご不明な点はお気軽にお問い合わせください。
+        </p>
+      </div>
 
-      <details>
-        <summary>
-          どんなURLでも保存できますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>X（旧Twitter）・Instagram・YouTube・クックパッド・クラシルなど、ほとんどのレシピページのURLに対応しています。URLをコピーして貼り付けるだけです。</p>
-      </details>
+      <div class="space-y-3">
+        <details class="award-faq-item" open>
+          <summary>
+            <span>どんなURLでも保存できますか？</span>
+            <i data-lucide="chevron-down" class="chevron" style="width:18px;height:18px;color:#347246;"></i>
+          </summary>
+          <p>
+            Instagram・YouTube・X（Twitter）・TikTok・クックパッド・クラシルなど、Web上で公開されているほぼ全てのレシピURLに対応しています。アプリ内の入力バーにURLを貼り付けるだけで、AIが自動で解析を開始します。
+          </p>
+        </details>
 
-      <details>
-        <summary>
-          AI解析とは何ですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>AIがレシピページを解析し、材料・分量・調理手順・カテゴリを自動で整理する機能です。AI解析なしの場合はタイトルと画像のみ保存されます。後からでも追加できます。</p>
-      </details>
+        <details class="award-faq-item">
+          <summary>
+            <span>本当にクレジットカード不要で無料ですか？</span>
+            <i data-lucide="chevron-down" class="chevron" style="width:18px;height:18px;color:#347246;"></i>
+          </summary>
+          <p>
+            はい。フリープランの登録時にはクレジットカード情報の入力は一切不要です。勝手に課金される心配はございませんので、安心してレシピ50件・AI解析月10回までをお試しください。
+          </p>
+        </details>
 
-      <details>
-        <summary>
-          「今日作るリスト」とは何ですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>その日に「今日作る」ボタンを押したレシピだけを一覧表示できる機能です。スタンダードプラン以上で利用できます。レシピカードのボタンを押すだけで調理記録も同時に積み上がります。</p>
-      </details>
+        <details class="award-faq-item">
+          <summary>
+            <span>クックパッドなどの他アプリと何が違いますか？</span>
+            <i data-lucide="chevron-down" class="chevron" style="width:18px;height:18px;color:#347246;"></i>
+          </summary>
+          <p>
+            一般的なレシピサイトは「自社サイト内のレシピ」しか見られませんが、なにたべは「SNS（Instagram/YouTube/X）で見つけた美味しい動画レシピ」をまとめて一箇所に集約し、AIで材料リストや分量をテキスト化して調理しやすくできる点が決定的に異なります。
+          </p>
+        </details>
 
-      <details>
-        <summary>
-          なにたべ広場でレシピを保存できますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>できます。フリープランを含む全プランで、広場の閲覧・いいね・レシピの保存（自分のリストへの追加）がすべて利用できます。広場のレシピをタップして「保存する」ボタンで追加できます。</p>
-      </details>
+        <details class="award-faq-item">
+          <summary>
+            <span>早期特別価格はいつまで適用されますか？</span>
+            <i data-lucide="chevron-down" class="chevron" style="width:18px;height:18px;color:#347246;"></i>
+          </summary>
+          <p>
+            現在ご登録いただいた方は、解約されない限り「生涯この特別価格（スタンダード月額130円）」でご利用いただけます。将来サービス価格が通常料金（月額300円〜）へ改定された後も、既存ユーザー様の月額料金が上がることはありません（永久価格保証）。
+          </p>
+        </details>
 
-      <details>
-        <summary>
-          分析タブはAIを消費しますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>消費しません。登録済みのレシピデータをアプリ内で集計するだけです。スタンダードプラン以上で利用できます。</p>
-      </details>
-
-      <details>
-        <summary>
-          AI解析・AI検索の回数はいつリセットされますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>毎月1日の0時に自動リセットされます。月の途中でプランをアップグレードした場合、使用済みの回数はそのまま引き継がれます（リセットはされません）。</p>
-      </details>
-
-      <details>
-        <summary>
-          フリープランはずっと無料ですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>はい。クレジットカード登録なしで、レシピ50件・AI解析月10回の範囲で無料でお使いいただけます。</p>
-      </details>
-
-      <details>
-        <summary>
-          いつでも解約できますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>はい。設定画面の「プラン詳細」からいつでも解約できます。解約後は次の更新日まで引き続き利用できます。</p>
-      </details>
-
-      <details>
-        <summary>
-          「AIに相談」はアプリ内でAIと会話するのですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>いいえ。タップするとChatGPT・Claude・Perplexityなど、ふだんお使いのAIが別タブで開きます。レシピの材料・手順がプロンプトに自動で入力された状態でスタートします。アプリ内ではなく、使い慣れたAI環境でそのまま会話できます。</p>
-      </details>
-
-      <details>
-        <summary>
-          独自のGemini APIキーを使えますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>スタンダードプラン以上で対応しています。自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で使えます。</p>
-      </details>
-
-      <details>
-        <summary>
-          iPhoneアプリ・Androidアプリはありますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>現在、App Store・Google Playへの公開は準備中です。ただし、ブラウザからホーム画面に追加することで、アプリのように使うことができます。ご準備ができ次第あらためてご案内します。</p>
-      </details>
-
-      <details>
-        <summary>
-          ホーム画面への追加方法を教えてください
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>【iPhoneの場合】
-Safariでなにたべを開く → 画面下の共有ボタン（四角に上矢印のアイコン）をタップ → 「ホーム画面に追加」を選択 → 右上の「追加」をタップ
-
-【Androidの場合】
-ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタップ → 「ホーム画面に追加」を選択 → 「追加」をタップ
-
-ホーム画面にアイコンが追加され、アプリのように起動できます。</p>
-      </details>
-
-      <details>
-        <summary>
-          クックパッドの代わりに使えますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>クックパッドのレシピURLも保存できるほか、Instagram・X・YouTube・TikTokなどSNSのレシピもまとめて管理できます。クックパッドでは対応していないSNSレシピの一元管理に強みがあります。</p>
-      </details>
-
-      <details>
-        <summary>
-          ¥130・¥380の料金はずっと続きますか？いつまでの価格ですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>現在は早期ユーザー向けの特別価格でご案内しています。将来的に通常価格（スタンダード¥300・プレミアム¥980）に戻す可能性がありますが、今のうちに登録いただいた方は、解約されない限りずっと特別価格（¥130・¥380）のままご利用いただけます。</p>
-      </details>
-      <details>
-        <summary>
-          無料で使えるレシピ管理アプリですか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>はい、無料で使えます。クレジットカード登録なしで、レシピ50件・AI解析月10回までフリープランでご利用いただけます。もっと使いたい場合は月額130円のスタンダードプランもご用意しています。</p>
-      </details>
-
-      <details>
-        <summary>
-          レシピをフォルダ分けして管理できますか？
-          <svg class="chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </summary>
-        <p>できます。「離乳食」「お弁当用」「週末料理」など自由にフォルダを作成でき、レシピ保存時にAIが最適なフォルダを自動で提案してくれます（スタンダードプラン以上）。</p>
-      </details>
-
+        <details class="award-faq-item">
+          <summary>
+            <span>有料プランの解約や退会はいつでもできますか？</span>
+            <i data-lucide="chevron-down" class="chevron" style="width:18px;height:18px;color:#347246;"></i>
+          </summary>
+          <p>
+            はい。マイページからいつでもワンクリックで解約が可能です。最低契約期間や解約金などの縛りは一切ございません。解約後も保存済みレシピの閲覧はそのまま維持されます。
+          </p>
+        </details>
+      </div>
     </div>
   </section>
 
-  
   <!-- ===== Column / Articles Section ===== -->
   <section id="column-section" style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
@@ -1902,10 +1302,18 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       }
     ];
 
+    
     function selectDemoPreset(idx) {
       for (let i = 0; i < 3; i++) {
         const btn = document.getElementById('preset-btn-' + i);
         if (btn) btn.classList.toggle('active', i === idx);
+      }
+
+      const box = document.getElementById('demo-wrapper-box');
+      if (box) {
+        box.classList.remove('is-scanning');
+        void box.offsetWidth; // trigger reflow
+        box.classList.add('is-scanning');
       }
 
       const p = demoPresets[idx];
@@ -2012,6 +1420,28 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         lucide.createIcons();
       }, 150);
     }
+  
+    // ─── 3. スクロール連動 Reveal アニメーション (IntersectionObserver) ───
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('section, .award-card, .stage-main-card, .demo-wrapper').forEach(el => {
+        el.classList.add('reveal-on-scroll');
+        observer.observe(el);
+      });
+    });
+
   </script>
 
 </body>
