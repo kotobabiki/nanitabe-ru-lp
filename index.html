@@ -267,6 +267,86 @@
       letter-spacing: 0.2px;
     }
 
+  
+    /* 6事例を参考にした新デザインCSS */
+    .reason-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 22px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .reason-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(90, 138, 90, 0.1);
+      border-color: rgba(90, 138, 90, 0.35);
+    }
+    .reason-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: #5a8a5a;
+      background: #f0faf0;
+      border: 1px solid #cde5cd;
+      padding: 3px 12px;
+      border-radius: 9999px;
+      align-self: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .compare-box-before {
+      background: #fdfbf9;
+      border: 1.5px dashed #dcd6cc;
+      border-radius: 22px;
+      padding: 32px 28px;
+    }
+    .compare-box-after {
+      background: #ffffff;
+      border: 2px solid #5a8a5a;
+      border-radius: 22px;
+      padding: 32px 28px;
+      box-shadow: 0 10px 32px rgba(90, 138, 90, 0.08);
+      position: relative;
+    }
+    .compare-badge-before {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: #ebe5dc;
+      color: #666;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .compare-badge-after {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: #5a8a5a;
+      color: #fff;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .step-divider {
+      position: relative;
+      padding-left: 20px;
+    }
+    .step-divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background: #5a8a5a;
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -446,7 +526,65 @@
     </div>
   </div>
 
-    <!-- ===== お悩みセクション ===== -->
+    
+  <!-- ===== 選ばれる理由（導入後の変化を先に見せる） ===== -->
+  <section style="padding:80px 20px 70px;background:#ffffff;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
+          なぜ、SNSのレシピ保存に「なにたべ」が選ばれるのか
+        </h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
+          ただブックマークするだけでは解決しない、料理中のあらゆるストレスをゼロにします
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="reason-card">
+          <span class="reason-tag">理由 01</span>
+          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
+            動画の巻き戻し・一時停止がゼロに
+          </h3>
+          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
+            「醤油何ccだっけ？」のたびに動画を再生し直す必要はありません。URLを貼るだけでAIが材料・分量・手順を即座にテキスト化します。
+          </p>
+          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
+            <span>✓ 濡れた手でシークバーを触るストレス解消</span>
+          </div>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-tag">理由 02</span>
+          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
+            調理中の画面スクロール行き来がゼロに
+          </h3>
+          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
+            手順ごとに「その工程で使う材料と分量」がまとめて表示されます。材料一覧と手順を何度も上下に行き来する手間がなくなります。
+          </p>
+          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
+            <span>✓ 調理中のスマホ画面スリープも自動防止</span>
+          </div>
+        </div>
+
+        <div class="reason-card">
+          <span class="reason-tag">理由 03</span>
+          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
+            「あのレシピどこ？」の迷子時間がゼロに
+          </h3>
+          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
+            Instagram・YouTube・X・クックパッド… 散らばったレシピが1つに集約。「鶏肉 さっぱり」など自然な言葉のAI検索ですぐに見つかります。
+          </p>
+          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
+            <span>✓ 各アプリの「保存」欄を探し回る時間ゼロ</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== お悩みセクション ===== -->
   <section style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
@@ -596,6 +734,94 @@
     </div>
   </section>
 
+  
+  <!-- ===== Before / After 対比セクション（消える手間） ===== -->
+  <section style="padding:80px 20px;background:#ffffff;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
+          これまでのSNS料理 vs なにたべのある料理
+        </h2>
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
+          抽象的な効率化ではなく、あなたの台所から消える「具体的な作業」
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- BEFORE -->
+        <div class="compare-box-before">
+          <div class="flex items-center justify-between mb-4">
+            <span class="compare-badge-before">従来のやり方（Before）</span>
+            <span class="text-xs font-bold text-gray-400">毎日の自炊に潜むムダ</span>
+          </div>
+          <ul class="space-y-4 text-xs md:text-sm text-gray-600">
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
+              <div>
+                <strong class="text-gray-800 block mb-0.5">探すとき</strong>
+                どのSNSに保存したか忘れ、ブックマークやいいね欄を延々スクロールして探す。
+              </div>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
+              <div>
+                <strong class="text-gray-800 block mb-0.5">買い出し前</strong>
+                動画を一時停止しながら、必要な材料と分量をメモ帳に書き写す作業が発生。
+              </div>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
+              <div>
+                <strong class="text-gray-800 block mb-0.5">作るとき</strong>
+                濡れた手でスマホをタップして画面ロック解除。動画と調味料一覧を行ったり来たり。
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- AFTER -->
+        <div class="compare-box-after">
+          <div class="flex items-center justify-between mb-4">
+            <span class="compare-badge-after">なにたべ導入後（After）</span>
+            <span class="text-xs font-bold text-[#5a8a5a]">減る作業・生まれるゆとり</span>
+          </div>
+          <ul class="space-y-4 text-xs md:text-sm text-gray-700">
+            <li class="flex items-start gap-2.5">
+              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-[#111827] block mb-0.5">探すとき：10秒で完結</strong>
+                保存先に関係なく一括集約。「鶏肉 さっぱり」などの感覚的なAI検索ですぐ見つかる。
+              </div>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-[#111827] block mb-0.5">買い出し前：手入力ゼロ</strong>
+                URLを貼った瞬間にAIが材料・分量を自動取得。スマホを開くだけで買い物リストに。
+              </div>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
+              <div>
+                <strong class="text-[#111827] block mb-0.5">作るとき：迷わず一発調理</strong>
+                画面消灯なし。工程ごとに必要な材料がまとまって表示され、調理に集中できる。
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 共通の結論（TOKIUM原則: 最後に共通の結論へまとめる） -->
+      <div class="mt-8 p-5 rounded-2xl text-center bg-[#f0faf0] border border-[#cde5cd]">
+        <p class="font-bold text-sm text-[#1a1a1a]">
+          結論：あなたはURLをコピーして貼るだけ。あとはAIが整理し、調理中の迷いをすべてなくします。
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== スクリーンショットカルーセル ===== -->
   <section style="padding:72px 0;background:#111;overflow:hidden;">
     <div class="max-w-5xl mx-auto px-5 mb-12 text-center">
@@ -708,138 +934,155 @@
     </div>
   </section>
 
-    <!-- ===== Features ===== -->
-  <section id="features" style="padding:90px 20px;background:#fff;">
+      <!-- ===== Features (3つのステップで広がる価値) ===== -->
+  <section id="features" style="padding:90px 20px;background:#ffffff;">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">毎日の料理をスマートにする機能</h2>
+      <div class="text-center mb-16">
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
+          3つのステップで広がる、快適な料理体験
+        </h2>
         <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          URLを貼るだけの簡単保存から、AI解析、整理、調理中のサポートまで充実
+          手入力ゼロの保存から、迷わない調理、そして日々のレパートリーの充実へ
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-        <!-- ── フリーで使える機能 ── -->
-
-        <!-- 機能1 -->
-        <div class="feature-card">
-          <div class="icon-box icon-blue">
-            <i data-lucide="link" style="width:24px;height:24px;stroke-width:2;"></i>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">URLコピペで即保存</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動で取得します。
-          </p>
+      <!-- STEP 1: 保存する -->
+      <div class="mb-14">
+        <div class="step-divider mb-6">
+          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 01</span>
+          <h3 class="font-black text-xl text-[#111827]">手入力ゼロでスマートに保存する</h3>
         </div>
-
-        <!-- 機能2 -->
-        <div class="feature-card">
-          <div class="icon-box icon-amber">
-            <i data-lucide="sparkles" style="width:24px;height:24px;stroke-width:2;"></i>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">AIが材料・手順を自動解析</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            AIがレシピ名・材料・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
-          </p>
-        </div>
-
-        <!-- 機能3 -->
-        <div class="feature-card">
-          <div class="icon-box icon-indigo">
-            <i data-lucide="search" style="width:24px;height:24px;stroke-width:2;"></i>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">AI自然言語検索</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索。キーワード検索とAIの意味検索でぴったりのレシピが見つかります。
-          </p>
-        </div>
-
-        <!-- 機能4 -->
-        <div class="feature-card">
-          <div class="icon-box icon-slate">
-            <i data-lucide="bot" style="width:24px;height:24px;stroke-width:2;"></i>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">いつものAIに相談</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            ChatGPT・Claude・Perplexityなど、普段使いのAIにそのまま相談可能。材料・手順が自動入力された状態で開きます。
-          </p>
-        </div>
-
-        <!-- 機能5: なにたべ広場（無料） -->
-        <div class="feature-card">
-          <div class="icon-box icon-emerald">
-            <i data-lucide="users" style="width:24px;height:24px;stroke-width:2;"></i>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">なにたべ広場</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            ユーザーが公開した人気レシピが集まる共有フィード。ランキング表示やいいね・保存がフリープランから楽しめます。
-          </p>
-        </div>
-
-        <!-- ── スタンダード以上の機能 ── -->
-
-        <!-- 機能6 -->
-        <div class="feature-card">
-          <div class="flex items-start justify-between mb-4">
-            <div class="icon-box icon-purple mb-0">
-              <i data-lucide="calendar-check" style="width:24px;height:24px;stroke-width:2;"></i>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- 機能1 -->
+          <div class="feature-card">
+            <div class="icon-box icon-blue">
+              <i data-lucide="link" style="width:24px;height:24px;stroke-width:2;"></i>
             </div>
-            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            <h4 class="font-black text-base text-[#111827] mb-2">URLコピペで即保存</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動取得します。
+            </p>
           </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">「今日作るリスト」で管理</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            その日に作るレシピだけをスマートに一覧表示。調理履歴も自動で積み上がり、「計○回・○日前」が一目でわかります。
-          </p>
-        </div>
-
-        <!-- 機能7 -->
-        <div class="feature-card">
-          <div class="flex items-start justify-between mb-4">
-            <div class="icon-box icon-orange mb-0">
-              <i data-lucide="folder-tree" style="width:24px;height:24px;stroke-width:2;"></i>
+          <!-- 機能2 -->
+          <div class="feature-card">
+            <div class="icon-box icon-amber">
+              <i data-lucide="sparkles" style="width:24px;height:24px;stroke-width:2;"></i>
             </div>
-            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            <h4 class="font-black text-base text-[#111827] mb-2">AIが材料・手順を自動解析</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              AIがレシピ名・材料・分量・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
+            </p>
           </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">フォルダ＋AI自動振り分け</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            「離乳食」「お弁当用」などフォルダで整理。レシピ保存時にAIが最適なフォルダを自動提案してくれます。
-          </p>
-        </div>
-
-        <!-- 機能8 -->
-        <div class="feature-card">
-          <div class="flex items-start justify-between mb-4">
-            <div class="icon-box icon-pink mb-0">
-              <i data-lucide="bar-chart-3" style="width:24px;height:24px;stroke-width:2;"></i>
+          <!-- 機能3 -->
+          <div class="feature-card">
+            <div class="icon-box icon-indigo">
+              <i data-lucide="search" style="width:24px;height:24px;stroke-width:2;"></i>
             </div>
-            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            <h4 class="font-black text-base text-[#111827] mb-2">AI自然言語検索</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索。キーワード検索とAIの意味検索でぴったりの料理がすぐに見つかります。
+            </p>
           </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">食生活・食材の傾向分析</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。偏りがちな食生活の改善に役立ちます。
-          </p>
         </div>
-
-        <!-- 機能9 -->
-        <div class="feature-card">
-          <div class="flex items-start justify-between mb-4">
-            <div class="icon-box icon-yellow mb-0">
-              <i data-lucide="key" style="width:24px;height:24px;stroke-width:2;"></i>
-            </div>
-            <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
-          </div>
-          <h3 class="font-black text-base text-[#111827] mb-2">独自APIキーで無制限</h3>
-          <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-            自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で利用可能。上限を気にせずフル活用できます。
-          </p>
-        </div>
-
       </div>
+
+      <!-- STEP 2: 調理する -->
+      <div class="mb-14">
+        <div class="step-divider mb-6">
+          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 02</span>
+          <h3 class="font-black text-xl text-[#111827]">調理中の迷い・行き来をなくす</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- 機能4 -->
+          <div class="feature-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="icon-box icon-purple mb-0">
+                <i data-lucide="calendar-check" style="width:24px;height:24px;stroke-width:2;"></i>
+              </div>
+              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">「今日作るリスト」で管理</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              その日に作るレシピだけをスマートに一覧表示。調理履歴も自動で積み上がり、「計○回・○日前」が一目でわかります。
+            </p>
+          </div>
+          <!-- 機能5 -->
+          <div class="feature-card">
+            <div class="icon-box icon-slate">
+              <i data-lucide="bot" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">いつものAIに相談</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              ChatGPT・Claude・Perplexityなど、普段使いのAIにそのまま相談可能。材料・手順が自動入力された状態で開きます。
+            </p>
+          </div>
+          <!-- 機能6 -->
+          <div class="feature-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="icon-box icon-yellow mb-0">
+                <i data-lucide="key" style="width:24px;height:24px;stroke-width:2;"></i>
+              </div>
+              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">独自APIキーで無制限</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で利用可能。上限を気にせずフル活用できます。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: 続ける・楽しむ -->
+      <div>
+        <div class="step-divider mb-6">
+          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 03</span>
+          <h3 class="font-black text-xl text-[#111827]">毎日の献立を続けやすく、豊かにする</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- 機能7 -->
+          <div class="feature-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="icon-box icon-orange mb-0">
+                <i data-lucide="folder-tree" style="width:24px;height:24px;stroke-width:2;"></i>
+              </div>
+              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">フォルダ＋AI自動振り分け</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              「離乳食」「お弁当用」などフォルダで整理。レシピ保存時にAIが最適なフォルダを自動提案してくれます。
+            </p>
+          </div>
+          <!-- 機能8 -->
+          <div class="feature-card">
+            <div class="icon-box icon-emerald">
+              <i data-lucide="users" style="width:24px;height:24px;stroke-width:2;"></i>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">なにたべ広場</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              ユーザーが公開した人気レシピが集まる共有フィード。ランキング表示やいいね・保存がフリープランから楽しめます。
+            </p>
+          </div>
+          <!-- 機能9 -->
+          <div class="feature-card">
+            <div class="flex items-start justify-between mb-4">
+              <div class="icon-box icon-pink mb-0">
+                <i data-lucide="bar-chart-3" style="width:24px;height:24px;stroke-width:2;"></i>
+              </div>
+              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+            </div>
+            <h4 class="font-black text-base text-[#111827] mb-2">食生活・食材の傾向分析</h4>
+            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
+              よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。偏りがちな食生活の改善に役立ちます。
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-      <!-- ===== こんな方におすすめ（SEO） ===== -->
+
+  <!-- ===== こんな方におすすめ（SEO） ===== -->
   <section style="padding:90px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
