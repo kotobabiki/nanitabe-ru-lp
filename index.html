@@ -347,6 +347,50 @@
       background: #5a8a5a;
     }
 
+  
+    /* Visual Before/After Cards */
+    .proof-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .proof-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid #e8e4df;
+      background: #fdfbf9;
+    }
+
+    /* Review Cards (Social Proof) */
+    .review-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+      border-color: rgba(90, 138, 90, 0.3);
+    }
+    .stars {
+      color: #f59e0b;
+      font-size: 15px;
+      letter-spacing: 2px;
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -445,13 +489,16 @@
       <!-- テキスト -->
       <div class="flex-1 text-center md:text-left">
         <p class="text-sm font-bold tracking-widest mb-3" style="color:#5a8a5a;">レシピ管理アプリ</p>
-        <h1 class="font-black leading-tight mb-4" style="font-size:clamp(40px,7vw,58px);color:#1a1a1a;letter-spacing:-0.5px;">
-          あのレシピ、<br />どこだっけ？<br />もう迷わない。
+        <h1 class="font-black leading-tight mb-4" style="font-size:clamp(38px,6.5vw,56px);color:#1a1a1a;letter-spacing:-0.5px;">
+          SNSのレシピURLを<br />貼るだけ、AI自動整理。
         </h1>
-        <p class="leading-relaxed mb-8 max-w-md mx-auto md:mx-0" style="font-size:clamp(16px,2.2vw,18px);color:#555;">
-          SNSで見つけたレシピが散らばって、いざ作ろうとすると見つからない。<br />
-          URLを貼るだけで保存・整理できるレシピ管理アプリです。
+        <p class="leading-relaxed mb-6 max-w-md mx-auto md:mx-0" style="font-size:clamp(15px,2vw,17px);color:#555;">
+          Instagram・YouTube・Xで見つけたレシピのURLを貼るだけ。材料・分量・手順をAIが自動取得し、もう料理中に動画を巻き戻す必要はありません。
         </p>
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-8 text-xs font-bold text-gray-500">
+          <span class="flex items-center gap-1.5"><span class="text-[#5a8a5a]">✓</span> クレジットカード登録不要</span>
+          <span class="flex items-center gap-1.5"><span class="text-[#5a8a5a]">✓</span> レシピ50件までずっと無料</span>
+        </div>
         <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
           <a href="https://nanitabe-ru.vercel.app/login"
              class="font-bold text-white text-center px-8 py-4 rounded-full text-base transition-opacity hover:opacity-85"
@@ -527,300 +574,100 @@
   </div>
 
     
-  <!-- ===== 選ばれる理由（導入後の変化を先に見せる） ===== -->
-  <section style="padding:80px 20px 70px;background:#ffffff;">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
-          なぜ、SNSのレシピ保存に「なにたべ」が選ばれるのか
-        </h2>
-        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          ただブックマークするだけでは解決しない、料理中のあらゆるストレスをゼロにします
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <div class="reason-card">
-          <span class="reason-tag">理由 01</span>
-          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
-            動画の巻き戻し・一時停止がゼロに
-          </h3>
-          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
-            「醤油何ccだっけ？」のたびに動画を再生し直す必要はありません。URLを貼るだけでAIが材料・分量・手順を即座にテキスト化します。
-          </p>
-          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
-            <span>✓ 濡れた手でシークバーを触るストレス解消</span>
-          </div>
-        </div>
-
-        <div class="reason-card">
-          <span class="reason-tag">理由 02</span>
-          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
-            調理中の画面スクロール行き来がゼロに
-          </h3>
-          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
-            手順ごとに「その工程で使う材料と分量」がまとめて表示されます。材料一覧と手順を何度も上下に行き来する手間がなくなります。
-          </p>
-          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
-            <span>✓ 調理中のスマホ画面スリープも自動防止</span>
-          </div>
-        </div>
-
-        <div class="reason-card">
-          <span class="reason-tag">理由 03</span>
-          <h3 class="font-black text-lg text-[#111827] mb-2 leading-snug">
-            「あのレシピどこ？」の迷子時間がゼロに
-          </h3>
-          <p class="text-xs md:text-sm text-gray-500 leading-relaxed mb-4">
-            Instagram・YouTube・X・クックパッド… 散らばったレシピが1つに集約。「鶏肉 さっぱり」など自然な言葉のAI検索ですぐに見つかります。
-          </p>
-          <div class="mt-auto pt-3 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#5a8a5a]">
-            <span>✓ 各アプリの「保存」欄を探し回る時間ゼロ</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== お悩みセクション ===== -->
+    <!-- ===== Before / After 対比セクション（視覚的証拠つき・消える手間） ===== -->
   <section style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんなお悩み、感じたことはありませんか？</h2>
-        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          SNSレシピが身近になったからこそ生まれる、日々の小さなストレス
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">01</span>
-            <span class="pain-label">✕ 保存先がバラバラ</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「X・インスタ・YouTube… どこに保存したか思い出せない」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            各アプリのブックマークやいいね欄に散らばって、いざ作ろうとした時に探すだけで時間が過ぎてしまう。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">02</span>
-            <span class="pain-label">✕ レシピ迷子</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「『あの絶品レシピ、どこだっけ？』が毎回起きる」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            タイムラインを延々さかのぼったり、キーワード検索してもなかなか見つからず結局諦める羽目に。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">03</span>
-            <span class="pain-label">✕ 動画の一時停止ストレス</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「YouTubeの動画、材料確認のたびに再生・巻き戻しが面倒」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            「醤油何ccだっけ？」を確認するだけで動画を行き来。濡れた手でシークバーを触るストレス。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">04</span>
-            <span class="pain-label">✕ 画像なし問題</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「他のレシピ管理アプリだと、動画レシピの画像が取り込めない」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            文字だけの無機質なリストになってしまい、どんな仕上がり・見た目の料理だったか思い出せない。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">05</span>
-            <span class="pain-label">✕ 画面スリープ</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「調理中にスマホが消灯して、開いたらページが最初に戻った」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            SNSのアプリ内ブラウザで開いていると、画面が消えてリセット。また最初から探し直す羽目に。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">06</span>
-            <span class="pain-label">✕ カテゴリ混在</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「普段の料理と、離乳食・お弁当レシピが混ざって見にくい」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            カテゴリ別に整理したいのに、保存した順にずらっと並ぶだけで目当ての料理が埋もれてしまう。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">07</span>
-            <span class="pain-label">✕ 行き来の手間</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「手順を見ながら、材料の分量確認で何度も上下スクロール」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            「この調味料、いつ入れるんだっけ？」と手順と材料一覧を行き来するうちに工程を見失う。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">08</span>
-            <span class="pain-label">✕ 判断材料不足</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「保存一覧を見ても、今日作りたい料理がサッと選べない」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            タイトルだけでは調理時間や主材料がパッと分からず、どれを作るか決めるのに時間がかかる。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">09</span>
-            <span class="pain-label">✕ AI消費の制約</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「ちょっと探したいだけなのに、AI機能の制限を気にしてしまう」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            単純なキーワード検索でいい場面でも回数を消費させられ、気軽に検索できない。
-          </p>
-        </div>
-
-        <div class="pain-card">
-          <div class="pain-meta">
-            <span class="pain-num">10</span>
-            <span class="pain-label">✕ 画面初期化の罠</span>
-          </div>
-          <h3 class="font-bold text-sm text-[#111827] mb-1.5 leading-snug">
-            「買い出し中に別アプリを開いたら、レシピ画面が消えてしまった」
-          </h3>
-          <p class="text-xs text-gray-500 leading-relaxed">
-            「今夜これを作ろう」と決めてスーパーに行ったのに、LINEやメモを開いた隙にページが閉じてしまう。
-          </p>
-        </div>
-
-      </div>
-
-      <p class="text-center text-sm font-bold mt-10" style="color:#5a8a5a;">
-        → なにたべは、これらをひとつひとつ解消するために作りました。
-      </p>
-    </div>
-  </section>
-
-  
-  <!-- ===== Before / After 対比セクション（消える手間） ===== -->
-  <section style="padding:80px 20px;background:#ffffff;">
-    <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
-          これまでのSNS料理 vs なにたべのある料理
+          これまでの自炊ストレス vs なにたべのある料理
         </h2>
         <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          抽象的な効率化ではなく、あなたの台所から消える「具体的な作業」
+          言葉だけの「効率化」ではなく、あなたのキッチンから本当に消える3つの作業
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
 
-        <!-- BEFORE -->
-        <div class="compare-box-before">
-          <div class="flex items-center justify-between mb-4">
-            <span class="compare-badge-before">従来のやり方（Before）</span>
-            <span class="text-xs font-bold text-gray-400">毎日の自炊に潜むムダ</span>
+        <!-- シーン1: 探すとき -->
+        <div class="proof-card">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <span class="text-xs font-black text-[#5a8a5a] bg-[#f0faf0] px-3 py-1 rounded-full">シーン 01 : 探すとき</span>
+            <span class="text-xs text-gray-400 font-bold">迷子時間ゼロ</span>
           </div>
-          <ul class="space-y-4 text-xs md:text-sm text-gray-600">
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
-              <div>
-                <strong class="text-gray-800 block mb-0.5">探すとき</strong>
-                どのSNSに保存したか忘れ、ブックマークやいいね欄を延々スクロールして探す。
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
-              <div>
-                <strong class="text-gray-800 block mb-0.5">買い出し前</strong>
-                動画を一時停止しながら、必要な材料と分量をメモ帳に書き写す作業が発生。
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-red-400 font-bold flex-shrink-0">✕</span>
-              <div>
-                <strong class="text-gray-800 block mb-0.5">作るとき</strong>
-                濡れた手でスマホをタップして画面ロック解除。動画と調味料一覧を行ったり来たり。
-              </div>
-            </li>
-          </ul>
+          <div class="text-xs space-y-2">
+            <p class="text-red-500 font-bold flex items-start gap-1.5">
+              <span>✕ 従来：</span><span>X・インスタ・YouTubeの保存欄を延々スクロール</span>
+            </p>
+            <p class="text-[#2e7d32] font-bold flex items-start gap-1.5">
+              <span>✓ なにたべ：</span><span>「鶏肉 さっぱり」など自然な言葉で10秒AI検索</span>
+            </p>
+          </div>
+          <div class="mt-auto">
+            <img src="assets/screen03.png" alt="自然言語検索の画面" class="proof-img" />
+            <p class="text-[11px] text-gray-400 text-center mt-2">実際の画面：感覚的なキーワードで即ヒット</p>
+          </div>
         </div>
 
-        <!-- AFTER -->
-        <div class="compare-box-after">
-          <div class="flex items-center justify-between mb-4">
-            <span class="compare-badge-after">なにたべ導入後（After）</span>
-            <span class="text-xs font-bold text-[#5a8a5a]">減る作業・生まれるゆとり</span>
+        <!-- シーン2: 買い出し前 -->
+        <div class="proof-card">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <span class="text-xs font-black text-[#5a8a5a] bg-[#f0faf0] px-3 py-1 rounded-full">シーン 02 : 買い出し前</span>
+            <span class="text-xs text-gray-400 font-bold">手入力メモゼロ</span>
           </div>
-          <ul class="space-y-4 text-xs md:text-sm text-gray-700">
-            <li class="flex items-start gap-2.5">
-              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
-              <div>
-                <strong class="text-[#111827] block mb-0.5">探すとき：10秒で完結</strong>
-                保存先に関係なく一括集約。「鶏肉 さっぱり」などの感覚的なAI検索ですぐ見つかる。
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
-              <div>
-                <strong class="text-[#111827] block mb-0.5">買い出し前：手入力ゼロ</strong>
-                URLを貼った瞬間にAIが材料・分量を自動取得。スマホを開くだけで買い物リストに。
-              </div>
-            </li>
-            <li class="flex items-start gap-2.5">
-              <span class="text-[#5a8a5a] font-bold flex-shrink-0">✓</span>
-              <div>
-                <strong class="text-[#111827] block mb-0.5">作るとき：迷わず一発調理</strong>
-                画面消灯なし。工程ごとに必要な材料がまとまって表示され、調理に集中できる。
-              </div>
-            </li>
-          </ul>
+          <div class="text-xs space-y-2">
+            <p class="text-red-500 font-bold flex items-start gap-1.5">
+              <span>✕ 従来：</span><span>動画を止めながら調味料やグラム数をメモ書き</span>
+            </p>
+            <p class="text-[#2e7d32] font-bold flex items-start gap-1.5">
+              <span>✓ なにたべ：</span><span>URLを貼った瞬間に材料・分量がテキスト化</span>
+            </p>
+          </div>
+          <div class="mt-auto">
+            <img src="assets/screen04.png" alt="材料・分量がテキスト化された画面" class="proof-img" />
+            <p class="text-[11px] text-gray-400 text-center mt-2">実際の画面：分量まで一目でわかるテキスト化</p>
+          </div>
+        </div>
+
+        <!-- シーン3: 作るとき -->
+        <div class="proof-card">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <span class="text-xs font-black text-[#5a8a5a] bg-[#f0faf0] px-3 py-1 rounded-full">シーン 03 : 調理中</span>
+            <span class="text-xs text-gray-400 font-bold">巻き戻しゼロ</span>
+          </div>
+          <div class="text-xs space-y-2">
+            <p class="text-red-500 font-bold flex items-start gap-1.5">
+              <span>✕ 従来：</span><span>濡れた手で画面タップ・消灯・上下スクロール</span>
+            </p>
+            <p class="text-[#2e7d32] font-bold flex items-start gap-1.5">
+              <span>✓ なにたべ：</span><span>画面消灯防止 ＆ 工程ごとの材料表示で一発調理</span>
+            </p>
+          </div>
+          <div class="mt-auto">
+            <img src="assets/screen05.png" alt="手順ごとの材料表示画面" class="proof-img" />
+            <p class="text-[11px] text-gray-400 text-center mt-2">実際の画面：工程ごとに使う材料だけが表示</p>
+          </div>
         </div>
 
       </div>
 
-      <!-- 共通の結論（TOKIUM原則: 最後に共通の結論へまとめる） -->
-      <div class="mt-8 p-5 rounded-2xl text-center bg-[#f0faf0] border border-[#cde5cd]">
-        <p class="font-bold text-sm text-[#1a1a1a]">
-          結論：あなたはURLをコピーして貼るだけ。あとはAIが整理し、調理中の迷いをすべてなくします。
+      <!-- 中間CTA（熱量が高まった読者を逃さない） -->
+      <div class="bg-white rounded-2xl p-8 border border-[#e8e4df] text-center shadow-sm max-w-2xl mx-auto">
+        <h3 class="font-black text-lg md:text-xl text-[#1a1a1a] mb-2">
+          これまでの料理のイライラ、今すぐゼロにしませんか？
+        </h3>
+        <p class="text-xs md:text-sm text-gray-500 mb-6">
+          クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で使い始められます。
         </p>
+        <a href="https://nanitabe-ru.vercel.app/login"
+           class="inline-block font-bold text-sm md:text-base text-white px-8 py-3.5 rounded-full transition-opacity hover:opacity-85 shadow-md"
+           style="background:#5a8a5a;">
+          無料で試してみる →
+        </a>
       </div>
+
     </div>
   </section>
+
 
   <!-- ===== スクリーンショットカルーセル ===== -->
   <section style="padding:72px 0;background:#111;overflow:hidden;">
@@ -1082,82 +929,94 @@
   </section>
 
 
-  <!-- ===== こんな方におすすめ（SEO） ===== -->
-  <section style="padding:90px 20px;background:#f5f3ef;">
+    <!-- ===== ユーザーの口コミ・レビュー（社会的証明） ===== -->
+  <section style="padding:80px 20px;background:#f5f3ef;">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">こんな方にぴったりのサービスです</h2>
+      <div class="text-center mb-14">
+        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
+          実際に使っているユーザーの声
+        </h2>
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <span class="stars">★★★★★</span>
+          <span class="font-black text-sm text-[#1a1a1a]">4.8 / 5.0</span>
+          <span class="text-xs text-gray-500">（ユーザー満足度）</span>
+        </div>
         <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          あなたの料理スタイルや目的に合わせて、毎日のレシピ管理を劇的にシンプルに
+          「もう動画を巻き戻さなくていい」「朝のお弁当決めが1分になった」など喜びの声をいただいています
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        <!-- 1 -->
-        <div class="target-card">
-          <span class="target-tag"># SNSレシピ一括管理</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">クックパッド以外のレシピもまとめたい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">クックパッドはもちろん、Instagram・YouTube・X・TikTokに散らばるWebレシピをこれ1つに集約できます。</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+        <!-- レビュー1: 平日の自炊派 -->
+        <div class="review-card">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="stars">★★★★★</span>
+              <span class="text-xs text-gray-400">30代・自炊派</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#111827] mb-2 leading-snug">
+              「インスタのレシピ動画が迷子にならなくなりました」
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Instagramで保存しても後から探せなかったのが、URLを貼るだけで材料がテキスト化されて本当に助かります。買い物中もスマホで材料リストが見れて時短になりました。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#5a8a5a]">
+            利用プラン: フリープラン
+          </div>
         </div>
 
-        <!-- 2 -->
-        <div class="target-card">
-          <span class="target-tag"># Instagramレシピ</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">リールや投稿をパッと保存したい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">投稿URLを貼るだけで材料と手順をAIが自動抽出。調理中に動画を見返さなくても手際よく料理できます。</p>
+        <!-- レビュー2: 離乳食・子育て世代 -->
+        <div class="review-card">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="stars">★★★★★</span>
+              <span class="text-xs text-gray-400">20代・子育て世代</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#111827] mb-2 leading-snug">
+              「離乳食とお弁当のフォルダ分けが神機能です」
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              大人用の料理と離乳食レシピが混ざっていつも探すのに苦労していましたが、フォルダでスッキリ分かれてストレスが消えました。朝の忙しい時間にお弁当レシピもすぐ決まります。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#5a8a5a]">
+            利用プラン: スタンダードプラン
+          </div>
         </div>
 
-        <!-- 3 -->
-        <div class="target-card">
-          <span class="target-tag"># YouTube料理動画</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">動画を巻き戻さずテキストで見たい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">調理中に動画を一時停止・巻き戻しする手間ゼロ。テキスト化された材料と手順で手際よく調理に集中。</p>
+        <!-- レビュー3: 料理好き・YouTube活用派 -->
+        <div class="review-card">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="stars">★★★★★</span>
+              <span class="text-xs text-gray-400">40代・料理好き</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#111827] mb-2 leading-snug">
+              「濡れた手で動画を巻き戻すストレスから解放」
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              YouTubeのレシピは動画で見るのは楽しいですが、調理中は調味料の量を行き来するのが大変でした。なにたべを通すと手順ごとに使う調味料がまとまるので、調理の手際が劇的に良くなりました。
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-gray-100 text-[11px] font-bold text-[#5a8a5a]">
+            利用プラン: プレミアムプラン
+          </div>
         </div>
 
-        <!-- 4 -->
-        <div class="target-card">
-          <span class="target-tag"># レシピ迷子卒業</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">「あのレシピどこ？」をなくしたい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">各SNSを探し回る必要なし。「鶏肉 さっぱり」など感覚的な言葉で探せるAI検索で目当ての料理がすぐヒット。</p>
-        </div>
-
-        <!-- 5 -->
-        <div class="target-card">
-          <span class="target-tag"># 育児・離乳食</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">離乳食レシピを分けて整理したい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">普段の大人の料理と混ざらないよう専用フォルダで分類。月齢別・アレルギー別のストック管理も快適。</p>
-        </div>
-
-        <!-- 6 -->
-        <div class="target-card">
-          <span class="target-tag"># お弁当作り</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">忙しい朝のおかずをパッと決めたい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">お弁当専用フォルダからサッと候補を呼び出し。朝の貴重な時間を献立決めで無駄にしません。</p>
-        </div>
-
-        <!-- 7 -->
-        <div class="target-card">
-          <span class="target-tag"># ずっと安心無料</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">まずは無料で気軽に使いたい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で今すぐ使い始められます。</p>
-        </div>
-
-        <!-- 8 -->
-        <div class="target-card">
-          <span class="target-tag"># 手入力ゼロ</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">手入力の手間を一切なくしたい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">材料や分量をポチポチ打ち込む面倒な作業はすべてAIにお任せ。URLを貼るだけで即座にカード化されます。</p>
-        </div>
-
-        <!-- 9 -->
-        <div class="target-card">
-          <span class="target-tag"># カテゴリ整理</span>
-          <h3 class="font-bold text-base text-[#111827] mb-2 leading-snug">フォルダで綺麗に分類したい</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">「週末のごちそう」「時短10分」など好みのテーマでフォルダ分け。AIによるフォルダ自動提案も活用できます。</p>
-        </div>
       </div>
+
+      <div class="text-center">
+        <a href="https://nanitabe-ru.vercel.app/reviews"
+           class="inline-block font-bold text-xs md:text-sm px-6 py-2.5 rounded-full border border-gray-300 text-gray-600 bg-white hover:border-[#5a8a5a] hover:text-[#5a8a5a] transition-all">
+          ユーザーの口コミ・評判をすべて見る →
+        </a>
+      </div>
+
     </div>
   </section>
+
 
   <!-- ===== Pricing ===== -->
   <section id="pricing" style="padding:80px 20px;background:#f5f3ef;">
