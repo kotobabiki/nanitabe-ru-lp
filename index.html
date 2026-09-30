@@ -937,17 +937,16 @@
       </div>
 
       <div class="demo-wrapper" id="demo-wrapper-box" style="background:#ffffff;border:1px solid #e2ded9;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,0.05);overflow:hidden;">
-        <!-- 見本切り替えバー -->
-        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 20px;display:flex;gap:10px;align-items:center;">
-          <span class="text-xs font-bold text-gray-500 mr-1 hidden sm:inline">レシピ見本:</span>
-          <button id="preset-btn-0" class="demo-preset-btn active" onclick="selectDemoPreset(0)">
-            <span>🍗</span> 至高のチキン南蛮（YouTube動画の例）
+        <!-- 見本切り替えバー（中央寄せ・ラベル撤廃で潰れゼロ） -->
+        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 16px;display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap;">
+          <button id="preset-btn-0" class="demo-preset-btn active whitespace-nowrap" onclick="selectDemoPreset(0)">
+            <span>🍗</span> 至高のチキン南蛮（YouTube）
           </button>
-          <button id="preset-btn-1" class="demo-preset-btn" onclick="selectDemoPreset(1)">
-            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagramの例）
+          <button id="preset-btn-1" class="demo-preset-btn whitespace-nowrap" onclick="selectDemoPreset(1)">
+            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagram）
           </button>
-          <button id="preset-btn-2" class="demo-preset-btn" onclick="selectDemoPreset(2)">
-            <span>🍝</span> 濃厚ワンパンパスタ（Xの例）
+          <button id="preset-btn-2" class="demo-preset-btn whitespace-nowrap" onclick="selectDemoPreset(2)">
+            <span>🍝</span> 濃厚ワンパンパスタ（X）
           </button>
         </div>
 
@@ -960,7 +959,7 @@
               <span class="text-xs text-gray-500 font-medium" id="demo-time-badge">⏱ 約15分</span>
               <span class="text-xs text-gray-500 font-medium" id="demo-kcal-badge">🔥 約520kcal</span>
             </div>
-            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-2 leading-snug">
+            <h3 id="demo-recipe-title" class="font-black text-base md:text-lg text-[#111827] mb-2 leading-normal">
               料理研究家が教える 至高のチキン南蛮
             </h3>
             <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-4 leading-relaxed">
@@ -1881,7 +1880,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         platform: "Instagram",
         platformBadgeClass: "bg-pink-100 text-pink-700",
         url: "https://www.instagram.com/reel/C8xyz123_butabara_hakusai",
-        title: "フライパン一つで放置！豚バラと白菜の重ね蒸し",
+        title: "豚バラと白菜の重ね蒸し（放置で簡単）",
         desc: "水なしで野菜の旨味を凝縮。疲れた日の夜に10分で作れるヘルシー絶品おかず。",
         time: "⏱ 約10分",
         kcal: "🔥 約380kcal",
