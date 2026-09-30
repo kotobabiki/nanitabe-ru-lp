@@ -923,35 +923,35 @@
   </section>
 
   
-      <!-- ===== レシピ画面の表示見本（誠実なプレビュー） ===== -->
+        <!-- ===== レシピ画面の表示見本（シンプルで美しい本物の見本） ===== -->
   <section id="demo" class="section-pro" style="background:#f7f5f0;border-bottom:1px solid #eae7e2;">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-4xl mx-auto">
       <div class="text-center mb-10">
         <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
           URLを貼ると、こんな画面にまとまります
         </h2>
-        <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed">
-          YouTube・Instagram・Xの動画レシピを保存したときの、実際のレシピ画面見本です。<br class="hidden sm:inline" />
-          動画を巻き戻さなくても、必要な材料や手順が手元でパッと分かります。
+        <p class="text-xs md:text-sm text-gray-600 max-w-lg mx-auto leading-relaxed">
+          YouTube・Instagram・Xの動画レシピを保存したときの、実際の表示見本です。<br class="hidden sm:inline" />
+          動画を巻き戻さなくても、材料と手順が手元でパッと分かります。
         </p>
       </div>
 
       <div class="demo-wrapper" id="demo-wrapper-box" style="background:#ffffff;border:1px solid #e2ded9;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,0.05);overflow:hidden;">
-        <!-- 見本切り替えバー（中央寄せ・ラベル撤廃で潰れゼロ） -->
-        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 16px;display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap;">
+        <!-- シンプルな料理名タブ（中央寄せ） -->
+        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 16px;display:flex;justify-content:center;gap:10px;align-items:center;flex-wrap:wrap;">
           <button id="preset-btn-0" class="demo-preset-btn active whitespace-nowrap" onclick="selectDemoPreset(0)">
-            <span>🍗</span> 至高のチキン南蛮（YouTube）
+            <span>🍗</span> 至高のチキン南蛮
           </button>
           <button id="preset-btn-1" class="demo-preset-btn whitespace-nowrap" onclick="selectDemoPreset(1)">
-            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagram）
+            <span>🥓</span> 豚バラ白菜の重ね蒸し
           </button>
           <button id="preset-btn-2" class="demo-preset-btn whitespace-nowrap" onclick="selectDemoPreset(2)">
-            <span>🍝</span> 濃厚ワンパンパスタ（X）
+            <span>🍝</span> 濃厚ワンパンパスタ
           </button>
         </div>
 
         <!-- レシピカード見本本体 -->
-        <div class="demo-recipe-body" id="demo-recipe-content" style="padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+        <div class="demo-recipe-body" id="demo-recipe-content" style="padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <!-- 左側：基本情報 ＆ 材料リスト -->
           <div>
             <div class="flex items-center gap-2 mb-2">
@@ -959,28 +959,28 @@
               <span class="text-xs text-gray-500 font-medium" id="demo-time-badge">⏱ 約15分</span>
               <span class="text-xs text-gray-500 font-medium" id="demo-kcal-badge">🔥 約520kcal</span>
             </div>
-            <h3 id="demo-recipe-title" class="font-black text-base md:text-lg text-[#111827] mb-2 leading-normal">
+            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-2 leading-snug">
               料理研究家が教える 至高のチキン南蛮
             </h3>
             <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-4 leading-relaxed">
               揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
             </p>
 
-            <!-- 元レシピ動画への敬意を込めたリンクボタン -->
+            <!-- 元レシピ動画へのリンク -->
             <div class="mb-5">
               <a id="demo-original-link" href="https://www.youtube.com/watch?v=sample_chicken_nanban" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 px-3.5 py-1.5 rounded-lg border border-gray-200 transition-colors">
+                 class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-lg border border-gray-200 transition-colors">
                 <i data-lucide="external-link" style="width:13px;height:13px;color:#5a8a5a;"></i>
-                <span id="demo-link-text">元の動画をYouTubeで見る ↗</span>
+                <span id="demo-link-text">元の動画を見る ↗</span>
               </a>
             </div>
 
-            <!-- 材料リスト（買い物チェック機能） -->
-            <div class="bg-[#faf9f7] rounded-2xl border border-gray-200 p-4">
+            <!-- 材料リスト -->
+            <div class="bg-[#faf9f7] rounded-2xl border border-gray-200/90 p-4">
               <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-200/80">
                 <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
                   <i data-lucide="shopping-cart" style="width:14px;height:14px;color:#5a8a5a;"></i>
-                  材料・分量（タップで買い物チェック）
+                  材料・分量
                 </span>
                 <span class="text-[11px] text-gray-400">2人前</span>
               </div>
@@ -990,41 +990,21 @@
             </div>
           </div>
 
-          <!-- 右側：調理手順ステップ ＆ 下部アクション -->
-          <div class="flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
-                  <i data-lucide="chef-hat" style="width:14px;height:14px;color:#5a8a5a;"></i>
-                  迷わない調理ステップ
-                </span>
-                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">画面消灯防止 ON</span>
-              </div>
-              <div id="demo-steps-list">
-                <!-- JSで動的生成 -->
-              </div>
+          <!-- 右側：調理手順ステップ -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
+                <i data-lucide="chef-hat" style="width:14px;height:14px;color:#5a8a5a;"></i>
+                調理ステップ
+              </span>
+              <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">画面消灯防止 ON</span>
             </div>
-
-            <!-- アプリ下部アクションバー風 -->
-            <div class="pt-4 mt-4 border-t border-gray-100 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
-              <div class="text-[11px] text-gray-500 flex items-center gap-1.5 whitespace-nowrap">
-                <i data-lucide="info" style="width:14px;height:14px;color:#5a8a5a;flex-shrink:0;"></i>
-                <span>タップで買い物チェック</span>
-              </div>
-              <a href="https://nanitabe-ru.vercel.app/login" class="inline-flex items-center gap-1.5 text-xs font-bold text-white px-5 py-2.5 rounded-full shadow-sm hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0" style="background:#5a8a5a;">
-                <span>アプリで保存してみる</span>
-                <i data-lucide="arrow-right" style="width:13px;height:13px;"></i>
-              </a>
+            <div id="demo-steps-list">
+              <!-- JSで動的生成 -->
             </div>
           </div>
         </div>
 
-        <!-- 見本説明フッター -->
-        <div class="bg-[#f7f5f0] px-6 py-3.5 border-t border-[#edebe8] text-center text-xs text-gray-600 leading-relaxed">
-          💡 <span class="font-bold text-gray-800">安心の表示見本：</span>
-          <span class="inline-block">実際のアプリでは、あなたがお好きなSNSのレシピURLを貼るだけで</span>
-          <span class="inline-block">この整理された画面が自動生成されます。</span>
-        </div>
       </div>
     </div>
   </section>
@@ -1940,7 +1920,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       const linkText = document.getElementById('demo-link-text');
       if (origLink && linkText) {
         origLink.href = p.url;
-        linkText.textContent = `元の動画を${p.platform}で見る ↗`;
+        linkText.textContent = `元の動画を見る ↗`;
       }
 
       const pBadge = document.getElementById('demo-platform-badge');
