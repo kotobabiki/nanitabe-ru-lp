@@ -772,6 +772,84 @@
       font-size: 12.5px !important;
     }
 
+  
+    /* 本物のスマホアプリ実機シミュレーター */
+    .phone-mockup-wrapper {
+      position: relative;
+      width: 320px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .phone-mockup-wrapper {
+        width: 360px;
+      }
+    }
+    .phone-outer-frame {
+      background: #1c1c1e;
+      border-radius: 52px;
+      padding: 10px;
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 2.5px #3a3a3c;
+      position: relative;
+    }
+    /* ダイナミックアイランド */
+    .phone-notch {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 24px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 40;
+    }
+    .phone-inner-screen {
+      background: #f5f3ef;
+      border-radius: 42px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 580px;
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.2) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+    .phone-inner-screen::-webkit-scrollbar {
+      width: 4px;
+    }
+    .phone-inner-screen::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    /* ステータスバー */
+    .phone-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 35;
+      background: #5a8a5a;
+    }
+    /* ガイド吹き出し */
+    .phone-guide-badge {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0,0,0,0.04);
+      border: 1px solid #e8e4df;
+      border-radius: 16px;
+      padding: 10px 14px;
+      z-index: 30;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -923,22 +1001,20 @@
   </section>
 
   
-        <!-- ===== レシピ画面の表示見本（シンプルで美しい本物の見本） ===== -->
+          <!-- ===== スマホ実機で体験する本物のアプリ画面 ===== -->
   <section id="demo" class="section-pro" style="background:#f7f5f0;border-bottom:1px solid #eae7e2;">
     <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-10">
+      <div class="text-center mb-8">
         <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
           URLを貼ると、こんな画面にまとまります
         </h2>
         <p class="text-xs md:text-sm text-gray-600 max-w-lg mx-auto leading-relaxed">
-          YouTube・Instagram・Xの動画レシピを保存したときの、実際の表示見本です。<br class="hidden sm:inline" />
-          動画を巻き戻さなくても、材料と手順が手元でパッと分かります。
+          YouTube・Instagram・Xの動画レシピを保存したときの、実際のスマホ表示です。<br class="hidden sm:inline" />
+          料理名をタップして、スクロールしながら本物のアプリ操作をお試しください。
         </p>
-      </div>
 
-      <div class="demo-wrapper" id="demo-wrapper-box" style="background:#ffffff;border:1px solid #e2ded9;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,0.05);overflow:hidden;">
-        <!-- シンプルな料理名タブ（中央寄せ） -->
-        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 16px;display:flex;justify-content:center;gap:10px;align-items:center;flex-wrap:wrap;">
+        <!-- 料理名切り替えタブ -->
+        <div class="flex justify-center gap-2 mt-6 flex-wrap">
           <button id="preset-btn-0" class="demo-preset-btn active whitespace-nowrap" onclick="selectDemoPreset(0)">
             <span>🍗</span> 至高のチキン南蛮
           </button>
@@ -949,58 +1025,129 @@
             <span>🍝</span> 濃厚ワンパンパスタ
           </button>
         </div>
+      </div>
 
-        <!-- レシピカード見本本体 -->
-        <div class="demo-recipe-body" id="demo-recipe-content" style="padding:28px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
-          <!-- 左側：基本情報 ＆ 材料リスト -->
-          <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span id="demo-platform-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-700">YouTube</span>
-              <span class="text-xs text-gray-500 font-medium" id="demo-time-badge">⏱ 約15分</span>
-              <span class="text-xs text-gray-500 font-medium" id="demo-kcal-badge">🔥 約520kcal</span>
-            </div>
-            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-2 leading-snug">
-              料理研究家が教える 至高のチキン南蛮
-            </h3>
-            <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-4 leading-relaxed">
-              揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
-            </p>
-
-            <!-- 元レシピ動画へのリンク -->
-            <div class="mb-5">
-              <a id="demo-original-link" href="https://www.youtube.com/watch?v=sample_chicken_nanban" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 px-3 py-1.5 rounded-lg border border-gray-200 transition-colors">
-                <i data-lucide="external-link" style="width:13px;height:13px;color:#5a8a5a;"></i>
-                <span id="demo-link-text">元の動画を見る ↗</span>
-              </a>
-            </div>
-
-            <!-- 材料リスト -->
-            <div class="bg-[#faf9f7] rounded-2xl border border-gray-200/90 p-4">
-              <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-200/80">
-                <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
-                  <i data-lucide="shopping-cart" style="width:14px;height:14px;color:#5a8a5a;"></i>
-                  材料・分量
-                </span>
-                <span class="text-[11px] text-gray-400">2人前</span>
-              </div>
-              <div id="demo-ingredient-list">
-                <!-- JSで動的生成 -->
-              </div>
-            </div>
+      <!-- スマホ実機モックアップコンテナ -->
+      <div class="relative py-4">
+        
+        <!-- ガイド吹き出し左（PC表示時） -->
+        <div class="phone-guide-badge hidden lg:flex items-center gap-2.5 -left-12 top-24 w-52">
+          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0 font-bold text-xs">
+            ✓
           </div>
+          <div class="text-left">
+            <span class="text-[11px] font-bold text-gray-800 block">動画の巻き戻しゼロ</span>
+            <span class="text-[10px] text-gray-500">材料と分量が手元でパッと分かります</span>
+          </div>
+        </div>
 
-          <!-- 右側：調理手順ステップ -->
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
-                <i data-lucide="chef-hat" style="width:14px;height:14px;color:#5a8a5a;"></i>
-                調理ステップ
-              </span>
-              <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">画面消灯防止 ON</span>
-            </div>
-            <div id="demo-steps-list">
-              <!-- JSで動的生成 -->
+        <!-- ガイド吹き出し右（PC表示時） -->
+        <div class="phone-guide-badge hidden lg:flex items-center gap-2.5 -right-12 bottom-28 w-52">
+          <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0 font-bold text-xs">
+            💡
+          </div>
+          <div class="text-left">
+            <span class="text-[11px] font-bold text-gray-800 block">画面が真っ暗にならない</span>
+            <span class="text-[10px] text-gray-500">調理中も画面常時点灯で濡れた手でも安心</span>
+          </div>
+        </div>
+
+        <!-- iPhone実機モック本体 -->
+        <div class="phone-mockup-wrapper">
+          <div class="phone-outer-frame">
+            <!-- ダイナミックアイランド -->
+            <div class="phone-notch"></div>
+
+            <!-- スマホ画面内部（スクロール可能） -->
+            <div class="phone-inner-screen" id="phone-screen-scroll">
+              
+              <!-- ステータスバー -->
+              <div class="phone-status-bar">
+                <span>9:41</span>
+                <div class="flex items-center gap-1.5">
+                  <i data-lucide="wifi" style="width:12px;height:12px;"></i>
+                  <i data-lucide="battery" style="width:14px;height:14px;"></i>
+                </div>
+              </div>
+
+              <!-- アプリ内緑ヘッダー（本物のなにたべアプリ） -->
+              <div style="background:#5a8a5a;padding:12px 16px 18px;color:#fff;">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="inline-flex items-center gap-1 text-[11px] font-bold bg-white/20 px-2.5 py-1 rounded-full text-white">
+                    <i data-lucide="chevron-left" style="width:12px;height:12px;"></i> レシピ一覧
+                  </span>
+                  <a id="demo-original-link" href="https://www.youtube.com/watch?v=sample_chicken_nanban" target="_blank" rel="noopener noreferrer"
+                     class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-xs text-white transition-colors" title="元の動画を開く">
+                    <i data-lucide="external-link" style="width:13px;height:13px;"></i>
+                  </a>
+                </div>
+
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span id="demo-platform-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white">YouTube</span>
+                  <span id="demo-time-badge" class="text-[11px] text-white/90">⏱ 15分</span>
+                  <span id="demo-kcal-badge" class="text-[11px] text-white/90">🔥 520kcal</span>
+                </div>
+                <h3 id="demo-recipe-title" class="font-black text-base leading-snug mb-1 text-white">
+                  料理研究家が教える 至高のチキン南蛮
+                </h3>
+                <p id="demo-recipe-desc" class="text-[11px] text-white/80 leading-relaxed">
+                  揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
+                </p>
+              </div>
+
+              <!-- 本文（材料 ＆ 工程別手順） -->
+              <div style="padding:16px;">
+                
+                <!-- 今日作るピン留めバッジ（アプリ機能） -->
+                <div class="mb-4 bg-white rounded-xl p-3 border border-gray-200/80 shadow-sm flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-xs">✓</span>
+                    <span class="text-xs font-bold text-gray-800">今日作るリストに追加中</span>
+                  </div>
+                  <span class="text-[10px] font-bold text-[#5a8a5a] bg-emerald-50 px-2 py-0.5 rounded">調理モード</span>
+                </div>
+
+                <!-- 材料カード -->
+                <div class="bg-white rounded-2xl p-4 border border-gray-200/80 shadow-sm mb-4">
+                  <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-100">
+                    <span class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
+                      <i data-lucide="shopping-cart" style="width:13px;height:13px;color:#5a8a5a;"></i>
+                      材料・分量
+                    </span>
+                    <span class="text-[11px] text-gray-400 font-bold">2人前</span>
+                  </div>
+                  <div id="demo-ingredient-list" class="space-y-1.5">
+                    <!-- JSで動的生成 -->
+                  </div>
+                </div>
+
+                <!-- 手順ステップ（工程別材料つき） -->
+                <div class="space-y-3">
+                  <div class="flex items-center justify-between px-1">
+                    <span class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
+                      <i data-lucide="chef-hat" style="width:13px;height:13px;color:#5a8a5a;"></i>
+                      迷わない手順ステップ
+                    </span>
+                    <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">常時点灯 ON</span>
+                  </div>
+                  
+                  <div id="demo-steps-list" class="space-y-2.5">
+                    <!-- JSで動的生成 -->
+                  </div>
+                </div>
+
+                <!-- 最下部：AIに相談ボタン（アプリ機能） -->
+                <div class="mt-6 pt-4 border-t border-gray-200/80 text-center">
+                  <span class="text-[11px] font-bold text-gray-400 block mb-2">普段お使いのAIにそのまま相談</span>
+                  <div class="flex justify-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-[11px] font-bold text-gray-700">ChatGPT</span>
+                    <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-[11px] font-bold text-gray-700">Claude</span>
+                    <span class="px-3 py-1 rounded-full bg-white border border-gray-200 text-[11px] font-bold text-gray-700">Perplexity</span>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
           </div>
         </div>
@@ -1833,11 +1980,11 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
     <script>lucide.createIcons();</script>
 
   <script>
-    // ─── 1. インタラクティブ・レシピデモ用データ ───
+    
+    // ─── 1. 本物のスマホアプリ実機シミュレーター データ ───
     const demoPresets = [
       {
         platform: "YouTube",
-        platformBadgeClass: "bg-red-100 text-red-700",
         url: "https://www.youtube.com/watch?v=sample_chicken_nanban",
         title: "料理研究家が教える 至高のチキン南蛮",
         desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。",
@@ -1851,14 +1998,22 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
           { name: "塩コショウ", amount: "少々" }
         ],
         steps: [
-          "鶏肉の厚みを均等にし、フォークで刺して塩コショウを振る。",
-          "小麦粉と溶き卵にくぐらせ、フライパンで揚げ焼きにする。",
-          "熱いうちに甘酢ダレにくぐらせ、特製タルタルをたっぷりかける。"
+          {
+            text: "鶏肉の厚みを均等にし、フォークで刺して塩コショウを振る。",
+            ing: "鶏もも肉 300g、塩コショウ 少々"
+          },
+          {
+            text: "小麦粉と溶き卵にくぐらせ、フライパンで揚げ焼きにする。",
+            ing: "小麦粉 大さじ2、卵 1個"
+          },
+          {
+            text: "熱いうちに甘酢ダレにくぐらせ、特製タルタルをたっぷりかける。",
+            ing: "特製ポン酢甘酢ダレ、ゆで卵、マヨネーズ"
+          }
         ]
       },
       {
         platform: "Instagram",
-        platformBadgeClass: "bg-pink-100 text-pink-700",
         url: "https://www.instagram.com/reel/C8xyz123_butabara_hakusai",
         title: "豚バラと白菜の重ね蒸し（放置で簡単）",
         desc: "水なしで野菜の旨味を凝縮。疲れた日の夜に10分で作れるヘルシー絶品おかず。",
@@ -1872,14 +2027,22 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
           { name: "ポン酢・小ねぎ", amount: "お好みで適量" }
         ],
         steps: [
-          "白菜と豚肉を交互に重ね、5cm幅にザク切りにする。",
-          "フライパンのフチから中心に向かってギッシリ敷き詰める。",
-          "酒とごま油を回し入れ、フタをして中火で8分蒸し焼きにしたら完成。"
+          {
+            text: "白菜と豚肉を交互に重ね、5cm幅にザク切りにする。",
+            ing: "豚バラ肉 200g、白菜 1/4個"
+          },
+          {
+            text: "フライパンのフチから中心に向かってギッシリ敷き詰める。",
+            ing: "切り分けた豚肉と白菜"
+          },
+          {
+            text: "酒とごま油を回し入れ、フタをして中火で8分蒸し焼きにしたら完成。",
+            ing: "料理酒 大さじ2、ごま油 大さじ1、ポン酢"
+          }
         ]
       },
       {
         platform: "X (Twitter)",
-        platformBadgeClass: "bg-gray-100 text-gray-800",
         url: "https://x.com/recipe_creator/status/183920192837",
         title: "別茹で不要！濃厚ワンパン・カルボナーラ",
         desc: "フライパン一つでパスタもソースも完成。失敗知らずで洗い物も最小限。",
@@ -1888,16 +2051,23 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         ingredients: [
           { name: "パスタ（1.6mm）", amount: "100g" },
           { name: "ベーコン", amount: "40g" },
-          { name: "水", amount: "280ml" },
-          { name: "コンソメ", amount: "小さじ1/2" },
-          { name: "卵", amount: "1個" },
-          { name: "粉チーズ", amount: "大さじ2" },
-          { name: "粗挽き黒胡椒", amount: "適量" }
+          { name: "水・コンソメ", amount: "280ml / 小さじ1/2" },
+          { name: "卵・粉チーズ", amount: "1個 / 大さじ2" },
+          { name: "黒胡椒", amount: "適量" }
         ],
         steps: [
-          "フライパンでベーコンを炒め、水とコンソメを加えて沸騰させる。",
-          "パスタを半分に折って入れ、水分を吸わせながら規定時間煮詰める。",
-          "火を止めて卵と粉チーズを混ぜた液を一気に絡め、黒胡椒を振る。"
+          {
+            text: "フライパンでベーコンを炒め、水とコンソメを加えて沸騰させる。",
+            ing: "ベーコン 40g、水 280ml、コンソメ 小さじ1/2"
+          },
+          {
+            text: "パスタを半分に折って入れ、水分を吸わせながら規定時間煮詰める。",
+            ing: "パスタ 100g"
+          },
+          {
+            text: "火を止めて卵と粉チーズを混ぜた液を一気に絡め、黒胡椒を振る。",
+            ing: "卵 1個、粉チーズ 大さじ2、黒胡椒"
+          }
         ]
       }
     ];
@@ -1909,54 +2079,54 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       }
 
       const p = demoPresets[idx];
-      const urlDisp = document.getElementById('demo-url-display');
-      if (urlDisp) urlDisp.textContent = p.url;
       document.getElementById('demo-recipe-title').textContent = p.title;
       document.getElementById('demo-recipe-desc').textContent = p.desc;
       document.getElementById('demo-time-badge').textContent = p.time;
       document.getElementById('demo-kcal-badge').textContent = p.kcal;
 
       const origLink = document.getElementById('demo-original-link');
-      const linkText = document.getElementById('demo-link-text');
-      if (origLink && linkText) {
-        origLink.href = p.url;
-        linkText.textContent = `元の動画を見る ↗`;
-      }
+      if (origLink) origLink.href = p.url;
 
       const pBadge = document.getElementById('demo-platform-badge');
-      pBadge.textContent = p.platform;
-      pBadge.className = "px-2.5 py-0.5 rounded text-[11px] font-bold " + p.platformBadgeClass;
+      if (pBadge) pBadge.textContent = p.platform;
 
-      // 材料リスト描画
+      // 材料リスト
       const ingList = document.getElementById('demo-ingredient-list');
-      ingList.innerHTML = p.ingredients.map((ing, i) => `
-        <label class="ingredient-check-item" onclick="toggleIngCheck(this, event)">
-          <div class="flex items-center gap-2">
-            <input type="checkbox" onchange="this.parentElement.parentElement.classList.toggle('checked', this.checked)">
-            <span class="text-xs font-bold text-gray-800">${ing.name}</span>
+      if (ingList) {
+        ingList.innerHTML = p.ingredients.map(ing => `
+          <div class="flex items-center justify-between py-1 px-2 rounded-lg bg-gray-50 border border-gray-100 text-xs">
+            <span class="font-bold text-gray-800">${ing.name}</span>
+            <span class="text-gray-500 font-mono text-[11px]">${ing.amount}</span>
           </div>
-          <span class="text-xs text-gray-500 font-mono">${ing.amount}</span>
-        </label>
-      `).join('');
+        `).join('');
+      }
 
-      // 手順リスト描画
+      // 工程別ステップ（工程で使う調味料つき）
       const stepList = document.getElementById('demo-steps-list');
-      stepList.innerHTML = p.steps.map((st, i) => `
-        <div class="step-list-item">
-          <span class="step-num-badge">${i + 1}</span>
-          <div>${st}</div>
-        </div>
-      `).join('');
+      if (stepList) {
+        stepList.innerHTML = p.steps.map((st, i) => `
+          <div class="bg-white rounded-xl p-3 border border-gray-200/80 shadow-sm text-xs leading-relaxed">
+            <div class="flex items-center gap-1.5 font-black text-[#5a8a5a] mb-1">
+              <span class="w-4 h-4 rounded-full bg-[#5a8a5a] text-white flex items-center justify-center text-[10px]">${i + 1}</span>
+              <span>工程 ${i + 1}</span>
+            </div>
+            <p class="text-gray-800 mb-2 font-medium">${st.text}</p>
+            <div class="p-1.5 rounded-lg bg-amber-50/70 border border-amber-200/60 text-[10px] text-amber-900 font-medium">
+              <span class="font-bold text-amber-800">使う材料：</span> ${st.ing}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // スマホ画面を上部にスッとスクロール
+      const scroller = document.getElementById('phone-screen-scroll');
+      if (scroller) {
+        scroller.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
       lucide.createIcons();
     }
 
-    function toggleIngCheck(el, ev) {
-      if (ev.target.tagName !== 'INPUT') {
-        const chk = el.querySelector('input');
-        chk.checked = !chk.checked;
-        el.classList.toggle('checked', chk.checked);
-      }
     }
 
     // 初期実行（最初のプリセットを表示）
