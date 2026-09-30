@@ -864,7 +864,7 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="bg-bg fadein" style="padding:64px 20px 72px;">
+  <section class="fadein" style="padding:72px 20px 80px;background:#ffffff;border-bottom:1px solid #e8e4df;">
     <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
       <!-- テキスト -->
       <div class="flex-1 text-center md:text-left">
@@ -923,66 +923,63 @@
   </section>
 
   
-    <!-- ===== インタラクティブ・デモ体験（本物の手触り感を体感） ===== -->
-  <section id="demo" class="section-pro" style="background:#f5f3ef;border-top:1px solid #eae7e2;border-bottom:1px solid #eae7e2;">
+      <!-- ===== レシピ画面の表示見本（誠実なプレビュー） ===== -->
+  <section id="demo" class="section-pro" style="background:#f7f5f0;border-bottom:1px solid #eae7e2;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-10">
-
         <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
-          URLを貼ると、こんな画面が一瞬で生まれます
+          URLを貼ると、こんな画面にまとまります
         </h2>
         <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed">
-          YouTube・Instagram・Xなどの動画レシピをAIが瞬時に構造化。<br class="hidden sm:inline" />
-          材料のチェック機能や手順の整理など、実際の操作感を下でお試しください。
+          YouTube・Instagram・Xの動画レシピを保存したときの、実際のレシピ画面見本です。<br class="hidden sm:inline" />
+          動画を巻き戻さなくても、必要な材料や手順が手元でパッと分かります。
         </p>
       </div>
 
-      <div class="demo-wrapper">
-        <!-- プリセット切り替えバー -->
-        <div class="demo-nav-bar">
-          <span class="text-xs font-bold text-gray-400 self-center mr-2 hidden sm:inline">人気動画で体験:</span>
+      <div class="demo-wrapper" id="demo-wrapper-box" style="background:#ffffff;border:1px solid #e2ded9;border-radius:24px;box-shadow:0 8px 30px rgba(0,0,0,0.05);overflow:hidden;">
+        <!-- 見本切り替えバー -->
+        <div class="demo-nav-bar" style="background:#fdfcfb;border-bottom:1px solid #edebe8;padding:14px 20px;display:flex;gap:10px;align-items:center;">
+          <span class="text-xs font-bold text-gray-500 mr-1 hidden sm:inline">レシピ見本:</span>
           <button id="preset-btn-0" class="demo-preset-btn active" onclick="selectDemoPreset(0)">
-            <span>🍗</span> 至高のチキン南蛮（YouTube）
+            <span>🍗</span> 至高のチキン南蛮（YouTube動画の例）
           </button>
           <button id="preset-btn-1" class="demo-preset-btn" onclick="selectDemoPreset(1)">
-            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagram）
+            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagramの例）
           </button>
           <button id="preset-btn-2" class="demo-preset-btn" onclick="selectDemoPreset(2)">
-            <span>🍝</span> 濃厚ワンパンパスタ（X）
+            <span>🍝</span> 濃厚ワンパンパスタ（Xの例）
           </button>
         </div>
 
-        <!-- URLバー＆ステータス -->
-        <div class="demo-url-header">
-          <div class="demo-url-box">
-            <i data-lucide="link" style="width:14px;height:14px;color:#5a8a5a;flex-shrink:0;"></i>
-            <span id="demo-url-display">https://www.youtube.com/watch?v=sample_chicken_nanban</span>
-          </div>
-          <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
-            <i data-lucide="check-circle" style="width:13px;height:13px;"></i>
-            <span>AI解析完了 (0.8秒)</span>
-          </div>
-        </div>
-
-        <!-- レシピ詳細プレビュー本体 -->
-        <div class="demo-recipe-body" id="demo-recipe-content">
-          <!-- 左側：基本情報 ＆ 材料チェックリスト -->
+        <!-- レシピカード見本本体 -->
+        <div class="demo-recipe-body" id="demo-recipe-content" style="padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:28px;">
+          <!-- 左側：基本情報 ＆ 材料リスト -->
           <div>
             <div class="flex items-center gap-2 mb-2">
               <span id="demo-platform-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-700">YouTube</span>
               <span class="text-xs text-gray-500 font-medium" id="demo-time-badge">⏱ 約15分</span>
               <span class="text-xs text-gray-500 font-medium" id="demo-kcal-badge">🔥 約520kcal</span>
             </div>
-            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-3 leading-snug">
+            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-2 leading-snug">
               料理研究家が教える 至高のチキン南蛮
             </h3>
-            <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-5 leading-relaxed">
-              揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレが絶品の黄金比レシピ。
+            <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-4 leading-relaxed">
+              揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
             </p>
 
-            <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm">
-              <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-100">
-                <span class="font-black text-xs text-gray-800 flex items-center gap-1.5">
+            <!-- 元レシピ動画への敬意を込めたリンクボタン -->
+            <div class="mb-5">
+              <a id="demo-original-link" href="https://www.youtube.com/watch?v=sample_chicken_nanban" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-1.5 text-xs font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 px-3.5 py-1.5 rounded-lg border border-gray-200 transition-colors">
+                <i data-lucide="external-link" style="width:13px;height:13px;color:#5a8a5a;"></i>
+                <span id="demo-link-text">元の動画をYouTubeで見る ↗</span>
+              </a>
+            </div>
+
+            <!-- 材料リスト（買い物チェック機能） -->
+            <div class="bg-[#faf9f7] rounded-2xl border border-gray-200 p-4">
+              <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-200/80">
+                <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
                   <i data-lucide="shopping-cart" style="width:14px;height:14px;color:#5a8a5a;"></i>
                   材料・分量（タップで買い物チェック）
                 </span>
@@ -994,15 +991,15 @@
             </div>
           </div>
 
-          <!-- 右側：調理手順ステップ ＆ アクション -->
+          <!-- 右側：調理手順ステップ ＆ 下部アクション -->
           <div class="flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-3">
-                <span class="font-black text-xs text-gray-800 flex items-center gap-1.5">
+                <span class="font-bold text-xs text-gray-800 flex items-center gap-1.5">
                   <i data-lucide="chef-hat" style="width:14px;height:14px;color:#5a8a5a;"></i>
                   迷わない調理ステップ
                 </span>
-                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">画面消灯防止 ON</span>
+                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">画面消灯防止 ON</span>
               </div>
               <div id="demo-steps-list">
                 <!-- JSで動的生成 -->
@@ -1023,12 +1020,11 @@
           </div>
         </div>
 
-        <!-- デモ説明フッター -->
-        <div class="bg-[#faf8f5] px-6 py-3.5 border-t border-[#edebe8] text-center text-xs text-gray-600 leading-relaxed">
-          💡 <span class="font-bold text-gray-800">安心の体験デモ：</span>
-          <span class="inline-block">実際のアプリでは、保存したいレシピURLを貼るだけで</span>
+        <!-- 見本説明フッター -->
+        <div class="bg-[#f7f5f0] px-6 py-3.5 border-t border-[#edebe8] text-center text-xs text-gray-600 leading-relaxed">
+          💡 <span class="font-bold text-gray-800">安心の表示見本：</span>
+          <span class="inline-block">実際のアプリでは、あなたがお好きなSNSのレシピURLを貼るだけで</span>
           <span class="inline-block">この整理された画面が自動生成されます。</span>
-          <span class="inline-block font-medium text-emerald-800">（クレジット消費の心配なく何度でもお試しいただけます）</span>
         </div>
       </div>
     </div>
@@ -1243,205 +1239,142 @@
     </div>
   </section>
 
-  <!-- ===== Features: 3つのステップで広がる快適な料理体験 (Bento Grid) ===== -->
-  <section id="features" class="section-pro" style="background:#ffffff;border-top:1px solid #eae7e2;">
+    <!-- ===== Features: 料理が変わる3つのステップ ===== -->
+  <section id="features" class="section-pro" style="background:#ffffff;border-top:1px solid #eae7e2;border-bottom:1px solid #eae7e2;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-
         <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
-          3つのステップで広がる、快適な料理体験
+          保存から調理まで、料理を変える3つのステップ
         </h2>
         <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
-          手入力ゼロの保存から、迷わない調理、そして日々のレパートリーの充実へ。<br class="hidden sm:inline" />
-          料理に関わるあらゆるストレスを解消する機能が揃っています。
+          手入力ゼロの保存、迷わない買い出し、そして画面が消えない快適な調理へ。<br class="hidden sm:inline" />
+          散らばっていた料理のストレスを、1つのシンプルな流れに集約します。
         </p>
       </div>
 
-      <!-- STEP 01: 保存する -->
-      <div class="mb-14">
-        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
-          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">ステップ 1</span>
-          <h3 class="font-black text-xl text-[#111827]">手入力ゼロでスマートに保存する</h3>
-        </div>
-
-        <div class="bento-grid">
-          <!-- メイン（大・8カラム）: URLコピペで即保存 ＆ 主要SNS対応 -->
-          <div class="bento-card col-span-12 md:col-span-8 flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon green">
-                  <i data-lucide="link" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag primary">全プラン対応</span>
-                  <h4 class="font-black text-lg text-[#111827] mt-1">URLコピペで即保存・自動抽出</h4>
-                </div>
-              </div>
-              <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
-                Instagram、YouTube、X、TikTok、クックパッドなどのレシピURLを貼るだけ。AIがレシピ名・材料・分量・手順を自動で整理し、使いやすいカードを生成します。面倒な手入力は一切不要です。
-              </p>
+      <!-- 3大ステップ・ストーリーカード -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        
+        <!-- STEP 1: 保存 -->
+        <div class="bento-card flex flex-col justify-between" style="border-top:4px solid #5a8a5a;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 01</span>
+              <span class="text-xs text-gray-400 font-bold">手入力ゼロ</span>
             </div>
-            <!-- SNSアイコン連携バー -->
-            <div class="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
-              <span class="text-xs font-bold text-gray-400">対応サービス:</span>
-              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">Instagram</span>
-              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">YouTube</span>
-              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">X (Twitter)</span>
-              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">TikTok</span>
-              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">クックパッド / クラシル</span>
-            </div>
+            <h3 class="font-black text-lg text-gray-900 mb-3 leading-snug">
+              SNSのURLを貼るだけ。<br />材料・手順をAIが自動取得
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+              Instagram、YouTube、Xで見つけたレシピのURLをコピーして貼るだけ。タイトル・材料・分量・手順をAIが自動で整理します。面倒な手入力は一切不要です。
+            </p>
           </div>
-
-          <!-- サブ（中・4カラム）: AI自然言語検索 -->
-          <div class="bento-card col-span-12 md:col-span-4 flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon green">
-                  <i data-lucide="sparkles" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag primary">全プラン対応</span>
-                  <h4 class="font-black text-base text-[#111827] mt-1">AI自然言語検索</h4>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                「鶏肉 さっぱり」「疲れた日の簡単ごはん」など、普段の話し言葉で検索。曖昧な記憶からでもAIが目当てのレシピを素早く見つけ出します。
-              </p>
-            </div>
-            <div class="mt-4 p-3 rounded-xl bg-gray-50 border border-gray-200/80 text-xs text-gray-500 font-mono">
-              🔍「冷蔵庫に白菜と豚肉ある」
-            </div>
+          <!-- 対応サービスバッジ -->
+          <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-1.5">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-600 border border-gray-200">Instagram</span>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-600 border border-gray-200">YouTube</span>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-600 border border-gray-200">X</span>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-600 border border-gray-200">TikTok</span>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-gray-50 text-gray-600 border border-gray-200">クックパッド</span>
           </div>
         </div>
+
+        <!-- STEP 2: 準備・買い出し -->
+        <div class="bento-card flex flex-col justify-between" style="border-top:4px solid #5a8a5a;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 02</span>
+              <span class="text-xs text-gray-400 font-bold">動画の一時停止ゼロ</span>
+            </div>
+            <h3 class="font-black text-lg text-gray-900 mb-3 leading-snug">
+              動画を止めずに買い物。<br />材料と分量が一目でわかる
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+              「調味料なにが必要だっけ？」と動画を何度も巻き戻してメモを取る必要はありません。AIが抽出した材料・分量リストをスマホ片手にチェックしながら、サクッと買い出しできます。
+            </p>
+          </div>
+          <!-- 特長バッジ -->
+          <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-2">
+            <span class="text-[11px] font-bold text-[#5a8a5a] flex items-center gap-1">✓ 材料テキスト化</span>
+            <span class="text-[11px] font-bold text-[#5a8a5a] flex items-center gap-1">✓ ワンタップ買い物チェック</span>
+          </div>
+        </div>
+
+        <!-- STEP 3: 調理 -->
+        <div class="bento-card flex flex-col justify-between" style="border-top:4px solid #5a8a5a;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 03</span>
+              <span class="text-xs text-gray-400 font-bold">画面消灯・スクロールゼロ</span>
+            </div>
+            <h3 class="font-black text-lg text-gray-900 mb-3 leading-snug">
+              濡れた手で触らなくていい。<br />画面消灯防止 ＆ 工程別表示
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+              調理中にスマホがスリープして真っ暗になるストレスを防止。さらに「その工程で投入する調味料」だけが順番に表示されるので、濡れた手で画面をスクロールする回数をゼロにします。
+            </p>
+          </div>
+          <!-- 特長バッジ -->
+          <div class="pt-4 border-t border-gray-100 flex flex-wrap gap-2">
+            <span class="text-[11px] font-bold text-[#5a8a5a] flex items-center gap-1">✓ 画面常時点灯</span>
+            <span class="text-[11px] font-bold text-[#5a8a5a] flex items-center gap-1">✓ 工程ごとの材料自動表示</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- STEP 02: 調理する -->
-      <div class="mb-14">
-        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
-          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">ステップ 2</span>
-          <h3 class="font-black text-xl text-[#111827]">調理中の迷い・行き来をゼロにする</h3>
-        </div>
-
-        <div class="bento-grid">
-          <!-- サブ（中・4カラム）: 「今日作るリスト」 -->
-          <div class="bento-card col-span-12 md:col-span-4 flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon gold">
-                  <i data-lucide="calendar-check" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag">スタンダード以上</span>
-                  <h4 class="font-black text-base text-[#111827] mt-1">今日作るリスト</h4>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                その日に作るメニューだけをピン留め。夕方の忙しい時間も迷わずすぐ調理に入れます。作った履歴も自動で記録。
-              </p>
+      <!-- さらに料理を楽しくする便利な機能 -->
+      <div class="border-t border-gray-200/80 pt-12">
+        <h4 class="font-bold text-center text-sm md:text-base text-gray-800 mb-8">
+          日々の自炊をさらに快適にする機能
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          
+          <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/70">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mb-3">
+              <i data-lucide="search" style="width:16px;height:16px;"></i>
             </div>
-            <div class="mt-4 flex items-center gap-2 text-xs font-bold text-gray-700 bg-amber-50/70 p-2.5 rounded-xl border border-amber-200">
-              <i data-lucide="check" style="width:14px;height:14px;color:#c0892a;"></i>
-              <span>調理履歴：「計4回・5日前」</span>
-            </div>
+            <h5 class="font-bold text-xs text-gray-900 mb-1">AI自然言語検索</h5>
+            <p class="text-[11px] text-gray-500 leading-relaxed">
+              「鶏肉 さっぱり」「疲れた日の簡単ごはん」など感覚的な言葉で目当てのレシピを10秒検索。
+            </p>
           </div>
 
-          <!-- メイン（大・8カラム）: 画面消灯防止 ＆ 工程ごとの材料表示 -->
-          <div class="bento-card col-span-12 md:col-span-8 flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon green">
-                  <i data-lucide="smartphone" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag primary">全プラン対応</span>
-                  <h4 class="font-black text-lg text-[#111827] mt-1">画面消灯防止 ＆ 工程別材料ビュー</h4>
-                </div>
-              </div>
-              <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-4">
-                調理中にスマホの画面がスリープして真っ暗になるストレスを防止。さらに「この工程で投入する調味料」だけがステップ直下に表示されるため、濡れた手で画面をスクロールする回数が劇的に減ります。
-              </p>
+          <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/70">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mb-3">
+              <i data-lucide="calendar-check" style="width:16px;height:16px;"></i>
             </div>
-            <div class="grid grid-cols-2 gap-3 pt-3 border-t border-gray-100">
-              <div class="p-3 rounded-xl bg-gray-50 border border-gray-100">
-                <span class="font-bold text-xs text-gray-800 block mb-0.5">画面常時点灯</span>
-                <span class="text-[11px] text-gray-500">調理中の自動ロックを自動解除</span>
-              </div>
-              <div class="p-3 rounded-xl bg-gray-50 border border-gray-100">
-                <span class="font-bold text-xs text-gray-800 block mb-0.5">工程別材料</span>
-                <span class="text-[11px] text-gray-500">その工程で使う分量だけが展開</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- STEP 03: 続ける・楽しむ -->
-      <div>
-        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
-          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">ステップ 3</span>
-          <h3 class="font-black text-xl text-[#111827]">毎日の献立を続けやすく、豊かにする</h3>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <!-- 機能1: フォルダ自動整理 -->
-          <div class="bento-card flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon gold">
-                  <i data-lucide="folder-tree" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag">スタンダード以上</span>
-                  <h4 class="font-black text-base text-[#111827] mt-1">AIフォルダ自動振り分け</h4>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                「離乳食」「お弁当」「おつまみ」など、レシピ保存時にAIが最適なフォルダを自動提案。整理の手間がゼロになります。
-              </p>
-            </div>
+            <h5 class="font-bold text-xs text-gray-900 mb-1">今日作るリスト</h5>
+            <p class="text-[11px] text-gray-500 leading-relaxed">
+              その日に作るメニューだけをピン留め。夕方の忙しい時間も迷わずすぐ調理に入れます。
+            </p>
           </div>
 
-          <!-- 機能2: なにたべ広場 -->
-          <div class="bento-card flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon green">
-                  <i data-lucide="users" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag primary">全プラン対応</span>
-                  <h4 class="font-black text-base text-[#111827] mt-1">なにたべ広場</h4>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                他のユーザーが公開した人気レシピが集まるフィード。新しい定番料理との出会いや、いいね・保存がフリープランから楽しめます。
-              </p>
+          <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/70">
+            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center mb-3">
+              <i data-lucide="folder-tree" style="width:16px;height:16px;"></i>
             </div>
+            <h5 class="font-bold text-xs text-gray-900 mb-1">AIフォルダ自動振り分け</h5>
+            <p class="text-[11px] text-gray-500 leading-relaxed">
+              保存時にAIが「離乳食」「お弁当」「おつまみ」などのフォルダを自動分類。整理の手間ゼロ。
+            </p>
           </div>
 
-          <!-- 機能3: 食生活・食材傾向分析 -->
-          <div class="bento-card flex flex-col justify-between">
-            <div>
-              <div class="bento-card-header">
-                <div class="bento-icon gold">
-                  <i data-lucide="pie-chart" style="width:22px;height:22px;"></i>
-                </div>
-                <div>
-                  <span class="bento-tag">スタンダード以上</span>
-                  <h4 class="font-black text-base text-[#111827] mt-1">食生活・食材の傾向分析</h4>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 leading-relaxed">
-                よく使う食材（豚肉・卵・鶏肉など）やジャンルをグラフ化。偏りがちな毎日の献立バランスを客観的に見直せます。
-              </p>
+          <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/70">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mb-3">
+              <i data-lucide="pie-chart" style="width:16px;height:16px;"></i>
             </div>
+            <h5 class="font-bold text-xs text-gray-900 mb-1">食生活・食材の傾向分析</h5>
+            <p class="text-[11px] text-gray-500 leading-relaxed">
+              よく使う食材やジャンルを客観的に可視化。偏りがちな毎日の献立バランスを整えます。
+            </p>
           </div>
+
         </div>
       </div>
 
     </div>
   </section>
-
 
       <!-- ===== 安心して使える理由（透明性と信頼性） ===== -->
   <section style="padding:80px 20px;background:#f5f3ef;">
@@ -1997,11 +1930,19 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       }
 
       const p = demoPresets[idx];
-      document.getElementById('demo-url-display').textContent = p.url;
+      const urlDisp = document.getElementById('demo-url-display');
+      if (urlDisp) urlDisp.textContent = p.url;
       document.getElementById('demo-recipe-title').textContent = p.title;
       document.getElementById('demo-recipe-desc').textContent = p.desc;
       document.getElementById('demo-time-badge').textContent = p.time;
       document.getElementById('demo-kcal-badge').textContent = p.kcal;
+
+      const origLink = document.getElementById('demo-original-link');
+      const linkText = document.getElementById('demo-link-text');
+      if (origLink && linkText) {
+        origLink.href = p.url;
+        linkText.textContent = `元の動画を${p.platform}で見る ↗`;
+      }
 
       const pBadge = document.getElementById('demo-platform-badge');
       pBadge.textContent = p.platform;
