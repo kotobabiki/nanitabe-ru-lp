@@ -73,7 +73,7 @@
   <!-- Google Fonts: Noto Sans JP -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans JP', 'Segoe UI', sans-serif; }
@@ -672,6 +672,78 @@
     .bento-tag.primary {
       background: #eaf3ea;
       color: #436e43;
+    }
+
+  
+    /* ===== Awwwards Level Safe Polish (崩れゼロ保証) ===== */
+    
+    /* ハイエンドタイポグラフィ */
+    body {
+      font-family: "Plus Jakarta Sans", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: -0.015em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ボタンの上質なマイクロインタラクション */
+    a[style*="background:#5a8a5a"], button[style*="background:#5a8a5a"] {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      box-shadow: 0 4px 14px rgba(90, 138, 90, 0.25);
+    }
+    a[style*="background:#5a8a5a"]:hover, button[style*="background:#5a8a5a"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(90, 138, 90, 0.35);
+      opacity: 0.95 !important;
+    }
+
+    /* 白ボタンの上質ホバー */
+    a[style*="border:1.5px solid #5a8a5a"] {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    a[style*="border:1.5px solid #5a8a5a"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      background: #fdfdfd !important;
+    }
+
+    /* BentoカードとステージカードのAppleライクな質感 */
+    .bento-card, .stage-main-card, .demo-wrapper {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 10px 30px -5px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02), 0 20px 40px -8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+      border-color: #d1cdc7 !important;
+    }
+
+    /* 材料チェック項目の触感アニメーション */
+    .ingredient-check-item {
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .ingredient-check-item:hover {
+      background: #f3efe8 !important;
+      transform: translateX(3px);
+    }
+    .ingredient-check-item.checked {
+      background: #edf5ed !important;
+      border-color: #c7e2c7 !important;
+      color: #889988 !important;
+      text-decoration: line-through;
+    }
+
+    /* 料金プランカードの上質感 */
+    .plan-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+    }
+    .plan-card.featured {
+      border-color: #5a8a5a !important;
+      border-width: 2px !important;
+      box-shadow: 0 10px 30px rgba(90, 138, 90, 0.12);
+      background: linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%) !important;
     }
 
   </style>
