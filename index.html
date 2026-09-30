@@ -392,192 +392,286 @@
     }
 
   
-    /* ===== 100点デザイン用 プロフェッショナルCSS ===== */
+        /* ===== 100点デザイン用 プロフェッショナルCSS (v2) ===== */
     
-    /* セクション共通の豊かな余白 */
     .section-pro {
-      padding: 100px 20px;
+      padding: 96px 20px;
     }
     @media (max-width: 640px) {
       .section-pro {
-        padding: 64px 16px;
+        padding: 60px 16px;
       }
     }
 
-    /* インタラクティブ・デモ（URLコピペシミュレーター） */
-    .demo-container {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 28px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-      padding: 36px 32px;
-      max-width: 820px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-    @media (max-width: 640px) {
-      .demo-container {
-        padding: 24px 18px;
-        border-radius: 20px;
-      }
-    }
-    .demo-input-bar {
-      display: flex;
-      align-items: center;
-      background: #f5f3ef;
-      border: 1.5px solid #e0dcd6;
-      border-radius: 9999px;
-      padding: 6px 8px 6px 18px;
-      gap: 12px;
-      transition: all 0.3s ease;
-    }
-    .demo-input-bar.active {
-      border-color: #5a8a5a;
-      background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(90, 138, 90, 0.15);
-    }
-    .demo-input-text {
-      font-size: 13px;
-      color: #333;
-      flex: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-family: monospace;
-    }
-    .demo-btn {
-      background: #5a8a5a;
-      color: #fff;
-      font-weight: 700;
-      font-size: 12px;
-      padding: 8px 18px;
-      border-radius: 9999px;
+    /* セクション共通タイトル周り */
+    .pro-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-      border: none;
-    }
-    .demo-btn:hover {
-      opacity: 0.9;
-      transform: scale(1.02);
-    }
-
-    /* 生成されたレシピカードのふわっと展開アニメーション */
-    .demo-card-result {
-      background: #fdfcfb;
-      border: 1px solid #e8e4df;
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 24px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(16px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-    @media (max-width: 640px) {
-      .demo-card-result {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    /* Before / After インタラクティブ・ステージ */
-    .tab-pill-group {
-      display: inline-flex;
-      background: #e8e4df;
-      padding: 5px;
+      padding: 6px 14px;
+      background: #eaf3ea;
+      color: #3b6b3b;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
       border-radius: 9999px;
-      gap: 4px;
-    }
-    .tab-pill-btn {
-      padding: 10px 24px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #666;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .tab-pill-btn.active {
-      background: #ffffff;
-      color: #1a1a1a;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    }
-    @media (max-width: 640px) {
-      .tab-pill-btn {
-        padding: 8px 14px;
-        font-size: 11px;
-      }
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
 
-    /* 2カラム・広々対比ステージ */
-    .stage-card {
+    /* ─── 1. インタラクティブ・レシピ体験デモ ─── */
+    .demo-wrapper {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 28px;
-      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.04);
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: center;
-      min-height: 480px;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.08);
+      max-width: 860px;
+      margin: 0 auto;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
-    @media (max-width: 860px) {
-      .stage-card {
-        grid-template-columns: 1fr;
-        padding: 32px 20px;
-        gap: 32px;
-      }
+    .demo-nav-bar {
+      display: flex;
+      gap: 8px;
+      padding: 16px 20px;
+      background: #fbfaf8;
+      border-bottom: 1px solid #edebe8;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
-
-    /* フローティング注釈バッジ（SmartHR風） */
-    .floating-tag {
-      position: absolute;
-      background: #ffffff;
-      border: 1.5px solid #5a8a5a;
+    .demo-nav-bar::-webkit-scrollbar { display: none; }
+    .demo-preset-btn {
       padding: 8px 16px;
       border-radius: 9999px;
       font-size: 12px;
-      font-weight: 800;
-      color: #1a1a1a;
-      box-shadow: 0 8px 24px rgba(90, 138, 90, 0.18);
-      display: flex;
+      font-weight: 700;
+      color: #555;
+      background: #fff;
+      border: 1px solid #e0dcd6;
+      cursor: pointer;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      animation: float 4s ease-in-out infinite;
       white-space: nowrap;
-      z-index: 10;
+      transition: all 0.2s ease;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    .demo-preset-btn:hover {
+      border-color: #5a8a5a;
+      color: #1a1a1a;
+    }
+    .demo-preset-btn.active {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .demo-url-header {
+      padding: 14px 24px;
+      background: #f7f6f3;
+      border-bottom: 1px solid #eae7e2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .demo-url-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid #e2ded9;
+      border-radius: 10px;
+      padding: 7px 14px;
+      flex: 1;
+      max-width: 580px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #444;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .demo-recipe-body {
+      padding: 32px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    @media (max-width: 768px) {
+      .demo-recipe-body {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+        gap: 20px;
+      }
+    }
+    .ingredient-check-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: #fcfbf9;
+      border: 1px solid #eeebe6;
+      margin-bottom: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+    .ingredient-check-item:hover {
+      background: #f5f3ef;
+    }
+    .ingredient-check-item.checked {
+      background: #edf5ed;
+      border-color: #cde4cd;
+      color: #718096;
+      text-decoration: line-through;
+    }
+    .ingredient-check-item input {
+      accent-color: #5a8a5a;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .step-list-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #fbfaf8;
+      border-left: 3px solid #5a8a5a;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #2d3748;
+    }
+    .step-num-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #5a8a5a;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
-    /* 対比リスト（Before vs After） */
-    .diff-box-before {
-      background: #fdfbf9;
-      border: 1px dashed #dcd6cc;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
+    /* ─── 2. Before / After 対比ステージ (TOKIUM / hacomono スタイル) ─── */
+    .stage-tabs-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 36px;
+      overflow-x: auto;
+      padding-bottom: 6px;
     }
-    .diff-box-after {
-      background: #f0faf0;
-      border: 1.5px solid #cde5cd;
-      border-radius: 16px;
-      padding: 22px;
+    .stage-tab-btn {
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #555;
+      background: #f5f3ef;
+      border: 1.5px solid #e5e1db;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+    .stage-tab-btn:hover {
+      background: #eadecd;
+      color: #111;
+    }
+    .stage-tab-btn.active {
+      background: #5a8a5a;
+      color: #ffffff;
+      border-color: #5a8a5a;
+      box-shadow: 0 8px 24px rgba(90, 138, 90, 0.3);
+      transform: translateY(-2px);
+    }
+    .stage-main-card {
+      background: #ffffff;
+      border: 1px solid #e8e4df;
+      border-radius: 32px;
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.07);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    @media (max-width: 860px) {
+      .stage-main-card {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 32px;
+        border-radius: 24px;
+      }
+    }
+
+    /* ─── 3. 洗練されたBento Grid（Features） ─── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+    .bento-card {
+      background: #ffffff;
+      border: 1px solid #e8e4df;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.07);
+      border-color: #d1cdc7;
+    }
+    .bento-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .bento-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #f5f3ef;
+      color: #333;
+    }
+    .bento-icon.green {
+      background: #eaf3ea;
+      color: #5a8a5a;
+    }
+    .bento-icon.gold {
+      background: #fbf5e6;
+      color: #c0892a;
+    }
+    .bento-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: #f0ede8;
+      color: #666;
+    }
+    .bento-tag.primary {
+      background: #eaf3ea;
+      color: #436e43;
     }
 
   </style>
@@ -731,177 +825,223 @@
   </section>
 
   
-  <!-- ===== インタラクティブ・シミュレーター（URLを貼るだけで動くデモ） ===== -->
-  <section style="padding:40px 20px 80px;background:#f5f3ef;">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-8">
-        <h2 class="font-black text-xl md:text-2xl mb-2 text-[#1a1a1a]">
-          <span class="inline-block">URLを貼るだけで、</span><span class="inline-block">どうなる？</span>
+    <!-- ===== インタラクティブ・デモ体験（本物の手触り感を体感） ===== -->
+  <section id="demo" class="section-pro" style="background:#f5f3ef;border-top:1px solid #eae7e2;border-bottom:1px solid #eae7e2;">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="pro-badge">
+          <i data-lucide="sparkles" style="width:13px;height:13px;"></i>
+          INTERACTIVE DEMO
+        </span>
+        <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
+          URLを貼ると、こんな画面が一瞬で生まれます
         </h2>
-        <p class="text-xs md:text-sm text-gray-500">
-          InstagramやYouTubeのリンクを貼った瞬間の動作を体験してみてください
+        <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed">
+          YouTube・Instagram・Xなどの動画レシピをAIが瞬時に構造化。<br class="hidden sm:inline" />
+          材料のチェック機能や手順の整理など、実際の操作感を下でお試しください。
         </p>
       </div>
 
-      <div class="demo-container">
-        <!-- 入力バー -->
-        <div class="demo-input-bar" id="demo-bar">
-          <i data-lucide="link" style="width:18px;height:18px;color:#888;" class="flex-shrink-0"></i>
-          <span class="demo-input-text" id="demo-input-text">https://www.instagram.com/reel/C8xyz123...</span>
-          <button class="demo-btn" id="demo-btn" onclick="runDemoAnalysis()">
-            <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
-            <span id="demo-btn-text">AI解析を試す</span>
+      <div class="demo-wrapper">
+        <!-- プリセット切り替えバー -->
+        <div class="demo-nav-bar">
+          <span class="text-xs font-bold text-gray-400 self-center mr-2 hidden sm:inline">人気動画で体験:</span>
+          <button id="preset-btn-0" class="demo-preset-btn active" onclick="selectDemoPreset(0)">
+            <span>🍗</span> 至高のチキン南蛮（YouTube）
+          </button>
+          <button id="preset-btn-1" class="demo-preset-btn" onclick="selectDemoPreset(1)">
+            <span>🥓</span> 豚バラ白菜の重ね蒸し（Instagram）
+          </button>
+          <button id="preset-btn-2" class="demo-preset-btn" onclick="selectDemoPreset(2)">
+            <span>🍝</span> 濃厚ワンパンパスタ（X）
           </button>
         </div>
 
-        <!-- 解析結果カード -->
-        <div class="demo-card-result" id="demo-result">
-          <img src="assets/screen04.png" alt="AI解析結果" style="width:130px;height:130px;object-fit:cover;border-radius:14px;border:1px solid #e8e4df;flex-shrink:0;" />
-          <div class="flex-1">
-            <div class="flex flex-wrap items-center gap-2 mb-1.5">
-              <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#f0faf0] text-[#5a8a5a] border border-[#cde5cd]">AI自動抽出 完了</span>
-              <span class="text-xs text-gray-400">調理時間 約15分</span>
-            </div>
-            <h4 class="font-black text-base text-[#111827] mb-2 leading-snug">
-              フライパンで簡単！鶏もも肉のさっぱりネギ塩焼き
-            </h4>
-            <div class="text-xs text-gray-500 leading-relaxed mb-3">
-              <span class="font-bold text-[#111827]">主な材料：</span> 鶏もも肉 300g、長ネギ 1本、レモン汁 大さじ1、ごま油 小さじ2、塩コショウ 少々
-            </div>
-            <p class="text-[11px] font-bold text-[#5a8a5a] flex items-center gap-1">
-              <i data-lucide="check-circle" style="width:13px;height:13px;"></i>
-              動画を見返さなくても、材料と手順がテキストで手元に残ります
-            </p>
+        <!-- URLバー＆ステータス -->
+        <div class="demo-url-header">
+          <div class="demo-url-box">
+            <i data-lucide="link" style="width:14px;height:14px;color:#5a8a5a;flex-shrink:0;"></i>
+            <span id="demo-url-display">https://www.youtube.com/watch?v=sample_chicken_nanban</span>
           </div>
+          <div class="flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+            <i data-lucide="check-circle" style="width:13px;height:13px;"></i>
+            <span>AI解析完了 (0.8秒)</span>
+          </div>
+        </div>
+
+        <!-- レシピ詳細プレビュー本体 -->
+        <div class="demo-recipe-body" id="demo-recipe-content">
+          <!-- 左側：基本情報 ＆ 材料チェックリスト -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span id="demo-platform-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-red-100 text-red-700">YouTube</span>
+              <span class="text-xs text-gray-500 font-medium" id="demo-time-badge">⏱ 約15分</span>
+              <span class="text-xs text-gray-500 font-medium" id="demo-kcal-badge">🔥 約520kcal</span>
+            </div>
+            <h3 id="demo-recipe-title" class="font-black text-lg md:text-xl text-[#111827] mb-3 leading-snug">
+              料理研究家が教える 至高のチキン南蛮
+            </h3>
+            <p id="demo-recipe-desc" class="text-xs text-gray-500 mb-5 leading-relaxed">
+              揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレが絶品の黄金比レシピ。
+            </p>
+
+            <div class="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm">
+              <div class="flex items-center justify-between mb-3 pb-2 border-b border-gray-100">
+                <span class="font-black text-xs text-gray-800 flex items-center gap-1.5">
+                  <i data-lucide="shopping-cart" style="width:14px;height:14px;color:#5a8a5a;"></i>
+                  材料・分量（タップで買い物チェック）
+                </span>
+                <span class="text-[11px] text-gray-400">2人前</span>
+              </div>
+              <div id="demo-ingredient-list">
+                <!-- JSで動的生成 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側：調理手順ステップ ＆ アクション -->
+          <div class="flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-black text-xs text-gray-800 flex items-center gap-1.5">
+                  <i data-lucide="chef-hat" style="width:14px;height:14px;color:#5a8a5a;"></i>
+                  迷わない調理ステップ
+                </span>
+                <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">画面消灯防止 ON</span>
+              </div>
+              <div id="demo-steps-list">
+                <!-- JSで動的生成 -->
+              </div>
+            </div>
+
+            <!-- アプリ下部アクションバー風 -->
+            <div class="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between gap-3">
+              <div class="text-[11px] text-gray-500 flex items-center gap-1">
+                <i data-lucide="info" style="width:13px;height:13px;color:#5a8a5a;"></i>
+                タップしてチェック済みを記録できます
+              </div>
+              <a href="https://nanitabe-ru.vercel.app/login" class="inline-flex items-center gap-1.5 text-xs font-bold text-white px-4 py-2 rounded-full shadow-sm hover:opacity-90 transition-opacity" style="background:#5a8a5a;">
+                <span>アプリで保存してみる</span>
+                <i data-lucide="arrow-right" style="width:12px;height:12px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- デモ説明フッター -->
+        <div class="bg-[#faf8f5] px-6 py-3.5 border-t border-[#edebe8] text-center text-xs text-gray-500">
+          💡 <span class="font-semibold text-gray-700">安心の体験デモ：</span> 実際のアプリでは、あなたが保存したいあらゆるレシピURLを貼るだけで、この整理された画面が完全自動で生成されます。クレジット消費の心配なく何度でもお試しいただけます。
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ブランドバー ===== -->
-  <div style="background:#fff;border-top:1px solid #e8e4df;border-bottom:1px solid #e8e4df;padding:18px 20px;">
-    <p class="text-center text-xs font-bold tracking-widest" style="color:#aaa;">こんなサービスのURLに対応</p>
-    <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 mt-3">
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#555;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117Z"/></svg>
-        X（旧Twitter）
-      </span>
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#555;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="url(#ig-grad)" style="flex-shrink:0;">
-          <defs><linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-        </svg>
-        Instagram
-      </span>
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#555;">
-        <svg width="16" height="11" viewBox="0 0 24 17" fill="#FF0000" style="flex-shrink:0;"><path d="M23.495 2.656a3.016 3.016 0 00-2.122-2.136C19.505.015 12 .015 12 .015S4.495.015 2.627.52A3.017 3.017 0 00.505 2.656C0 4.54 0 8.47 0 8.47s0 3.93.505 5.814a3.016 3.016 0 002.122 2.136c1.868.505 9.373.505 9.373.505s7.505 0 9.373-.505a3.015 3.015 0 002.122-2.136C24 12.4 24 8.47 24 8.47s0-3.93-.505-5.814zM9.545 12.038V4.902L15.818 8.47l-6.273 3.568z"/></svg>
-        YouTube
-      </span>
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#555;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5401B" style="flex-shrink:0;"><circle cx="12" cy="12" r="12"/><path d="M8 9a3 3 0 016 0v1.5a3 3 0 01-6 0V9zm3 7.5c-3.3 0-6 1.3-6 3h12c0-1.7-2.7-3-6-3z" fill="#fff"/></svg>
-        クックパッド
-      </span>
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#555;">
-        <svg width="14" height="14" viewBox="0 0 24 24" style="flex-shrink:0;"><circle cx="12" cy="12" r="12" fill="#00B388"/><text x="12" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff" font-family="sans-serif">K</text></svg>
-        クラシル
-      </span>
-      <span class="flex items-center gap-1.5 text-sm font-bold" style="color:#aaa;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        その他レシピサイト
-      </span>
-    </div>
-  </div>
-
-    
-      <!-- ===== Before / After 対比ステージ（広々2カラム ＆ タブ切り替え） ===== -->
+  <!-- ===== Before / After 対比ステージ（利用シーンごとの劇的な変化） ===== -->
   <section class="section-pro" style="background:#ffffff;">
     <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="font-black text-2xl md:text-3xl mb-3 text-[#1a1a1a]">
-          <span class="inline-block">これまでの自炊ストレス</span> <span class="inline-block text-[#5a8a5a]">vs なにたべのある料理</span>
+      <div class="text-center mb-10">
+        <span class="pro-badge">
+          <i data-lucide="git-compare" style="width:13px;height:13px;"></i>
+          SCENE COMPARISON
+        </span>
+        <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
+          毎日の料理の3大ストレス、こう変わります
         </h2>
-        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto mb-8">
-          抽象的な効率化ではなく、あなたの台所から消える「具体的な作業」
+        <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed">
+          「探す・買い出し・調理中」。これまで無駄にしていた時間とストレスが、なにたべ一つでゼロになります。
         </p>
-
-        <!-- シーン切り替えタブ -->
-        <div class="tab-pill-group">
-          <button class="tab-pill-btn active" id="tab-0" onclick="switchStage(0)">① 探すとき</button>
-          <button class="tab-pill-btn" id="tab-1" onclick="switchStage(1)">② 買い出し前</button>
-          <button class="tab-pill-btn" id="tab-2" onclick="switchStage(2)">③ 調理中</button>
-        </div>
       </div>
 
-      <!-- メインステージ本体 -->
-      <div class="stage-card" id="stage-card">
+      <!-- 切り替えタブ（TOKIUM / hacomono スタイルのプログレスステップ） -->
+      <div class="stage-tabs-wrap">
+        <button id="tab-0" class="stage-tab-btn active" onclick="switchStage(0)">
+          <i data-lucide="search" style="width:16px;height:16px;"></i>
+          <span>01 レシピを探すとき</span>
+        </button>
+        <button id="tab-1" class="stage-tab-btn" onclick="switchStage(1)">
+          <i data-lucide="shopping-bag" style="width:16px;height:16px;"></i>
+          <span>02 買い出しのとき</span>
+        </button>
+        <button id="tab-2" class="stage-tab-btn" onclick="switchStage(2)">
+          <i data-lucide="flame" style="width:16px;height:16px;"></i>
+          <span>03 調理中のとき</span>
+        </button>
+      </div>
 
-        <!-- 左カラム：対比テキスト -->
+      <!-- 大型ステージカード（2カラム） -->
+      <div id="stage-card" class="stage-main-card">
+        <!-- 左カラム：Before & After の対比 -->
         <div>
-          <!-- BEFORE -->
-          <div class="diff-box-before">
-            <span class="text-[11px] font-black text-red-500 mb-1.5 block">✕ これまでのやり方（Before）</span>
-            <p class="font-bold text-sm text-gray-800 mb-1" id="stage-before-title">
+          <!-- Before -->
+          <div class="p-5 rounded-2xl bg-rose-50/60 border border-rose-100 mb-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-6 h-6 rounded-full bg-rose-200 text-rose-800 text-xs font-black flex items-center justify-center">✕</span>
+              <span class="text-xs font-bold text-rose-800 uppercase tracking-wider">これまでのストレス</span>
+            </div>
+            <h4 id="stage-before-title" class="font-black text-base md:text-lg text-gray-900 mb-1.5">
               各SNSの保存フォルダを延々スクロール
-            </p>
-            <p class="text-xs text-gray-500 leading-relaxed" id="stage-before-desc">
+            </h4>
+            <p id="stage-before-desc" class="text-xs md:text-sm text-gray-600 leading-relaxed">
               Instagram、YouTube、X… 保存した場所がバラバラで、いざ作ろうとした時に探すだけで10分以上経過。「あのレシピどこだっけ？」と諦める羽目に。
             </p>
           </div>
 
-          <!-- AFTER -->
-          <div class="diff-box-after">
-            <span class="text-[11px] font-black text-[#5a8a5a] mb-1.5 block">✓ なにたべ導入後（After）</span>
-            <p class="font-black text-base text-[#111827] mb-1" id="stage-after-title">
+          <!-- 矢印 -->
+          <div class="flex justify-center my-2 text-[#5a8a5a]">
+            <i data-lucide="arrow-down" style="width:20px;height:20px;stroke-width:2.5;"></i>
+          </div>
+
+          <!-- After -->
+          <div class="p-6 rounded-2xl bg-[#f0faf0] border border-[#c8e6c9] shadow-sm">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-6 h-6 rounded-full bg-[#5a8a5a] text-white text-xs font-black flex items-center justify-center">✓</span>
+              <span class="text-xs font-black text-[#2e5e2e] uppercase tracking-wider">なにたべなら</span>
+            </div>
+            <h4 id="stage-after-title" class="font-black text-lg md:text-xl text-[#111827] mb-2">
               「鶏肉 さっぱり」など自然な言葉で10秒AI検索
-            </p>
-            <p class="text-xs text-gray-600 leading-relaxed" id="stage-after-desc">
+            </h4>
+            <p id="stage-after-desc" class="text-xs md:text-sm text-[#374151] leading-relaxed mb-3">
               保存元に関係なく一箇所に集約。正確な料理名を覚えていなくても、食材や気分を入力するだけでAIが目当てのレシピを瞬時に引き出します。
             </p>
-          </div>
-
-          <!-- 結論バッジ -->
-          <p class="text-xs font-bold text-[#5a8a5a] mt-4 flex items-center gap-1.5" id="stage-point">
-            <span>→ 各アプリの「保存」欄をさかのぼる無駄な時間がゼロになります。</span>
-          </p>
-        </div>
-
-        <!-- 右カラム：大きなスマホUI ＆ フローティング注釈 -->
-        <div style="position:relative;display:flex;justify-content:center;align-items:center;">
-          <div class="floating-tag" style="top:-12px;left:0;" id="stage-tag">
-            <i data-lucide="sparkles" style="width:14px;height:14px;color:#5a8a5a;"></i>
-            <span id="stage-tag-text">感覚的な言葉で10秒検索</span>
-          </div>
-
-          <div style="width:260px;border-radius:36px;overflow:hidden;border:5px solid #1c1c1e;box-shadow:0 20px 50px rgba(0,0,0,0.15);background:#000;">
-            <img src="assets/screen03.png" alt="実際の画面" style="width:100%;display:block;" id="stage-img" />
+            <div class="inline-flex items-center gap-2 text-xs font-black text-[#2e5e2e] bg-white/80 px-3 py-1.5 rounded-lg border border-[#a5d6a7]">
+              <i data-lucide="zap" style="width:13px;height:13px;color:#2e5e2e;"></i>
+              <span id="stage-point">各アプリの「保存」欄をさかのぼる無駄な時間がゼロになります</span>
+            </div>
           </div>
         </div>
 
-      </div>
+        <!-- 右カラム：スマホ実機UIモックアップ ＋ フローティングバッジ (SmartHR風) -->
+        <div class="relative flex justify-center">
+          <!-- フローティングバッジ -->
+          <div id="stage-badge-tag" class="absolute -top-4 right-2 sm:right-6 z-10 bg-white/95 backdrop-blur shadow-xl border border-gray-200/80 rounded-2xl px-4 py-2.5 flex items-center gap-2 animate-bounce-subtle">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="stage-tag-text" class="text-xs font-black text-gray-800">感覚的な言葉で10秒検索</span>
+          </div>
 
-      <!-- 中間CTA（熱量が高まった読者を逃さない） -->
-      <div class="mt-14 p-8 rounded-3xl text-center bg-[#f5f3ef] border border-[#e8e4df] max-w-2xl mx-auto shadow-sm">
-        <h3 class="font-black text-lg md:text-xl text-[#1a1a1a] mb-2">
-          これまでの料理のイライラ、今すぐゼロにしませんか？
-        </h3>
-        <p class="text-xs md:text-sm text-gray-500 mb-6">
-          クレジットカード登録不要。レシピ50件・AI解析月10回まで完全無料で使い始められます。
-        </p>
-        <a href="https://nanitabe-ru.vercel.app/login"
-           class="inline-block font-bold text-sm md:text-base text-white px-9 py-3.5 rounded-full transition-opacity hover:opacity-85 shadow-md"
-           style="background:#5a8a5a;">
-          無料で試してみる →
-        </a>
+          <!-- iPhone風モックアップ -->
+          <div class="relative w-[240px] sm:w-[260px] bg-[#1c1c1e] rounded-[44px] p-2.5 shadow-2xl border-[3px] border-[#3a3a3c]">
+            <!-- ノッチ -->
+            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#1c1c1e] rounded-full z-20"></div>
+            <!-- 画面コンテンツ -->
+            <div class="rounded-[36px] overflow-hidden bg-white aspect-[9/19.5] relative">
+              <img id="stage-img" src="assets/screen03.png" alt="なにたべ画面プレビュー" class="w-full h-full object-cover transition-all duration-300" />
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
-
 
   <!-- ===== スクリーンショットカルーセル ===== -->
   <section style="padding:72px 0;background:#111;overflow:hidden;">
     <div class="max-w-5xl mx-auto px-5 mb-12 text-center">
-      <h2 class="font-black text-2xl md:text-3xl" style="color:#fff;">こんな画面で使えます</h2>
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold tracking-wider text-emerald-400 bg-white/10 mb-3 border border-white/15">
+        <i data-lucide="layout" style="width:12px;height:12px;"></i> APP INTERFACE
+      </span>
+      <h2 class="font-black text-2xl md:text-4xl text-white mb-3">直感的に迷わず使えるUIデザイン</h2>
+      <p class="text-xs md:text-sm text-gray-400 max-w-lg mx-auto leading-relaxed">
+        複雑な操作は一切なし。料理中でも片手でサクサク使えるシンプルなインターフェースです。
+      </p>
     </div>
     <div style="overflow:hidden;">
       <div class="carousel-track" style="display:flex;gap:20px;padding:8px 0;width:max-content;">
@@ -1010,146 +1150,201 @@
     </div>
   </section>
 
-      <!-- ===== Features (3つのステップで広がる価値) ===== -->
-  <section id="features" style="padding:90px 20px;background:#ffffff;">
+  <!-- ===== Features: 3つのステップで広がる快適な料理体験 (Bento Grid) ===== -->
+  <section id="features" class="section-pro" style="background:#ffffff;border-top:1px solid #eae7e2;">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;">
-          <span class="inline-block">3つのステップで広がる、</span><span class="inline-block">快適な料理体験</span>
+        <span class="pro-badge">
+          <i data-lucide="layers" style="width:13px;height:13px;"></i>
+          POWERFUL FEATURES
+        </span>
+        <h2 class="font-black text-2xl md:text-4xl text-[#1a1a1a] mb-3">
+          3つのステップで広がる、快適な料理体験
         </h2>
-        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto">
-          手入力ゼロの保存から、迷わない調理、そして日々のレパートリーの充実へ
+        <p class="text-xs md:text-sm text-gray-500 max-w-xl mx-auto leading-relaxed">
+          手入力ゼロの保存から、迷わない調理、そして日々のレパートリーの充実へ。<br class="hidden sm:inline" />
+          料理に関わるあらゆるストレスを解消する機能が揃っています。
         </p>
       </div>
 
-      <!-- STEP 1: 保存する -->
+      <!-- STEP 01: 保存する -->
       <div class="mb-14">
-        <div class="step-divider mb-6">
-          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 01</span>
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 01</span>
           <h3 class="font-black text-xl text-[#111827]">手入力ゼロでスマートに保存する</h3>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- 機能1 -->
-          <div class="feature-card">
-            <div class="icon-box icon-blue">
-              <i data-lucide="link" style="width:24px;height:24px;stroke-width:2;"></i>
+
+        <div class="bento-grid">
+          <!-- メイン（大・8カラム）: URLコピペで即保存 ＆ 主要SNS対応 -->
+          <div class="bento-card col-span-12 md:col-span-8 flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon green">
+                  <i data-lucide="link" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag primary">全プラン対応</span>
+                  <h4 class="font-black text-lg text-[#111827] mt-1">URLコピペで即保存・自動抽出</h4>
+                </div>
+              </div>
+              <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-6">
+                Instagram、YouTube、X、TikTok、クックパッドなどのレシピURLを貼るだけ。AIがレシピ名・材料・分量・手順を自動で整理し、使いやすいカードを生成します。面倒な手入力は一切不要です。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">URLコピペで即保存</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              X・Instagram・YouTube・クックパッドなど主要SNSに対応。URLを貼るだけでタイトル・画像・材料を自動取得します。
-            </p>
+            <!-- SNSアイコン連携バー -->
+            <div class="pt-4 border-t border-gray-100 flex flex-wrap items-center gap-3">
+              <span class="text-xs font-bold text-gray-400">対応サービス:</span>
+              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">Instagram</span>
+              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">YouTube</span>
+              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">X (Twitter)</span>
+              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">TikTok</span>
+              <span class="px-2.5 py-1 rounded-md bg-gray-50 text-gray-700 text-xs font-bold border border-gray-200">クックパッド / クラシル</span>
+            </div>
           </div>
-          <!-- 機能2 -->
-          <div class="feature-card">
-            <div class="icon-box icon-amber">
-              <i data-lucide="sparkles" style="width:24px;height:24px;stroke-width:2;"></i>
+
+          <!-- サブ（中・4カラム）: AI自然言語検索 -->
+          <div class="bento-card col-span-12 md:col-span-4 flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon green">
+                  <i data-lucide="sparkles" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag primary">全プラン対応</span>
+                  <h4 class="font-black text-base text-[#111827] mt-1">AI自然言語検索</h4>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                「鶏肉 さっぱり」「疲れた日の簡単ごはん」など、普段の話し言葉で検索。曖昧な記憶からでもAIが目当てのレシピを素早く見つけ出します。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">AIが材料・手順を自動解析</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              AIがレシピ名・材料・分量・調理手順・カテゴリを自動で整理。手入力ゼロで使いやすいレシピカードを生成します。
-            </p>
-          </div>
-          <!-- 機能3 -->
-          <div class="feature-card">
-            <div class="icon-box icon-indigo">
-              <i data-lucide="search" style="width:24px;height:24px;stroke-width:2;"></i>
+            <div class="mt-4 p-3 rounded-xl bg-gray-50 border border-gray-200/80 text-xs text-gray-500 font-mono">
+              🔍「冷蔵庫に白菜と豚肉ある」
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">AI自然言語検索</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              「鶏肉で作れるもの」「さっぱりしたい日」など自然な言葉で検索。キーワード検索とAIの意味検索でぴったりの料理がすぐに見つかります。
-            </p>
           </div>
         </div>
       </div>
 
-      <!-- STEP 2: 調理する -->
+      <!-- STEP 02: 調理する -->
       <div class="mb-14">
-        <div class="step-divider mb-6">
-          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 02</span>
-          <h3 class="font-black text-xl text-[#111827]">調理中の迷い・行き来をなくす</h3>
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 02</span>
+          <h3 class="font-black text-xl text-[#111827]">調理中の迷い・行き来をゼロにする</h3>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- 機能4 -->
-          <div class="feature-card">
-            <div class="flex items-start justify-between mb-4">
-              <div class="icon-box icon-purple mb-0">
-                <i data-lucide="calendar-check" style="width:24px;height:24px;stroke-width:2;"></i>
+
+        <div class="bento-grid">
+          <!-- サブ（中・4カラム）: 「今日作るリスト」 -->
+          <div class="bento-card col-span-12 md:col-span-4 flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon gold">
+                  <i data-lucide="calendar-check" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag">スタンダード以上</span>
+                  <h4 class="font-black text-base text-[#111827] mt-1">今日作るリスト</h4>
+                </div>
               </div>
-              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                その日に作るメニューだけをピン留め。夕方の忙しい時間も迷わずすぐ調理に入れます。作った履歴も自動で記録。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">「今日作るリスト」で管理</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              その日に作るレシピだけをスマートに一覧表示。調理履歴も自動で積み上がり、「計○回・○日前」が一目でわかります。
-            </p>
-          </div>
-          <!-- 機能5 -->
-          <div class="feature-card">
-            <div class="icon-box icon-slate">
-              <i data-lucide="bot" style="width:24px;height:24px;stroke-width:2;"></i>
+            <div class="mt-4 flex items-center gap-2 text-xs font-bold text-gray-700 bg-amber-50/70 p-2.5 rounded-xl border border-amber-200">
+              <i data-lucide="check" style="width:14px;height:14px;color:#c0892a;"></i>
+              <span>調理履歴：「計4回・5日前」</span>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">いつものAIに相談</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              ChatGPT・Claude・Perplexityなど、普段使いのAIにそのまま相談可能。材料・手順が自動入力された状態で開きます。
-            </p>
           </div>
-          <!-- 機能6 -->
-          <div class="feature-card">
-            <div class="flex items-start justify-between mb-4">
-              <div class="icon-box icon-yellow mb-0">
-                <i data-lucide="key" style="width:24px;height:24px;stroke-width:2;"></i>
+
+          <!-- メイン（大・8カラム）: 画面消灯防止 ＆ 工程ごとの材料表示 -->
+          <div class="bento-card col-span-12 md:col-span-8 flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon green">
+                  <i data-lucide="smartphone" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag primary">全プラン対応</span>
+                  <h4 class="font-black text-lg text-[#111827] mt-1">画面消灯防止 ＆ 工程別材料ビュー</h4>
+                </div>
               </div>
-              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+              <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-4">
+                調理中にスマホの画面がスリープして真っ暗になるストレスを防止。さらに「この工程で投入する調味料」だけがステップ直下に表示されるため、濡れた手で画面をスクロールする回数が劇的に減ります。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">独自APIキーで無制限</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              自分のGemini APIキーを登録すれば、AI解析・AI検索を実質無制限で利用可能。上限を気にせずフル活用できます。
-            </p>
+            <div class="grid grid-cols-2 gap-3 pt-3 border-t border-gray-100">
+              <div class="p-3 rounded-xl bg-gray-50 border border-gray-100">
+                <span class="font-bold text-xs text-gray-800 block mb-0.5">画面常時点灯</span>
+                <span class="text-[11px] text-gray-500">調理中の自動ロックを自動解除</span>
+              </div>
+              <div class="p-3 rounded-xl bg-gray-50 border border-gray-100">
+                <span class="font-bold text-xs text-gray-800 block mb-0.5">工程別材料</span>
+                <span class="text-[11px] text-gray-500">その工程で使う分量だけが展開</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 3: 続ける・楽しむ -->
+      <!-- STEP 03: 続ける・楽しむ -->
       <div>
-        <div class="step-divider mb-6">
-          <span class="text-xs font-bold tracking-wider text-[#5a8a5a] block mb-1">STEP 03</span>
+        <div class="flex items-center gap-3 mb-6 pb-3 border-b border-gray-100">
+          <span class="text-xs font-black text-[#5a8a5a] bg-[#eaf3ea] px-3 py-1 rounded-full">STEP 03</span>
           <h3 class="font-black text-xl text-[#111827]">毎日の献立を続けやすく、豊かにする</h3>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <!-- 機能7 -->
-          <div class="feature-card">
-            <div class="flex items-start justify-between mb-4">
-              <div class="icon-box icon-orange mb-0">
-                <i data-lucide="folder-tree" style="width:24px;height:24px;stroke-width:2;"></i>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- 機能1: フォルダ自動整理 -->
+          <div class="bento-card flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon gold">
+                  <i data-lucide="folder-tree" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag">スタンダード以上</span>
+                  <h4 class="font-black text-base text-[#111827] mt-1">AIフォルダ自動振り分け</h4>
+                </div>
               </div>
-              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                「離乳食」「お弁当」「おつまみ」など、レシピ保存時にAIが最適なフォルダを自動提案。整理の手間がゼロになります。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">フォルダ＋AI自動振り分け</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              「離乳食」「お弁当用」などフォルダで整理。レシピ保存時にAIが最適なフォルダを自動提案してくれます。
-            </p>
           </div>
-          <!-- 機能8 -->
-          <div class="feature-card">
-            <div class="icon-box icon-emerald">
-              <i data-lucide="users" style="width:24px;height:24px;stroke-width:2;"></i>
-            </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">なにたべ広場</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              ユーザーが公開した人気レシピが集まる共有フィード。ランキング表示やいいね・保存がフリープランから楽しめます。
-            </p>
-          </div>
-          <!-- 機能9 -->
-          <div class="feature-card">
-            <div class="flex items-start justify-between mb-4">
-              <div class="icon-box icon-pink mb-0">
-                <i data-lucide="bar-chart-3" style="width:24px;height:24px;stroke-width:2;"></i>
+
+          <!-- 機能2: なにたべ広場 -->
+          <div class="bento-card flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon green">
+                  <i data-lucide="users" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag primary">全プラン対応</span>
+                  <h4 class="font-black text-base text-[#111827] mt-1">なにたべ広場</h4>
+                </div>
               </div>
-              <span class="plan-pill"><i data-lucide="zap" style="width:11px;height:11px;stroke-width:2.5;"></i> スタンダード以上</span>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                他のユーザーが公開した人気レシピが集まるフィード。新しい定番料理との出会いや、いいね・保存がフリープランから楽しめます。
+              </p>
             </div>
-            <h4 class="font-black text-base text-[#111827] mb-2">食生活・食材の傾向分析</h4>
-            <p class="text-xs md:text-sm text-[#4b5563] leading-relaxed">
-              よく使うタンパク質・野菜・主食・調理ジャンルをランキング表示。偏りがちな食生活の改善に役立ちます。
-            </p>
+          </div>
+
+          <!-- 機能3: 食生活・食材傾向分析 -->
+          <div class="bento-card flex flex-col justify-between">
+            <div>
+              <div class="bento-card-header">
+                <div class="bento-icon gold">
+                  <i data-lucide="pie-chart" style="width:22px;height:22px;"></i>
+                </div>
+                <div>
+                  <span class="bento-tag">スタンダード以上</span>
+                  <h4 class="font-black text-base text-[#111827] mt-1">食生活・食材の傾向分析</h4>
+                </div>
+              </div>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                よく使う食材（豚肉・卵・鶏肉など）やジャンルをグラフ化。偏りがちな毎日の献立バランスを客観的に見直せます。
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1633,17 +1828,142 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
     </div>
   </footer>
 
-  <script>lucide.createIcons();</script>
+    <script>lucide.createIcons();</script>
 
   <script>
-    // 1. Stage Tab Switcher (Before / After)
+    // ─── 1. インタラクティブ・レシピデモ用データ ───
+    const demoPresets = [
+      {
+        platform: "YouTube",
+        platformBadgeClass: "bg-red-100 text-red-700",
+        url: "https://www.youtube.com/watch?v=sample_chicken_nanban",
+        title: "料理研究家が教える 至高のチキン南蛮",
+        desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレが絶品の黄金比レシピ。",
+        time: "⏱ 約15分",
+        kcal: "🔥 約520kcal",
+        ingredients: [
+          { name: "鶏もも肉", amount: "300g（1枚）" },
+          { name: "塩コショウ", amount: "少々" },
+          { name: "小麦粉", amount: "大さじ2" },
+          { name: "卵（衣用）", amount: "1個" },
+          { name: "ゆで卵（タルタル用）", amount: "1個" },
+          { name: "マヨネーズ", amount: "大さじ3" },
+          { name: "ポン酢（甘酢用）", amount: "大さじ3" }
+        ],
+        steps: [
+          "鶏肉の厚みを均等にし、フォークで数カ所刺して塩コショウを振る。",
+          "小麦粉を薄くまぶし、溶き卵にくぐらせてフライパンで揚げ焼きにする。",
+          "熱いうちにポン酢にくぐらせ、刻んだゆで卵とマヨのタルタルをたっぷりかける。"
+        ]
+      },
+      {
+        platform: "Instagram",
+        platformBadgeClass: "bg-pink-100 text-pink-700",
+        url: "https://www.instagram.com/reel/C8xyz123_butabara_hakusai",
+        title: "フライパン一つで放置！豚バラと白菜の重ね蒸し",
+        desc: "水なしで野菜の旨味を凝縮。疲れた日の夜に10分で作れるヘルシー絶品おかず。",
+        time: "⏱ 約10分",
+        kcal: "🔥 約380kcal",
+        ingredients: [
+          { name: "豚バラ薄切り肉", amount: "200g" },
+          { name: "白菜", amount: "1/4個" },
+          { name: "料理酒", amount: "大さじ2" },
+          { name: "ごま油", amount: "大さじ1" },
+          { name: "ポン酢・小ねぎ", amount: "お好みで適量" }
+        ],
+        steps: [
+          "白菜と豚肉を交互に重ね、5cm幅にザク切りにする。",
+          "フライパンのフチから中心に向かってギッシリ敷き詰める。",
+          "酒とごま油を回し入れ、フタをして中火で8分蒸し焼きにしたら完成。"
+        ]
+      },
+      {
+        platform: "X (Twitter)",
+        platformBadgeClass: "bg-gray-100 text-gray-800",
+        url: "https://x.com/recipe_creator/status/183920192837",
+        title: "別茹で不要！濃厚ワンパン・カルボナーラ",
+        desc: "フライパン一つでパスタもソースも完成。失敗知らずで洗い物も最小限。",
+        time: "⏱ 約12分",
+        kcal: "🔥 約590kcal",
+        ingredients: [
+          { name: "パスタ（1.6mm）", amount: "100g" },
+          { name: "ベーコン", amount: "40g" },
+          { name: "水", amount: "280ml" },
+          { name: "コンソメ", amount: "小さじ1/2" },
+          { name: "卵", amount: "1個" },
+          { name: "粉チーズ", amount: "大さじ2" },
+          { name: "粗挽き黒胡椒", amount: "適量" }
+        ],
+        steps: [
+          "フライパンでベーコンを炒め、水とコンソメを加えて沸騰させる。",
+          "パスタを半分に折って入れ、水分を吸わせながら規定時間煮詰める。",
+          "火を止めて卵と粉チーズを混ぜた液を一気に絡め、黒胡椒を振る。"
+        ]
+      }
+    ];
+
+    function selectDemoPreset(idx) {
+      for (let i = 0; i < 3; i++) {
+        const btn = document.getElementById('preset-btn-' + i);
+        if (btn) btn.classList.toggle('active', i === idx);
+      }
+
+      const p = demoPresets[idx];
+      document.getElementById('demo-url-display').textContent = p.url;
+      document.getElementById('demo-recipe-title').textContent = p.title;
+      document.getElementById('demo-recipe-desc').textContent = p.desc;
+      document.getElementById('demo-time-badge').textContent = p.time;
+      document.getElementById('demo-kcal-badge').textContent = p.kcal;
+
+      const pBadge = document.getElementById('demo-platform-badge');
+      pBadge.textContent = p.platform;
+      pBadge.className = "px-2.5 py-0.5 rounded text-[11px] font-bold " + p.platformBadgeClass;
+
+      // 材料リスト描画
+      const ingList = document.getElementById('demo-ingredient-list');
+      ingList.innerHTML = p.ingredients.map((ing, i) => `
+        <label class="ingredient-check-item" onclick="toggleIngCheck(this, event)">
+          <div class="flex items-center gap-2">
+            <input type="checkbox" onchange="this.parentElement.parentElement.classList.toggle('checked', this.checked)">
+            <span class="text-xs font-bold text-gray-800">${ing.name}</span>
+          </div>
+          <span class="text-xs text-gray-500 font-mono">${ing.amount}</span>
+        </label>
+      `).join('');
+
+      // 手順リスト描画
+      const stepList = document.getElementById('demo-steps-list');
+      stepList.innerHTML = p.steps.map((st, i) => `
+        <div class="step-list-item">
+          <span class="step-num-badge">${i + 1}</span>
+          <div>${st}</div>
+        </div>
+      `).join('');
+
+      lucide.createIcons();
+    }
+
+    function toggleIngCheck(el, ev) {
+      if (ev.target.tagName !== 'INPUT') {
+        const chk = el.querySelector('input');
+        chk.checked = !chk.checked;
+        el.classList.toggle('checked', chk.checked);
+      }
+    }
+
+    // 初期実行（最初のプリセットを表示）
+    document.addEventListener('DOMContentLoaded', () => {
+      selectDemoPreset(0);
+    });
+
+    // ─── 2. Before / After 対比ステージ切替 ───
     const stageData = [
       {
         beforeTitle: "各SNSの保存フォルダを延々スクロール",
         beforeDesc: "Instagram、YouTube、X… 保存した場所がバラバラで、いざ作ろうとした時に探すだけで10分以上経過。「あのレシピどこだっけ？」と諦める羽目に。",
         afterTitle: "「鶏肉 さっぱり」など自然な言葉で10秒AI検索",
         afterDesc: "保存元に関係なく一箇所に集約。正確な料理名を覚えていなくても、食材や気分を入力するだけでAIが目当てのレシピを瞬時に引き出します。",
-        point: "→ 各アプリの「保存」欄をさかのぼる無駄な時間がゼロになります。",
+        point: "各アプリの「保存」欄をさかのぼる無駄な時間がゼロになります",
         tagText: "感覚的な言葉で10秒検索",
         img: "assets/screen03.png"
       },
@@ -1652,7 +1972,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         beforeDesc: "買い物前や仕込み前に、動画を何度も止めながら「醤油大さじ2、みりん大さじ1…」と紙やスマホにメモを書き起こす面倒な作業。",
         afterTitle: "URLを貼った瞬間に材料・分量がテキスト化",
         afterDesc: "動画を再生する必要はもうありません。AIが材料名と分量を自動でテキストリスト化。スマホ片手にサクッと買い出しできます。",
-        point: "→ 動画の再生・一時停止を繰り返す書き写しの手間がゼロになります。",
+        point: "動画の再生・一時停止を繰り返す書き写しの手間がゼロになります",
         tagText: "分量まで一目でわかるテキスト化",
         img: "assets/screen04.png"
       },
@@ -1661,7 +1981,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         beforeDesc: "調理中に画面がスリープして真っ暗になり、解除したらアプリ内ブラウザが初期化。材料と手順を行き来して油でスマホが汚れる。",
         afterTitle: "画面消灯防止 ＆ 工程ごとの材料表示で一発調理",
         afterDesc: "調理中は画面が自動ロックされません。さらに工程ごとに「この工程で使う調味料」だけがまとまって表示されるので迷わず調理できます。",
-        point: "→ 画面消灯や上下スクロールのストレスから完全に解放されます。",
+        point: "画面消灯や上下スクロールのストレスから完全に解放されます",
         tagText: "工程ごとに必要な材料だけ表示",
         img: "assets/screen05.png"
       }
@@ -1674,7 +1994,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       }
 
       const card = document.getElementById('stage-card');
-      card.style.opacity = '0.4';
+      card.style.opacity = '0.3';
       card.style.transform = 'translateY(6px)';
 
       setTimeout(() => {
@@ -1690,44 +2010,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         card.style.opacity = '1';
         card.style.transform = 'translateY(0)';
         lucide.createIcons();
-      }, 200);
-    }
-
-    // 2. Interactive Demo Simulation
-    let demoStep = 0;
-    const sampleUrls = [
-      "https://www.instagram.com/reel/C8xyz123...",
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "https://x.com/recipe_creator/status/183920..."
-    ];
-    function runDemoAnalysis() {
-      const btn = document.getElementById('demo-btn');
-      const btnText = document.getElementById('demo-btn-text');
-      const bar = document.getElementById('demo-bar');
-      const res = document.getElementById('demo-result');
-      
-      bar.classList.add('active');
-      btnText.textContent = "AI解析中...";
-      btn.style.background = "#d97706";
-      
-      setTimeout(() => {
-        demoStep = (demoStep + 1) % sampleUrls.length;
-        document.getElementById('demo-input-text').textContent = sampleUrls[demoStep];
-        
-        btnText.textContent = "解析完了！";
-        btn.style.background = "#16a34a";
-        bar.classList.remove('active');
-        
-        // Retrigger popIn animation
-        res.style.animation = 'none';
-        res.offsetHeight; // trigger reflow
-        res.style.animation = 'popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both';
-        
-        setTimeout(() => {
-          btnText.textContent = "別のURLで試す";
-          btn.style.background = "#5a8a5a";
-        }, 1500);
-      }, 800);
+      }, 150);
     }
   </script>
 
