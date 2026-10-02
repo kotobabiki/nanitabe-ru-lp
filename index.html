@@ -1228,6 +1228,24 @@
                 <!-- 本文（材料 ＆ 作り方手順） -->
                 <div style="padding:16px;background:#f5f3ef;">
 
+                  <!-- 説明メモ（アプリ本物：緑ボーダーライン付き） -->
+                  <div class="mb-3.5 border-l-2 pl-3" style="border-color:#5a8a5a;">
+                    <p id="demo-recipe-desc" class="text-xs leading-relaxed text-[#444] font-medium">
+                      揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
+                    </p>
+                  </div>
+
+                  <!-- 元の投稿を見るボタン（料理家リスペクト・アプリ本物完全一致） -->
+                  <a id="demo-source-btn" href="https://www.youtube.com/watch?v=N8qT_Yq1hHQ" target="_blank" rel="noopener noreferrer"
+                     class="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl font-bold text-xs mb-5 shadow-sm active:scale-98 transition-all hover:bg-black/90 cursor-pointer"
+                     style="background:#1a1a1a;color:#fff;" title="料理家本人の元投稿・動画を開く">
+                    <span id="demo-source-btn-icon" class="text-xs">▶</span>
+                    <span id="demo-source-btn-text">YouTubeで元の投稿を見る</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </a>
+
                   <!-- 材料セクション（アプリ本物完全一致） -->
                   <div class="mb-5">
                     <div class="flex items-center justify-between mb-2">
@@ -2274,7 +2292,10 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         title: "至高のチキン南蛮",
         author: "料理研究家リュウジ",
         platform: "YouTube",
-        url: "https://www.youtube.com/watch?v=sample_chicken_nanban",
+        platformIcon: "▶",
+        btnText: "YouTubeで元の動画を見る",
+        url: "https://www.youtube.com/watch?v=N8qT_Yq1hHQ",
+        desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。動画の巻き戻し不要で手元調理できます。",
         category: "メイン",
         tags: ["鶏肉", "時短", "フライパン"],
         tagString: "メイン / 鶏肉 / 時短 / フライパン",
@@ -2282,7 +2303,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         cookedCount: 3,
         image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80",
         ingredients: [
-          { name: "鶏もも肉", amount: "300g", baseQty: 300, unit: "g" },
+          { name: "鶏もも肉", amount: "300g" },
           { name: "小麦粉・卵（衣用）", amount: "各大さじ2 / 1個" },
           { name: "ゆで卵・マヨネーズ", amount: "1個 / 大さじ3" },
           { name: "特製ポン酢甘酢ダレ", amount: "大さじ3" },
@@ -2315,8 +2336,11 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         id: 1,
         title: "豚バラ白菜の重ね蒸し",
         author: "山本ゆり",
-        platform: "Instagram",
-        url: "https://www.instagram.com/p/sample_butabara_hakusai",
+        platform: "X (Twitter)",
+        platformIcon: "𝕏",
+        btnText: "Xで元のポストを見る",
+        url: "https://twitter.com/syunkon0507/status/1328994793268576256",
+        desc: "フライパンに敷き詰めて蒸すだけ。水なしで素材の水分と旨みが凝縮。山本ゆりさんのバズレシピ。",
         category: "おかず",
         tags: ["豚肉", "白菜", "ヘルシー"],
         tagString: "おかず / 豚肉 / 白菜 / ヘルシー",
@@ -2359,8 +2383,11 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         id: 2,
         title: "別茹で不要！濃厚ワンパン・カルボナーラ",
         author: "ワンパン料理人",
-        platform: "X (Twitter)",
-        url: "https://x.com/recipe_creator/status/183920192837",
+        platform: "Instagram",
+        platformIcon: "📷",
+        btnText: "Instagramで元の投稿を見る",
+        url: "https://www.instagram.com/",
+        desc: "フライパン一つでパスタもソースも完成。失敗知らずで洗い物も最小限のお手軽レシピ。",
         category: "主食",
         tags: ["パスタ", "ワンパン", "濃厚"],
         tagString: "主食 / パスタ / ワンパン / 濃厚",
@@ -2470,9 +2497,18 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       document.getElementById('demo-recipe-author').textContent = p.author;
       document.getElementById('demo-recipe-tags').textContent = p.tagString;
       document.getElementById('demo-recipe-img').src = p.image;
+      document.getElementById('demo-recipe-desc').textContent = p.desc;
 
+      // 元の投稿へのリンク（ヘッダー右上 ＆ 本文内大型ボタン）
       const origLink = document.getElementById('demo-original-link');
       if (origLink) origLink.href = p.url;
+
+      const srcBtn = document.getElementById('demo-source-btn');
+      if (srcBtn) {
+        srcBtn.href = p.url;
+        document.getElementById('demo-source-btn-icon').textContent = p.platformIcon || '🔗';
+        document.getElementById('demo-source-btn-text').textContent = p.btnText || '元の投稿を見る';
+      }
 
       currentServings = p.servings || 2;
       document.getElementById('demo-servings-text').textContent = currentServings + '人前';
