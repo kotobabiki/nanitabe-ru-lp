@@ -858,45 +858,52 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ボトムシート（ステップ材料確認） */
+    /* ボトムシート（ステップ材料確認：アプリ本物のstepIngSheet完全再現） */
     .step-sheet-backdrop {
       position: absolute;
-      inset: 0;
+      top: 10px;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
       background: rgba(0, 0, 0, 0.45);
       z-index: 50;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       border-radius: 42px;
+      display: none;
     }
     .step-sheet-backdrop.active {
       opacity: 1;
       pointer-events: auto;
+      display: block;
     }
     .step-sheet-panel {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
       background: #ffffff;
       border-radius: 28px 28px 42px 42px;
       z-index: 55;
       transform: translateY(105%);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
-      max-height: 82%;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.22);
+      max-height: 80%;
       overflow-y: auto;
       padding-bottom: 24px;
+      display: none;
     }
     .step-sheet-panel.active {
+      display: block;
       transform: translateY(0);
     }
     .sheet-handle {
-      width: 36px;
+      width: 40px;
       height: 4px;
-      background: #d8d3cc;
+      background: #ddd;
       border-radius: 2px;
-      margin: 10px auto 6px;
+      margin: 12px auto 6px;
       cursor: pointer;
     }
 
@@ -1102,8 +1109,8 @@
           URLを貼ると、こんな画面にまとまります
         </h2>
         <p class="text-xs md:text-sm text-gray-600 max-w-xl mx-auto leading-relaxed">
-          URLの保存からAIによる材料・手順の自動抽出、<br class="hidden sm:inline" />
-          <span class="font-bold text-[#1a1a1a]">手順タップでの材料展開</span>、一覧へ戻るまでの実際のアプリ操作をお試しいただけます。
+          YouTube・Instagram・Xの動画レシピを保存したときの、実際のスマホ表示です。<br class="hidden sm:inline" />
+          <span class="font-bold text-[#1a1a1a]">手順をタップすると、その工程で使う材料だけが下からスッと現れます。</span>
         </p>
 
         <!-- 体験モード切替タブ -->
@@ -1136,7 +1143,7 @@
           </div>
           <div class="text-left">
             <span class="text-[11px] font-bold text-gray-800 block">手順タップで材料展開！</span>
-            <span class="text-[10px] text-gray-500">その工程で使う調味料だけが手元にスッと現れます</span>
+            <span class="text-[10px] text-gray-500">その工程で使う調味料だけが下からスッと現れます</span>
           </div>
         </div>
 
@@ -1147,17 +1154,17 @@
           </div>
           <div class="text-left">
             <span class="text-[11px] font-bold text-gray-800 block">一覧〜詳細へ自由に行き来</span>
-            <span class="text-[10px] text-gray-500">左上の「← レシピ一覧」で戻る感覚もそのまま</span>
+            <span class="text-[10px] text-gray-500">左上の「戻る」で一覧に戻る感覚もそのまま</span>
           </div>
         </div>
 
         <!-- iPhone実機モック本体 -->
         <div class="phone-mockup-wrapper">
-          <div class="phone-outer-frame">
+          <div class="phone-outer-frame" style="position:relative;overflow:hidden;border-radius:52px;">
             <!-- ダイナミックアイランド -->
             <div class="phone-notch"></div>
 
-            <!-- スマホ画面内部 -->
+            <!-- スマホ画面内部（スクロール可能） -->
             <div class="phone-inner-screen" id="phone-screen-scroll">
               
               <!-- ステータスバー（テーマ切り替え対応） -->
@@ -1169,99 +1176,117 @@
                 </div>
               </div>
 
-              <!-- ================= 画面1: レシピ詳細画面 ================= -->
+              <!-- ================= 画面1: レシピ詳細画面（本物RecipeDetail.tsx完全再現） ================= -->
               <div id="view-detail" class="phone-view active">
-                <!-- 緑ヘッダー -->
+                <!-- 緑のヒーローゾーン（コントロール＋タイトル＋画像） -->
                 <div style="background:#5a8a5a;padding:12px 16px 16px;color:#fff;">
-                  <div class="flex items-center justify-between mb-2.5">
+                  <!-- コントロール行（戻る ＆ リンク/メニュー） -->
+                  <div class="flex items-center justify-between mb-4">
                     <button onclick="goToScreen('list')"
-                            class="inline-flex items-center gap-1 text-[11px] font-bold bg-white/20 hover:bg-white/30 px-2.5 py-1 rounded-full text-white transition-colors cursor-pointer"
-                            title="マイレシピ一覧に戻る">
-                      <i data-lucide="chevron-left" style="width:12px;height:12px;"></i> レシピ一覧
+                            class="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer"
+                            style="background:rgba(255,255,255,0.18);color:#fff;"
+                            title="レシピ一覧に戻る">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 18l-6-6 6-6"/>
+                      </svg>
+                      戻る
                     </button>
-                    <a id="demo-original-link" href="#" target="_blank" rel="noopener noreferrer"
-                       class="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-xs text-white transition-colors" title="元の動画を開く">
-                      <i data-lucide="external-link" style="width:13px;height:13px;"></i>
-                    </a>
+
+                    <div class="flex items-center gap-2">
+                      <a id="demo-original-link" href="#" target="_blank" rel="noopener noreferrer"
+                         class="w-8 h-8 rounded-full flex items-center justify-center text-sm transition-transform active:scale-90"
+                         style="background:rgba(255,255,255,0.18);color:#fff;" title="元の投稿を開く">
+                        🔗
+                      </a>
+                      <button class="w-8 h-8 rounded-full flex items-center justify-center text-base font-bold"
+                              style="background:rgba(255,255,255,0.18);color:#fff;" title="メニュー">
+                        ···
+                      </button>
+                    </div>
                   </div>
 
-                  <div class="flex items-center gap-2 mb-1.5">
-                    <span id="demo-platform-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-white/20 text-white">YouTube</span>
-                    <span id="demo-time-badge" class="text-[11px] text-white/90">⏱ 15分</span>
-                    <span id="demo-kcal-badge" class="text-[11px] text-white/90">🔥 520kcal</span>
+                  <!-- タイトル・著者・タグ（アプリ本物：中央揃え） -->
+                  <div class="text-center mb-3">
+                    <h1 id="demo-recipe-title" class="text-lg font-bold mb-1 text-white leading-snug">
+                      至高のチキン南蛮
+                    </h1>
+                    <p id="demo-recipe-author" class="text-xs mb-1 font-medium" style="color:#c8e6c9;">
+                      料理研究家リュウジ
+                    </p>
+                    <p id="demo-recipe-tags" class="text-xs font-medium" style="color:#c8e6c9;">
+                      メイン / 鶏肉 / 時短 / フライパン
+                    </p>
                   </div>
-                  <h3 id="demo-recipe-title" class="font-black text-base leading-snug mb-1 text-white">
-                    料理研究家が教える 至高のチキン南蛮
-                  </h3>
-                  <p id="demo-recipe-author" class="text-[11px] text-white/90 font-medium mb-1">
-                    料理研究家リュウジ
-                  </p>
-                  <p id="demo-recipe-desc" class="text-[11px] text-white/80 leading-relaxed">
-                    揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。
-                  </p>
+
+                  <!-- 料理画像（アプリ本物の画像カルーセル再現） -->
+                  <div class="rounded-2xl overflow-hidden shadow-sm" style="background:rgba(0,0,0,0.1);">
+                    <img id="demo-recipe-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80"
+                         alt="" class="w-full h-44 object-cover block" />
+                  </div>
                 </div>
 
-                <!-- 本文（材料・手順） -->
-                <div style="padding:14px;">
-                  
-                  <!-- 今日作るピン留めバッジ（アプリ機能） -->
-                  <div class="mb-3.5 bg-white rounded-xl p-2.5 border border-gray-200/80 shadow-sm flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                      <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px] font-bold">✓</span>
-                      <span class="text-xs font-bold text-gray-800">今日作るリストに追加中</span>
-                    </div>
-                    <span class="text-[10px] font-bold text-[#5a8a5a] bg-emerald-50 px-2 py-0.5 rounded">調理中</span>
-                  </div>
+                <!-- 本文（材料 ＆ 作り方手順） -->
+                <div style="padding:16px;background:#f5f3ef;">
 
-                  <!-- 材料カード -->
-                  <div class="bg-white rounded-2xl p-3.5 border border-gray-200/80 shadow-sm mb-3.5">
-                    <div class="flex items-center justify-between mb-2.5 pb-2 border-b border-gray-100">
-                      <span class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
-                        <i data-lucide="shopping-cart" style="width:13px;height:13px;color:#5a8a5a;"></i>
-                        材料・分量
-                      </span>
-                      <span class="text-[11px] text-gray-400 font-bold">2人前</span>
+                  <!-- 材料セクション（アプリ本物完全一致） -->
+                  <div class="mb-5">
+                    <div class="flex items-center justify-between mb-2">
+                      <h2 class="text-base font-bold text-[#1a1a1a]">材料</h2>
+                      <div class="flex items-center gap-2 rounded-full px-2.5 py-1" style="background:#e8e4df;">
+                        <button onclick="changeServings(-1)" class="w-5 h-5 flex items-center justify-center font-bold text-xs text-[#555]">
+                          −
+                        </button>
+                        <span id="demo-servings-text" class="text-xs font-bold text-[#1a1a1a]">2人前</span>
+                        <button onclick="changeServings(1)" class="w-5 h-5 flex items-center justify-center font-bold text-xs text-[#555]">
+                          ＋
+                        </button>
+                      </div>
                     </div>
-                    <div id="demo-ingredient-list" class="space-y-1.5">
-                      <!-- JSでレンダリング -->
-                    </div>
-                  </div>
+                    <p class="text-[10px] mb-2 text-[#aaa]" id="demo-servings-note">デフォルト: 2人前</p>
 
-                  <!-- 手順ステップ（タップでボトムシート展開！） -->
-                  <div class="space-y-2.5">
-                    <div class="flex items-center justify-between px-1">
-                      <span class="font-bold text-xs text-gray-900 flex items-center gap-1.5">
-                        <i data-lucide="chef-hat" style="width:13px;height:13px;color:#5a8a5a;"></i>
-                        作り方・手順
-                      </span>
-                      <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full font-bold flex items-center gap-0.5">
-                        <span>👈</span> タップで材料確認
-                      </span>
-                    </div>
-                    
-                    <div id="demo-steps-list" class="space-y-2">
-                      <!-- JSでレンダリング -->
+                    <!-- 材料リストカード（白角丸） -->
+                    <div class="rounded-2xl overflow-hidden shadow-sm" style="background:#fff;">
+                      <div id="demo-ingredient-list">
+                        <!-- JSでレンダリング -->
+                      </div>
                     </div>
                   </div>
 
-                  <!-- 最下部：ナビゲーションフッター -->
-                  <div class="mt-5 pt-3.5 border-t border-gray-200/70 flex items-center justify-between text-xs">
-                    <button onclick="goToScreen('list')" class="text-gray-500 hover:text-gray-800 font-bold flex items-center gap-1">
-                      <i data-lucide="arrow-left" style="width:12px;height:12px;"></i> 一覧に戻る
-                    </button>
-                    <button onclick="goToScreen('add')" class="text-[#5a8a5a] font-bold flex items-center gap-1">
-                      <i data-lucide="plus" style="width:12px;height:12px;"></i> 別のURLを登録
+                  <!-- 作り方・手順セクション（アプリ本物完全一致） -->
+                  <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                      <h2 class="text-base font-bold text-[#1a1a1a]">作り方</h2>
+                      <span class="text-xs text-[#aaa]">タップで材料確認</span>
+                    </div>
+
+                    <!-- 手順カードリスト（白角丸） -->
+                    <div class="rounded-2xl overflow-hidden shadow-sm" style="background:#fff;">
+                      <div id="demo-steps-list">
+                        <!-- JSでレンダリング -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- AIに相談ボタン（アプリ本物のFABデザイン再現） -->
+                  <div class="flex justify-end pt-2 pb-6">
+                    <button onclick="goToScreen('add')"
+                            class="flex items-center gap-2 px-4 h-11 rounded-full shadow-md text-xs font-bold active:scale-95 transition-transform"
+                            style="background:#1a1a1a;color:#fff;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                      </svg>
+                      AIに相談
                     </button>
                   </div>
 
                 </div>
               </div>
 
-              <!-- ================= 画面2: マイレシピ一覧画面 ================= -->
+              <!-- ================= 画面2: マイレシピ一覧画面（本物page.tsx完全再現） ================= -->
               <div id="view-list" class="phone-view">
                 <!-- 一覧ヘッダー -->
-                <div style="background:#ffffff;border-bottom:1px solid #f0ede8;padding:10px 14px 8px;">
-                  <div class="flex items-center justify-between mb-2.5">
+                <div style="background:#ffffff;border-bottom:1px solid #f0ede8;padding:12px 14px 10px;">
+                  <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-1.5">
                       <span class="text-base">🌿</span>
                       <span class="font-black text-sm text-[#1a1a1a] tracking-tight">なにたべ</span>
@@ -1273,10 +1298,10 @@
                   </div>
 
                   <!-- 検索バー（AIトグル付き） -->
-                  <div class="relative mb-2">
+                  <div class="relative mb-2.5">
                     <input type="text" placeholder="食材や気分で検索..." readonly onclick="goToScreen('add')"
-                           class="w-full rounded-xl px-3 py-2 text-xs bg-[#f5f3ef] text-gray-700 outline-none cursor-pointer" />
-                    <div class="absolute right-1.5 top-1 flex rounded-lg overflow-hidden bg-[#e5e0d8] text-[9px] font-bold">
+                           class="w-full rounded-xl px-3 py-2.5 text-xs bg-[#f5f3ef] text-gray-700 outline-none cursor-pointer" />
+                    <div class="absolute right-1.5 top-1.5 flex rounded-lg overflow-hidden bg-[#e5e0d8] text-[9px] font-bold">
                       <span class="px-2 py-1 bg-[#1a1a1a] text-white">通常</span>
                       <span class="px-2 py-1 text-[#5a8a5a]">AI</span>
                     </div>
@@ -1305,11 +1330,11 @@
                 </div>
               </div>
 
-              <!-- ================= 画面3: URL登録・AI解析画面 ================= -->
+              <!-- ================= 画面3: URL登録・AI解析画面（本物AddRecipeModal完全再現） ================= -->
               <div id="view-add" class="phone-view">
                 <!-- 登録ヘッダー -->
                 <div style="background:#ffffff;border-bottom:1px solid #f0ede8;padding:12px 14px;" class="flex items-center justify-between">
-                  <button onclick="goToScreen('list')" class="w-7 h-7 rounded-full bg-[#f0ede8] flex items-center justify-center text-xs text-gray-600 hover:text-black">
+                  <button onclick="goToScreen('list')" class="w-7 h-7 rounded-full bg-[#f0ede8] flex items-center justify-center text-xs text-gray-600 hover:text-black cursor-pointer">
                     ✕
                   </button>
                   <span class="font-bold text-xs text-gray-900">レシピをブックマーク</span>
@@ -1320,7 +1345,7 @@
                   <p class="text-[10px] font-bold text-[#5a8a5a] mb-0.5">Step 1</p>
                   <h4 class="font-bold text-xs text-gray-900 mb-1">お気に入りのレシピURLを入力</h4>
                   <p class="text-[11px] text-gray-500 mb-3 leading-relaxed">
-                    YouTube・Instagram・Xなどの動画レシピURLを入力すると、AIが材料や手順を自動で整理します。
+                    YouTube・Instagram・Xなどの動画レシピURLを入力すると、AIが材料や作り方を自動で解析して保存します。
                   </p>
 
                   <!-- サンプルURL挿入ボタン -->
@@ -1350,15 +1375,15 @@
                   <!-- AI解析して保存ボタン -->
                   <button onclick="runDemoAiAnalyze()"
                           id="btn-run-analyze"
-                          class="w-full py-3 rounded-xl bg-[#5a8a5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#4d754d] active:scale-98 transition-all">
+                          class="w-full py-3 rounded-xl bg-[#5a8a5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#4d754d] active:scale-98 transition-all cursor-pointer">
                     <span>✦</span> AI解析して保存
                   </button>
                   <p class="text-center text-[10px] text-gray-400 mt-2 mb-4">
-                    材料や作り方が見やすく整理されます
+                    材料や作り方が見やすく自動整理されます
                   </p>
 
                   <button onclick="goToScreen('list')"
-                          class="w-full py-2.5 rounded-xl bg-[#f0ede8] text-gray-600 font-bold text-xs hover:bg-[#e5e0d8]">
+                          class="w-full py-2.5 rounded-xl bg-[#f0ede8] text-gray-600 font-bold text-xs hover:bg-[#e5e0d8] cursor-pointer">
                     キャンセル
                   </button>
 
@@ -1377,46 +1402,39 @@
                 </div>
               </div>
 
-              <!-- ================= ボトムシート: 手順材料シート ================= -->
-              <div id="step-sheet-backdrop" class="step-sheet-backdrop" onclick="closeStepSheet()"></div>
-              <div id="step-sheet-panel" class="step-sheet-panel">
-                <!-- つまみバー -->
-                <div class="sheet-handle" onclick="closeStepSheet()"></div>
+            </div>
 
-                <!-- ヘッダー -->
-                <div class="flex items-center justify-between px-5 pt-2 pb-2">
-                  <span class="text-xs font-bold text-[#5a8a5a] flex items-center gap-1">
-                    <i data-lucide="chef-hat" style="width:13px;height:13px;"></i>
-                    ステップ <span id="sheet-step-num">1</span>
-                  </span>
-                  <button onclick="closeStepSheet()" class="w-6 h-6 rounded-full bg-gray-100 text-gray-500 hover:text-gray-900 flex items-center justify-center text-xs font-bold">
-                    ✕
-                  </button>
-                </div>
+            <!-- ================= ボトムシート: ステップ材料シート（phone-outer-frame直下に配置して下端にピッタリ吸着！） ================= -->
+            <div id="step-sheet-backdrop" class="step-sheet-backdrop" onclick="closeStepSheet()"></div>
+            <div id="step-sheet-panel" class="step-sheet-panel">
+              <!-- ハンドル（アプリ本物：グレーバー） -->
+              <div class="sheet-handle" onclick="closeStepSheet()"></div>
 
-                <!-- ステップ本文カード -->
-                <div class="mx-4 mb-3 rounded-xl p-3 bg-[#f5f3ef] border border-gray-200/60">
-                  <p class="text-xs text-gray-800 leading-relaxed font-medium" id="sheet-step-text">
-                    鶏肉の厚みを均等にし、フォークで刺して塩コショウを振る。
-                  </p>
-                </div>
-
-                <!-- 材料セクション -->
-                <div class="px-5 pt-1 pb-1.5 border-t border-gray-100 flex items-center justify-between">
-                  <span class="text-[11px] font-bold text-gray-500 flex items-center gap-1">
-                    <i data-lucide="shopping-bag" style="width:12px;height:12px;color:#5a8a5a;"></i>
-                    この手順で使う材料
-                  </span>
-                  <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">自動抽出</span>
-                </div>
-
-                <!-- 材料リスト -->
-                <div class="px-5 space-y-1.5" id="sheet-step-ings">
-                  <!-- JSでレンダリング -->
-                </div>
+              <!-- ヘッダー（アプリ本物：ステップ番号 ＆ ✕） -->
+              <div class="flex items-center justify-between px-5 pt-2 pb-2">
+                <p class="text-xs font-bold" style="color:#5a8a5a;">ステップ <span id="sheet-step-num">1</span></p>
+                <button onclick="closeStepSheet()" class="text-xl leading-none text-gray-400 hover:text-gray-700 cursor-pointer">×</button>
               </div>
 
+              <!-- ステップ本文（アプリ本物：グレー背景の角丸カード） -->
+              <div class="mx-5 mb-3 rounded-2xl px-4 py-3" style="background:#f5f3ef;">
+                <p class="text-xs leading-relaxed text-[#333]" id="sheet-step-text">
+                  鶏肉の厚みを均等にし、フォークで刺して塩コショウを振る。
+                </p>
+              </div>
+
+              <!-- 材料セクション見出し（アプリ本物完全一致） -->
+              <div class="px-5 pb-1 flex items-center justify-between" style="border-top:1px solid #f0ede8;padding-top:10px;">
+                <p class="text-xs font-bold" style="color:#aaa;">この手順で使う材料</p>
+                <span class="text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">自動抽出</span>
+              </div>
+
+              <!-- 材料リスト（アプリ本物：○マーク ＆ 分量） -->
+              <div class="px-5 pt-2 space-y-2" id="sheet-step-ings">
+                <!-- JSでレンダリング -->
+              </div>
             </div>
+
           </div>
         </div>
 
@@ -2257,15 +2275,14 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         author: "料理研究家リュウジ",
         platform: "YouTube",
         url: "https://www.youtube.com/watch?v=sample_chicken_nanban",
-        time: "15分",
-        kcal: "520kcal",
         category: "メイン",
         tags: ["鶏肉", "時短", "フライパン"],
+        tagString: "メイン / 鶏肉 / 時短 / フライパン",
+        servings: 2,
         cookedCount: 3,
-        desc: "揚げ焼きでサクッとジューシー！特製タルタルソースと甘酢ダレの黄金比レシピ。",
         image: "https://images.unsplash.com/photo-1562967914-608f82629710?w=600&auto=format&fit=crop&q=80",
         ingredients: [
-          { name: "鶏もも肉", amount: "300g" },
+          { name: "鶏もも肉", amount: "300g", baseQty: 300, unit: "g" },
           { name: "小麦粉・卵（衣用）", amount: "各大さじ2 / 1個" },
           { name: "ゆで卵・マヨネーズ", amount: "1個 / 大さじ3" },
           { name: "特製ポン酢甘酢ダレ", amount: "大さじ3" },
@@ -2300,12 +2317,11 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         author: "山本ゆり",
         platform: "Instagram",
         url: "https://www.instagram.com/p/sample_butabara_hakusai",
-        time: "10分",
-        kcal: "410kcal",
         category: "おかず",
         tags: ["豚肉", "白菜", "ヘルシー"],
+        tagString: "おかず / 豚肉 / 白菜 / ヘルシー",
+        servings: 2,
         cookedCount: 5,
-        desc: "フライパンに敷き詰めて蒸すだけ。水なしで素材の水分と旨みが凝縮。",
         image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80",
         ingredients: [
           { name: "豚バラ薄切り肉", amount: "200g" },
@@ -2345,12 +2361,11 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         author: "ワンパン料理人",
         platform: "X (Twitter)",
         url: "https://x.com/recipe_creator/status/183920192837",
-        time: "12分",
-        kcal: "590kcal",
         category: "主食",
         tags: ["パスタ", "ワンパン", "濃厚"],
+        tagString: "主食 / パスタ / ワンパン / 濃厚",
+        servings: 2,
         cookedCount: 2,
-        desc: "フライパン一つでパスタもソースも完成。失敗知らずで洗い物も最小限。",
         image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=600&auto=format&fit=crop&q=80",
         ingredients: [
           { name: "パスタ（1.6mm）", amount: "100g" },
@@ -2386,6 +2401,13 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
 
     let currentScreen = 'detail';
     let currentRecipeIdx = 0;
+    let currentServings = 2;
+
+    // 人前増減ボタン
+    function changeServings(delta) {
+      currentServings = Math.max(1, currentServings + delta);
+      document.getElementById('demo-servings-text').textContent = currentServings + '人前';
+    }
 
     // 画面切り替え（detail / list / add）
     function goToScreen(screen, recipeIdx) {
@@ -2409,7 +2431,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         }
       }
 
-      // ボトムシートが開いていたら閉じる
+      // ボトムシートは画面遷移時に確実に閉じる！
       closeStepSheet();
 
       // 外側のプリセットボタンのアクティブ同期
@@ -2439,51 +2461,53 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       if (window.lucide) lucide.createIcons();
     }
 
-    // レシピ詳細画面のレンダリング
+    // レシピ詳細画面のレンダリング（RecipeDetail.tsx準拠）
     function renderDetail(idx) {
       const p = demoRecipes[idx];
       if (!p) return;
 
       document.getElementById('demo-recipe-title').textContent = p.title;
       document.getElementById('demo-recipe-author').textContent = p.author;
-      document.getElementById('demo-recipe-desc').textContent = p.desc;
-      document.getElementById('demo-time-badge').textContent = '⏱ ' + p.time;
-      document.getElementById('demo-kcal-badge').textContent = '🔥 ' + p.kcal;
+      document.getElementById('demo-recipe-tags').textContent = p.tagString;
+      document.getElementById('demo-recipe-img').src = p.image;
 
       const origLink = document.getElementById('demo-original-link');
       if (origLink) origLink.href = p.url;
 
-      const pBadge = document.getElementById('demo-platform-badge');
-      if (pBadge) pBadge.textContent = p.platform;
+      currentServings = p.servings || 2;
+      document.getElementById('demo-servings-text').textContent = currentServings + '人前';
+      document.getElementById('demo-servings-note').textContent = 'デフォルト: ' + currentServings + '人前';
 
-      // 材料リスト
+      // 材料リスト（白背景・行ボーダー・○アイコン）
       const ingList = document.getElementById('demo-ingredient-list');
       if (ingList) {
-        ingList.innerHTML = p.ingredients.map(ing => `
-          <div class="flex items-center justify-between py-1 px-2 rounded-lg bg-gray-50 border border-gray-100 text-xs">
-            <span class="font-bold text-gray-800">${ing.name}</span>
-            <span class="text-gray-500 font-mono text-[11px]">${ing.amount}</span>
+        ingList.innerHTML = p.ingredients.map((ing, i) => `
+          <div class="flex items-center justify-between px-3.5 py-2.5"
+               style="border-bottom: ${i < p.ingredients.length - 1 ? '1px solid #f0ede8' : 'none'};">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="flex-shrink-0 text-xs text-gray-300">○</span>
+              <p class="text-xs font-medium truncate text-[#1a1a1a]">${ing.name}</p>
+            </div>
+            <p class="text-xs font-bold text-[#333] flex-shrink-0">${ing.amount}</p>
           </div>
         `).join('');
       }
 
-      // 工程別ステップ（タップでボトムシート展開！）
+      // 作り方ステップ（白背景・行ボーダー・緑丸番号・右端スプーン🥄・タップで材料シート展開）
       const stepList = document.getElementById('demo-steps-list');
       if (stepList) {
         stepList.innerHTML = p.steps.map((st, i) => `
-          <div onclick="openStepSheet(${i})"
-               class="demo-step-card bg-white rounded-xl p-3 border border-gray-200/90 shadow-sm text-xs leading-relaxed group">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-1.5 font-black text-[#5a8a5a]">
-                <span class="w-4 h-4 rounded-full bg-[#5a8a5a] text-white flex items-center justify-center text-[10px]">${i + 1}</span>
-                <span>ステップ ${i + 1}</span>
-              </div>
-              <span class="text-[10px] text-gray-400 font-medium group-hover:text-[#5a8a5a] flex items-center gap-0.5">
-                材料を見る →
-              </span>
-            </div>
-            <p class="text-gray-800 font-medium leading-relaxed">${st.text}</p>
-          </div>
+          <button type="button"
+                  onclick="openStepSheet(${i})"
+                  class="w-full flex items-start gap-3 px-3.5 py-3 text-left transition-colors active:bg-gray-50 cursor-pointer"
+                  style="border-bottom: ${i < p.steps.length - 1 ? '1px solid #f0ede8' : 'none'};">
+            <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
+                  style="background:#5a8a5a;">
+              ${i + 1}
+            </span>
+            <p class="text-xs leading-relaxed flex-1 text-[#333] font-medium">${st.text}</p>
+            <span class="flex-shrink-0 text-xs self-start mt-0.5 text-gray-400">🥄</span>
+          </button>
         `).join('');
       }
     }
@@ -2495,7 +2519,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
 
       container.innerHTML = demoRecipes.map((r, i) => `
         <div onclick="goToScreen('detail', ${i})"
-             class="demo-recipe-list-card bg-white rounded-2xl p-2.5 border border-gray-200/80 shadow-sm flex gap-2.5 items-center">
+             class="demo-recipe-list-card bg-white rounded-2xl p-2.5 border border-gray-200/80 shadow-sm flex gap-2.5 items-center cursor-pointer">
           <img src="${r.image}" alt="" class="w-20 h-20 rounded-xl object-cover flex-shrink-0" />
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-1 mb-1">
@@ -2512,7 +2536,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       `).join('');
     }
 
-    // 手順材料ボトムシートのオープン
+    // 手順材料ボトムシートのオープン（下からスッと現れる！）
     function openStepSheet(stepIdx) {
       const recipe = demoRecipes[currentRecipeIdx];
       if (!recipe || !recipe.steps[stepIdx]) return;
@@ -2525,18 +2549,28 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       const ingsContainer = document.getElementById('sheet-step-ings');
       if (ingsContainer) {
         ingsContainer.innerHTML = step.ings.map(ing => `
-          <div class="flex items-center justify-between py-1.5 px-2.5 rounded-lg bg-gray-50 border border-gray-100 text-xs">
-            <div class="flex items-center gap-1.5">
-              <span class="w-3.5 h-3.5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center text-[9px] font-bold">✓</span>
-              <span class="font-bold text-gray-800">${ing.name}</span>
+          <div class="flex items-center justify-between py-1.5" style="border-bottom: 1px solid #f5f3ef;">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="flex-shrink-0 text-xs text-gray-300">○</span>
+              <p class="text-xs font-medium truncate text-[#1a1a1a]">${ing.name}</p>
             </div>
-            <span class="text-gray-600 font-mono text-[11px] font-bold">${ing.amount}</span>
+            <span class="text-xs font-bold text-[#333] font-mono">${ing.amount}</span>
           </div>
         `).join('');
       }
 
-      document.getElementById('step-sheet-backdrop').classList.add('active');
-      document.getElementById('step-sheet-panel').classList.add('active');
+      const backdrop = document.getElementById('step-sheet-backdrop');
+      const panel = document.getElementById('step-sheet-panel');
+
+      // display: block にしてからアニメーション適用
+      backdrop.style.display = 'block';
+      panel.style.display = 'block';
+
+      // requestAnimationFrameでスムーズにtransformを適用
+      requestAnimationFrame(() => {
+        backdrop.classList.add('active');
+        panel.classList.add('active');
+      });
 
       if (window.lucide) lucide.createIcons();
     }
@@ -2545,8 +2579,19 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
     function closeStepSheet() {
       const backdrop = document.getElementById('step-sheet-backdrop');
       const panel = document.getElementById('step-sheet-panel');
-      if (backdrop) backdrop.classList.remove('active');
-      if (panel) panel.classList.remove('active');
+      if (!backdrop || !panel) return;
+
+      backdrop.classList.remove('active');
+      panel.classList.remove('active');
+
+      setTimeout(() => {
+        if (!backdrop.classList.contains('active')) {
+          backdrop.style.display = 'none';
+        }
+        if (!panel.classList.contains('active')) {
+          panel.style.display = 'none';
+        }
+      }, 300);
     }
 
     // URL入力欄にお試しURLを入力
@@ -2585,8 +2630,9 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       }, 1400);
     }
 
-    // 初期実行
+    // 初期実行（ボトムシートは完全に閉じた状態でスタート）
     document.addEventListener('DOMContentLoaded', () => {
+      closeStepSheet();
       goToScreen('detail', 0);
     });
 
