@@ -62,7 +62,7 @@
 
   <main class="max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl mb-2" style="color:#1a1a1a;">プライバシーポリシー</h1>
-    <p class="text-xs" style="color:#aaa;">最終更新日：2026年9月6日</p>
+    <p class="text-xs" style="color:#aaa;">最終更新日：2026年10月27日</p>
 
     <p class="mt-6">「なにたべ」（以下「本サービス」）は、利用者の個人情報を適切に保護することを重要な責務と考え、以下のとおりプライバシーポリシーを定めます。</p>
 
@@ -71,7 +71,12 @@
     <ul>
       <li>メールアドレス（メール認証・Googleアカウントでのログイン時）</li>
       <li>Googleアカウントの基本プロフィール情報（Googleログインをご利用の場合）</li>
-      <li>登録されたレシピの内容（タイトル・材料・手順・画像URL等）</li>
+      <li>ニックネーム（プロフィールとして表示されます）</li>
+      <li>登録されたレシピの内容（タイトル・材料・手順・画像URL等）と、フォルダ・調理記録・買い物リスト・ごはん図鑑の情報</li>
+      <li>つくれぽ・口コミとして投稿された写真・コメント（写真は本サービスの保存領域に保管されます）</li>
+      <li>ご自身で設定したGemini APIキー（設定した場合のみ。暗号化して保存します）</li>
+      <li>お問い合わせの内容（お問い合わせフォームをご利用の場合）</li>
+      <li>IPアドレス（ゲスト体験の利用回数の制限・不正利用の防止のために取得します）</li>
       <li>アプリの利用状況（AI解析・AI検索の利用回数、アクセスログ等）</li>
       <li>決済情報（Stripeを通じた有料プランご契約時。カード番号等は本サービスでは保持せずStripeが管理します）</li>
     </ul>
@@ -83,6 +88,7 @@
       <li>不正利用の防止・利用規約違反への対応のため</li>
       <li>有料プランの決済処理のため</li>
       <li>利用状況の分析によるサービス改善のため</li>
+      <li>機能のご案内メールの送信のため（メール内のリンクから、いつでも配信を停止できます）</li>
     </ul>
 
     <h2>3. 第三者サービスの利用</h2>
@@ -92,18 +98,23 @@
       <li><strong>Google OAuth</strong>：Googleアカウントによるログイン機能</li>
       <li><strong>Stripe</strong>：有料プランの決済処理</li>
       <li><strong>Google Gemini API</strong>：レシピ内容のAI解析・AI検索</li>
+      <li><strong>YouTube</strong>：YouTubeのURLで保存したレシピの動画表示・再生（再生ボタンを押すまでは、サムネイル画像の取得のみを行います）</li>
+      <li><strong>Resend</strong>：お問い合わせ・機能のご案内メールの送信</li>
+      <li><strong>Vercel</strong>：本サービスの配信（ホスティング）</li>
+      <li><strong>Amazonアソシエイト</strong>：書籍・調理器具などの紹介リンク（リンク先でのCookie等の取り扱いはAmazonのポリシーに従います）</li>
       <li><strong>Google Analytics</strong>：アクセス状況の分析（Cookieを使用）</li>
       <li><strong>Google AdSense</strong>：広告の配信（Cookieを使用し、興味関心に基づく広告が表示される場合があります）</li>
     </ul>
+    <p>Amazonのアソシエイトとして、なにたべは適格販売により収入を得ています。</p>
 
     <h2>4. Cookie（クッキー）について</h2>
-    <p>本サービスでは、Google AnalyticsおよびGoogle AdSenseによりCookieを使用しています。これにより、利用者の興味関心に応じた広告が配信される場合があります。Cookieの利用を望まない場合は、ブラウザの設定からCookieを無効にすることができます。また、パーソナライズ広告の設定は<a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google広告設定</a>から変更いただけます。</p>
+    <p>本サービスでは、Google AnalyticsおよびGoogle AdSenseによりCookieを使用しています。これにより、利用者の興味関心に応じた広告が配信される場合があります。ログイン状態を保つため、本サービス自身も認証に必要なCookieを使用します。また、Amazonのリンクを経由した場合、Amazon側でCookieが使用されることがあります。Cookieの利用を望まない場合は、ブラウザの設定からCookieを無効にすることができます（認証用のCookieを無効にすると、ログインできなくなります）。また、パーソナライズ広告の設定は<a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google広告設定</a>から変更いただけます。</p>
 
     <h2>5. 個人情報の第三者提供</h2>
     <p>法令に基づく場合を除き、利用者の同意なく個人情報を第三者に提供することはありません。</p>
 
     <h2>6. 個人情報の開示・削除等の請求</h2>
-    <p>利用者は、本サービスに登録した個人情報の開示・訂正・削除を求めることができます。アカウントの削除をご希望の場合は、下記お問い合わせ先までご連絡ください。</p>
+    <p>利用者は、本サービスに登録した個人情報の開示・訂正・削除を求めることができます。アカウントの削除は、設定画面の一番下にある「アカウントを削除する」から、いつでもご自身で行えます。削除すると、保存したレシピ・フォルダ・つくれぽ（写真を含む）・口コミなどの全データが完全に削除されます。そのほかの開示・訂正・削除のご請求は、下記お問い合わせ先までご連絡ください。</p>
 
     <h2>7. プライバシーポリシーの変更</h2>
     <p>本ポリシーの内容は、法令の変更やサービス内容の変更に応じて予告なく変更する場合があります。変更後のプライバシーポリシーは本ページに掲載した時点から効力を生じるものとします。</p>
@@ -151,6 +162,8 @@
         <ul class="text-xs space-y-2 text-gray-400">
           <li><a href="about.html" class="hover:text-white transition-colors">運営者情報・お問い合わせ</a></li>
           <li><a href="updates.html" class="hover:text-white transition-colors">お知らせ・更新情報</a></li>
+          <li><a href="terms.html" class="hover:text-white transition-colors">利用規約</a></li>
+          <li><a href="legal.html" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
           <li><a href="privacy.html" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
         </ul>
       </div>
