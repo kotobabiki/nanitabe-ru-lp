@@ -1805,6 +1805,7 @@
         <p>できます。フリープランを含む全プランで、広場の閲覧・いいね・レシピの保存（自分のリストへの追加）がすべて利用できます。広場のレシピをタップして「保存する」ボタンで追加できます。</p>
       </details>
 
+      <div id="faq-more" hidden>
       <details>
         <summary>
           分析タブはAIを消費しますか？
@@ -1905,9 +1906,29 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
         </summary>
         <p>できます。「離乳食」「お弁当用」「週末料理」など自由にフォルダを作成でき、レシピ保存時にAIが最適なフォルダを自動で提案してくれます（スタンダードプラン以上）。</p>
       </details>
+      </div>
 
+      <div class="text-center mt-8">
+        <button id="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-more" class="font-bold text-sm px-6 py-3 rounded-full transition-colors" style="color:#5a8a5a;background:#fff;border:1.5px solid #5a8a5a;">
+          すべての質問を見る（残り12件）
+        </button>
+      </div>
     </div>
   </section>
+  <script>
+    (function(){
+      var btn=document.getElementById('faq-toggle'), more=document.getElementById('faq-more');
+      if(!btn||!more) return;
+      var rest=btn.textContent.trim();
+      btn.addEventListener('click',function(){
+        var open=more.hasAttribute('hidden');
+        if(open){more.removeAttribute('hidden');btn.textContent='閉じる';}
+        else{more.setAttribute('hidden','');btn.textContent=rest;document.getElementById('faq').scrollIntoView({behavior:'smooth'});}
+        btn.setAttribute('aria-expanded',open?'true':'false');
+      });
+    })();
+  </script>
+
 
   
   <!-- ===== Column / Articles Section ===== -->
