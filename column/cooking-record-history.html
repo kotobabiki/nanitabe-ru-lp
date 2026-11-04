@@ -41,6 +41,9 @@
     .article figure { margin: 20px 0; text-align: center; }
     .article figcaption { font-size: 12px; color: #aaa; text-align: center; margin-top: 8px; }
     .article img { border-radius: 16px; max-width: 280px; width: 100%; display: block; margin: 0 auto; }
+    /* 本文エリアを白いカードにして、背景(ベージュ)と区別する */
+    main.article-card { background:#fff; border-radius:24px; box-shadow:0 8px 30px rgba(0,0,0,0.05); border:1px solid #ece8e1; margin-top:16px; padding:44px 40px; }
+    @media (max-width: 700px) { main.article-card { border-radius:20px; padding:30px 20px; margin-left:12px; margin-right:12px; } }
   </style>
   <script type="application/ld+json">
   {
@@ -80,7 +83,7 @@
     <a href="../index.html" class="hover:underline">ホーム</a> &gt; <a href="../column.html" class="hover:underline">コラム一覧</a> &gt; <span class="text-gray-700">作った料理、記録に残せていますか？調理履歴を残す方法</span>
   </nav>
 
-  <main class="max-w-2xl mx-auto px-5 py-8">
+  <main class="article-card max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;line-height:1.4;">作った料理、記録に残せていますか？調理履歴を残す方法</h1>
     <p class="text-xs mb-10" style="color:#aaa;">2026年9月26日</p>
 

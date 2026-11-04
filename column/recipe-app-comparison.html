@@ -42,6 +42,9 @@
     .article table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
     .article th, .article td { border: 1px solid #e8e4df; padding: 8px 10px; text-align: center; }
     .article th { background: #f5f3ef; font-weight: 700; }
+    /* 本文エリアを白いカードにして、背景(ベージュ)と区別する */
+    main.article-card { background:#fff; border-radius:24px; box-shadow:0 8px 30px rgba(0,0,0,0.05); border:1px solid #ece8e1; margin-top:16px; padding:44px 40px; }
+    @media (max-width: 700px) { main.article-card { border-radius:20px; padding:30px 20px; margin-left:12px; margin-right:12px; } }
   </style>
   <script type="application/ld+json">
   { "@context": "https://schema.org", "@type": "Article",
@@ -77,7 +80,7 @@
     <a href="../index.html" class="hover:underline">ホーム</a> &gt; <a href="../column.html" class="hover:underline">コラム一覧</a> &gt; <span class="text-gray-700">レシピ管理アプリを選ぶとき、見落としがちな1つの基準</span>
   </nav>
 
-  <main class="max-w-2xl mx-auto px-5 py-8">
+  <main class="article-card max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl md:text-3xl mb-3" style="color:#1a1a1a;line-height:1.4;">レシピ管理アプリを選ぶとき、見落としがちな1つの基準</h1>
     <p class="text-xs mb-10" style="color:#aaa;">2026年9月5日</p>
 
