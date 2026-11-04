@@ -36,6 +36,9 @@
     main ul { list-style: disc; padding-left: 22px; margin-bottom: 16px; }
     main li { margin-bottom: 6px; }
     main a { color: #5a8a5a; text-decoration: underline; }
+    /* 本文エリアを白いカードにして、背景(ベージュ)と区別する */
+    main.article-card { background:#fff; border-radius:24px; box-shadow:0 8px 30px rgba(0,0,0,0.05); border:1px solid #ece8e1; margin-top:16px; margin-bottom:16px; padding:44px 40px; }
+    @media (max-width: 700px) { main.article-card { border-radius:20px; padding:30px 20px; margin-left:12px; margin-right:12px; } }
   </style>
 </head>
 <body class="bg-bg text-textmain">
@@ -62,7 +65,7 @@
     <a href="index.html" class="hover:underline">ホーム</a> &gt; <span>利用規約</span>
   </nav>
 
-  <main class="max-w-2xl mx-auto px-5 py-8">
+  <main class="article-card max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl mb-2" style="color:#1a1a1a;">利用規約</h1>
     <p class="text-xs" style="color:#aaa;">最終更新日：2026年10月30日</p>
     <h2>第1条（適用）</h2>
