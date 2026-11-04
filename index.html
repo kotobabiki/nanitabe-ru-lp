@@ -96,11 +96,13 @@
       display: inline-block;
       margin-bottom: 8px;
     }
-    .plan-card { border: 2px solid #e8e4df; border-radius: 20px; padding: 28px 24px; background: #fff; display: flex; flex-direction: column; gap: 16px; }
+    .plan-card { border: 2px solid #e8e4df; border-radius: 20px; padding: 22px 20px; background: #fff; display: flex; flex-direction: column; gap: 12px; }
+    /* ボタンは、カードの一番下にそろえる（カードの高さが違っても、3つの位置が同じになる） */
+    .plan-card > a:last-child { margin-top: auto; }
     .plan-card.featured { border-color: #5a8a5a; }
     .plan-card.premium-card { border-color: #c0892a; }
-    .check-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-    .check-list li { font-size: 14px; color: #444; display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .check-list { list-style: none; padding: 0; margin: 0 0 8px; display: flex; flex-direction: column; gap: 5px; }
+    .check-list li { font-size: 12.5px; color: #444; display: flex; align-items: flex-start; gap: 7px; line-height: 1.45; }
     .check-list li::before { content: '✓'; color: #5a8a5a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
     .check-list li.muted::before { color: #ccc; }
     .check-list li.muted { color: #bbb; }
@@ -1651,7 +1653,7 @@
         <div class="plan-card">
           <div>
             <p class="font-bold text-base mb-1" style="color:#1a1a1a;">フリー</p>
-            <p class="font-black text-3xl" style="color:#1a1a1a;">無料</p>
+            <p class="font-black text-2xl" style="color:#1a1a1a;">無料</p>
           </div>
           <ul class="check-list">
             <li>レシピ最大50件</li>
@@ -1678,7 +1680,7 @@
             <p class="font-bold text-base mb-1" style="color:#1a1a1a;">スタンダード</p>
             <div class="flex items-baseline gap-2">
               <span class="text-sm line-through text-gray-400 font-normal">¥300</span>
-              <p class="font-black text-3xl" style="color:#1a1a1a;">¥130<span class="text-sm font-normal text-gray-500">/月</span></p>
+              <p class="font-black text-2xl" style="color:#1a1a1a;">¥130<span class="text-sm font-normal text-gray-500">/月</span></p>
             </div>
             <p class="text-[11px] font-bold text-[#5a8a5a] mt-1">※早期限定特別価格</p>
           </div>
@@ -1708,7 +1710,7 @@
             <p class="font-bold text-base mb-1" style="color:#1a1a1a;">プレミアム</p>
             <div class="flex items-baseline gap-2">
               <span class="text-sm line-through text-gray-400 font-normal">¥980</span>
-              <p class="font-black text-3xl" style="color:#1a1a1a;">¥380<span class="text-sm font-normal text-gray-500">/月</span></p>
+              <p class="font-black text-2xl" style="color:#1a1a1a;">¥380<span class="text-sm font-normal text-gray-500">/月</span></p>
             </div>
             <p class="text-[11px] font-bold text-[#c0892a] mt-1">※早期限定特別価格</p>
           </div>
