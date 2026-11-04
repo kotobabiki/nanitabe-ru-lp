@@ -1,0 +1,51 @@
+/* なにたべLP 共通ボタン。場所ごとに形を使い分ける
+   .btn-primary   : 主役（登録）。立体的な緑＋矢印の丸。ヒーロー・各ブロックの下
+   .btn-primary.on-green : 緑の背景の上に置く、白いボタン
+   .btn-primary.btn-sm   : 記事の末尾など、少し小さい主役ボタン
+   .btn-secondary : 副（体験など）。白地に緑の枠＋左に丸アイコン
+   .btn-plan-*    : 料金カードの下。カードの幅いっぱい（free=中立 / std=緑 / premium=金）
+   .btn-ghost     : 「すべて見る」など、控えめな展開ボタン */
+
+.btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:16px 18px 16px 30px; border-radius:999px; color:#fff; font-weight:800; font-size:17px; letter-spacing:.02em; white-space:nowrap; text-decoration:none;
+  background:linear-gradient(135deg,#73a273 0%,#4f7f4f 100%); box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:transform .18s ease, box-shadow .18s ease; animation:btnGlow 3.2s ease-in-out infinite; }
+.btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 32px rgba(79,127,79,.45), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-primary:active { transform:translateY(0) scale(.97); }
+.btn-primary .btn-arrow { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.24); font-size:16px; transition:transform .18s ease; }
+.btn-primary:hover .btn-arrow { transform:translateX(4px); }
+.btn-primary.btn-sm { padding:12px 14px 12px 24px; font-size:15px; gap:10px; animation:none; box-shadow:0 6px 16px rgba(79,127,79,.3), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-primary.btn-sm .btn-arrow { width:26px; height:26px; font-size:14px; }
+.btn-primary.on-green { background:#fff; color:#4f7f4f; animation:none; box-shadow:0 10px 26px rgba(0,0,0,.18); }
+.btn-primary.on-green:hover { box-shadow:0 16px 34px rgba(0,0,0,.24); }
+.btn-primary.on-green .btn-arrow { background:#e6f1e6; color:#4f7f4f; }
+
+.btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 28px 14px 18px; border-radius:999px; color:#4f7f4f; font-weight:800; font-size:16px; white-space:nowrap; text-decoration:none;
+  background:#fff; border:2px solid #5a8a5a; box-shadow:0 4px 14px rgba(90,138,90,.12); transition:transform .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease; }
+.btn-secondary:hover { background:#f0f7f0; transform:translateY(-3px); box-shadow:0 10px 22px rgba(90,138,90,.2); }
+.btn-secondary:active { transform:translateY(0) scale(.97); }
+.btn-secondary .btn-play { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:#5a8a5a; color:#fff; font-size:11px; padding-left:2px; }
+.btn-secondary.plain { padding:14px 28px; }
+
+.btn-plan { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px 16px; border-radius:999px; font-weight:800; font-size:14px; white-space:nowrap; text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.btn-plan::after { content:'→'; display:inline-block; transition:transform .18s ease; }
+.btn-plan:hover { transform:translateY(-2px); }
+.btn-plan:hover::after { transform:translateX(4px); }
+.btn-plan:active { transform:scale(.97); }
+.btn-plan-free { background:#f3efe8; color:#555; border:1.5px solid #e0dbd2; }
+.btn-plan-free:hover { background:#e9e3d8; }
+.btn-plan-std { color:#fff; background:linear-gradient(135deg,#73a273 0%,#4f7f4f 100%); box-shadow:0 8px 18px rgba(79,127,79,.32), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-plan-std:hover { box-shadow:0 12px 24px rgba(79,127,79,.4), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-plan-premium { color:#fff; background:linear-gradient(135deg,#d9a84f 0%,#b07d1e 100%); box-shadow:0 8px 18px rgba(176,125,30,.3), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn-plan-premium:hover { box-shadow:0 12px 24px rgba(176,125,30,.4), inset 0 1px 0 rgba(255,255,255,.3); }
+
+.btn-ghost { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px; border-radius:999px; font-weight:700; font-size:14px; color:#4f7f4f; background:#fff; border:1.5px solid #cfdccf; cursor:pointer; text-decoration:none;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease; }
+.btn-ghost:hover { background:#f0f7f0; border-color:#5a8a5a; transform:translateY(-2px); }
+.btn-ghost:active { transform:scale(.97); }
+.btn-ghost[aria-expanded="true"]::after { transform:rotate(180deg); }
+.btn-ghost::after { content:'▾'; font-size:12px; transition:transform .2s ease; }
+.btn-ghost.no-caret::after { content:'→'; font-size:14px; }
+
+@keyframes btnGlow { 0%,100% { box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3); } 50% { box-shadow:0 12px 30px rgba(79,127,79,.55), 0 0 0 7px rgba(90,138,90,.12), inset 0 1px 0 rgba(255,255,255,.3); } }
+@media (prefers-reduced-motion: reduce) { .btn-primary { animation:none; } .btn-primary:hover, .btn-secondary:hover, .btn-plan:hover, .btn-ghost:hover { transform:none; } }

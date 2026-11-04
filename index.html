@@ -949,21 +949,6 @@
       transition: all 0.3s ease;
     }
 
-    /* ヒーローのボタン：押したくなる形（立体感・矢印・ゆっくりした光） */
-    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:16px 18px 16px 30px; border-radius:999px; color:#fff; font-weight:800; font-size:17px; letter-spacing:.02em; white-space:nowrap;
-      background:linear-gradient(135deg,#73a273 0%,#4f7f4f 100%); box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3);
-      transition:transform .18s ease, box-shadow .18s ease; animation:btnGlow 3.2s ease-in-out infinite; }
-    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 32px rgba(79,127,79,.45), inset 0 1px 0 rgba(255,255,255,.3); }
-    .btn-primary:active { transform:translateY(0) scale(.97); }
-    .btn-primary .btn-arrow { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.24); font-size:16px; transition:transform .18s ease; }
-    .btn-primary:hover .btn-arrow { transform:translateX(4px); }
-    .btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 28px 14px 18px; border-radius:999px; color:#4f7f4f; font-weight:800; font-size:16px; white-space:nowrap;
-      background:#fff; border:2px solid #5a8a5a; box-shadow:0 4px 14px rgba(90,138,90,.12); transition:transform .18s ease, background .18s ease, box-shadow .18s ease; }
-    .btn-secondary:hover { background:#f0f7f0; transform:translateY(-3px); box-shadow:0 10px 22px rgba(90,138,90,.2); }
-    .btn-secondary:active { transform:translateY(0) scale(.97); }
-    .btn-secondary .btn-play { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:#5a8a5a; color:#fff; font-size:11px; padding-left:2px; }
-    @keyframes btnGlow { 0%,100% { box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3); } 50% { box-shadow:0 12px 30px rgba(79,127,79,.55), 0 0 0 7px rgba(90,138,90,.12), inset 0 1px 0 rgba(255,255,255,.3); } }
-    @media (prefers-reduced-motion: reduce) { .btn-primary { animation:none; } }
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -1034,6 +1019,8 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="buttons.css" />
+  <link rel="stylesheet" href="motion.css" />
 </head>
 <body class="bg-bg text-textmain" style="min-height:100vh;">
 
@@ -1084,7 +1071,7 @@
 
       <!-- スクリーンショット（iPhoneフレーム） -->
       <div class="flex-1 flex justify-center">
-        <div style="position:relative;width:290px;flex-shrink:0;">
+        <div class="float-slow" style="position:relative;width:290px;flex-shrink:0;">
           <!-- フレーム本体 -->
           <div style="background:#1c1c1e;border-radius:50px;padding:5px;box-shadow:inset 0 0 0 1px rgba(255,255,255,0.08),0 0 0 1px #080808,0 32px 64px rgba(0,0,0,0.22),0 8px 20px rgba(0,0,0,0.1);position:relative;">
             <!-- サイレントスイッチ -->
@@ -1500,7 +1487,7 @@
       </div>
       <div class="flex-1 w-full">
         <div class="relative flex justify-center items-center py-8">
-          <div class="absolute inset-x-1 inset-y-0" style="background:#fbe3d1;border-radius:62% 38% 54% 46% / 48% 58% 42% 52%;transform:rotate(-9deg) scale(1.02);"></div>
+          <div class="absolute inset-x-1 inset-y-0 blob-drift" style="--r:-9deg;background:#fbe3d1;border-radius:62% 38% 54% 46% / 48% 58% 42% 52%;"></div>
           <div class="relative" style="width:210px;background:#1c1c1e;border-radius:38px;padding:5px;box-shadow:0 24px 48px rgba(0,0,0,0.18);">
             <div style="border-radius:34px;overflow:hidden;background:#fff;"><img src="assets/screen01.png" alt="レシピ一覧の画面" loading="lazy" style="width:100%;display:block;" /></div>
           </div>
@@ -1518,7 +1505,7 @@
       </div>
       <div class="flex-1 w-full">
         <div class="relative flex justify-center items-center py-8">
-          <div class="absolute inset-x-1 inset-y-0" style="background:#fdf1dc;border-radius:41% 59% 47% 53% / 57% 44% 56% 43%;transform:rotate(7deg) scale(1.04);"></div>
+          <div class="absolute inset-x-1 inset-y-0 blob-drift" style="--r:7deg;background:#fdf1dc;border-radius:41% 59% 47% 53% / 57% 44% 56% 43%;"></div>
           <div class="relative" style="width:210px;background:#1c1c1e;border-radius:38px;padding:5px;box-shadow:0 24px 48px rgba(0,0,0,0.18);">
             <div style="border-radius:34px;overflow:hidden;background:#fff;"><img src="assets/screen08.png" alt="AI検索の画面" loading="lazy" style="width:100%;display:block;" /></div>
           </div>
@@ -1536,7 +1523,7 @@
       </div>
       <div class="flex-1 w-full">
         <div class="relative py-6 px-2">
-          <div class="absolute inset-x-0 inset-y-0" style="background:#fbe7df;border-radius:46% 54% 58% 42% / 55% 42% 58% 45%;transform:rotate(6deg) scale(1.03);"></div>
+          <div class="absolute inset-x-1 inset-y-0 blob-drift" style="--r:6deg;background:#fbe7df;border-radius:46% 54% 58% 42% / 55% 42% 58% 45%;"></div>
         <div class="relative rounded-3xl p-5 md:p-6" style="background:#fff;border:1px solid #e8e4df;box-shadow:0 8px 28px rgba(0,0,0,0.06);">
           <div class="flex items-center justify-between mb-3">
             <p class="text-sm font-bold" style="color:#1a1a1a;">📖 ごはん図鑑（デモ）</p>
@@ -1559,7 +1546,7 @@
       </div>
       <div class="flex-1 w-full">
         <div class="relative flex justify-center items-center py-8">
-          <div class="absolute inset-x-1 inset-y-0" style="background:#e8f0f7;border-radius:55% 45% 62% 38% / 44% 55% 45% 56%;transform:rotate(-5deg) scale(1.02);"></div>
+          <div class="absolute inset-x-1 inset-y-0 blob-drift" style="--r:-5deg;background:#e8f0f7;border-radius:55% 45% 62% 38% / 44% 55% 45% 56%;"></div>
           <div class="relative" style="width:210px;background:#1c1c1e;border-radius:38px;padding:5px;box-shadow:0 24px 48px rgba(0,0,0,0.18);">
             <div style="border-radius:34px;overflow:hidden;background:#fff;"><img src="assets/screen07.png" alt="材料を選んで買い物リストに追加する画面" loading="lazy" style="width:100%;display:block;" /></div>
           </div>
@@ -1573,7 +1560,7 @@
       </div>
       <h3 class="font-black text-2xl md:text-2xl lg:text-3xl leading-snug mb-3" style="color:#1a1a1a;"><span class="inline-block">まずは無料。</span> <span class="inline-block">カードもいりません</span></h3>
       <p class="text-sm md:text-base leading-relaxed mb-6" style="color:#666;">レシピ50件・AI解析 月10回まで、ずっと無料。<br />もっと使いたくなったら、月額130円からのプランがあります。</p>
-      <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="inline-block font-bold text-white px-8 py-4 rounded-full text-base transition-opacity hover:opacity-85" style="background:#5a8a5a;">無料で始める →</a>
+      <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-primary"><span>無料で始める</span><span class="btn-arrow" aria-hidden="true">→</span></a>
     </div>
     </div>
   </section>
@@ -1679,11 +1666,7 @@
                         <li class="muted">分析タブ</li>
             <li class="muted">AIフォルダ振り分け</li>
           </ul>
-          <a href="https://nanitabe-ru.vercel.app/login?mode=signup"
-             class="block text-center font-bold py-3 rounded-full whitespace-nowrap text-sm transition-opacity hover:opacity-85"
-             style="background:#e8e4df;color:#555;">
-            無料で始める
-          </a>
+          <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-plan btn-plan-free">無料で始める</a>
         </div>
 
         <!-- スタンダード（おすすめ） -->
@@ -1710,11 +1693,7 @@
             <li>広告なし</li>
             <li>独自Gemini APIキー設定（実質無制限）</li>
           </ul>
-          <a href="https://nanitabe-ru.vercel.app/login?mode=signup"
-             class="block text-center font-bold py-3 rounded-full whitespace-nowrap text-sm text-white transition-opacity hover:opacity-85"
-             style="background:#5a8a5a;">
-            スタンダードで始める
-          </a>
+          <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-plan btn-plan-std">スタンダードで始める</a>
         </div>
 
         <!-- プレミアム -->
@@ -1740,11 +1719,7 @@
             <li>広告なし</li>
             <li>独自Gemini APIキー設定</li>
           </ul>
-          <a href="https://nanitabe-ru.vercel.app/login?mode=signup"
-             class="block text-center font-bold py-3 rounded-full whitespace-nowrap text-sm transition-opacity hover:opacity-85"
-             style="background:#c0892a;color:#fff;">
-            プレミアムで始める
-          </a>
+          <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-plan btn-plan-premium">プレミアムで始める</a>
         </div>
 
       </div>
@@ -1920,7 +1895,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       </div>
 
       <div class="text-center mt-8">
-        <button id="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-more" class="font-bold text-sm px-6 py-3 rounded-full transition-colors" style="color:#5a8a5a;background:#fff;border:1.5px solid #5a8a5a;">
+        <button id="faq-toggle" type="button" aria-expanded="false" aria-controls="faq-more" class="btn-ghost">
           すべての質問を見る（残り12件）
         </button>
       </div>
@@ -2033,10 +2008,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
       </div>
 
       <div class="text-center">
-        <a href="column.html"
-           class="inline-block font-bold text-sm px-8 py-3.5 rounded-full whitespace-nowrap border-2 border-[#5a8a5a] text-[#5a8a5a] bg-white hover:bg-[#5a8a5a] hover:text-white transition-all shadow-sm">
-          お役立ちコラムをすべて見る（全10件） →
-        </a>
+        <a href="column.html" class="btn-secondary plain">お役立ちコラムをすべて見る（全10件）<span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -2046,11 +2018,7 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="font-black text-2xl md:text-3xl mb-3 text-white">今すぐ無料で始めよう</h2>
       <p class="text-sm mb-8" style="color:rgba(255,255,255,0.8);">レシピ50件・AI解析10回が無料でお試し。クレジットカード不要。</p>
-      <a href="https://nanitabe-ru.vercel.app/login?mode=signup"
-         class="inline-block font-bold text-base px-10 py-4 rounded-full whitespace-nowrap transition-opacity hover:opacity-85"
-         style="background:#fff;color:#5a8a5a;">
-        無料で始める →
-      </a>
+      <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-primary on-green"><span>無料で始める</span><span class="btn-arrow" aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -2552,5 +2520,6 @@ ChromeでなにたべのURLを開く → 右上のメニュー（︙）をタッ
     }
   </script>
 
+  <script src="motion.js" defer></script>
 </body>
 </html>
