@@ -949,6 +949,21 @@
       transition: all 0.3s ease;
     }
 
+    /* ヒーローのボタン：押したくなる形（立体感・矢印・ゆっくりした光） */
+    .btn-primary { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:16px 18px 16px 30px; border-radius:999px; color:#fff; font-weight:800; font-size:17px; letter-spacing:.02em; white-space:nowrap;
+      background:linear-gradient(135deg,#73a273 0%,#4f7f4f 100%); box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3);
+      transition:transform .18s ease, box-shadow .18s ease; animation:btnGlow 3.2s ease-in-out infinite; }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 32px rgba(79,127,79,.45), inset 0 1px 0 rgba(255,255,255,.3); }
+    .btn-primary:active { transform:translateY(0) scale(.97); }
+    .btn-primary .btn-arrow { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.24); font-size:16px; transition:transform .18s ease; }
+    .btn-primary:hover .btn-arrow { transform:translateX(4px); }
+    .btn-secondary { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 28px 14px 18px; border-radius:999px; color:#4f7f4f; font-weight:800; font-size:16px; white-space:nowrap;
+      background:#fff; border:2px solid #5a8a5a; box-shadow:0 4px 14px rgba(90,138,90,.12); transition:transform .18s ease, background .18s ease, box-shadow .18s ease; }
+    .btn-secondary:hover { background:#f0f7f0; transform:translateY(-3px); box-shadow:0 10px 22px rgba(90,138,90,.2); }
+    .btn-secondary:active { transform:translateY(0) scale(.97); }
+    .btn-secondary .btn-play { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:#5a8a5a; color:#fff; font-size:11px; padding-left:2px; }
+    @keyframes btnGlow { 0%,100% { box-shadow:0 10px 24px rgba(79,127,79,.38), inset 0 1px 0 rgba(255,255,255,.3); } 50% { box-shadow:0 12px 30px rgba(79,127,79,.55), 0 0 0 7px rgba(90,138,90,.12), inset 0 1px 0 rgba(255,255,255,.3); } }
+    @media (prefers-reduced-motion: reduce) { .btn-primary { animation:none; } }
   </style>
 
   <!-- JSON-LD 構造化データ -->
@@ -1032,10 +1047,10 @@
           <a href="updates.html" class="transition-colors hover:text-[#5a8a5a]" style="color:#444;">お知らせ</a>
         </nav>
       </div>
-      <a href="https://nanitabe-ru.vercel.app"
-         class="font-bold text-xs sm:text-sm text-white px-3 sm:px-5 py-2 sm:py-2.5 rounded-full whitespace-nowrap transition-opacity hover:opacity-85 flex-shrink-0"
-         style="background:#5a8a5a;">
-        アプリを使う →
+      <a href="https://nanitabe-ru.vercel.app/login"
+         class="font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full whitespace-nowrap transition-colors hover:bg-[#eef6ee] flex-shrink-0"
+         style="color:#4f7f4f;background:#fff;border:1.5px solid #5a8a5a;">
+        ログイン
       </a>
     </div>
   </header>
@@ -1055,16 +1070,14 @@
           <span class="inline-block">材料も手順もAIが自動取得し、</span>
           <span class="inline-block">調理中に動画を巻き戻す必要はもうありません。</span>
         </p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-          <a href="https://nanitabe-ru.vercel.app/login?mode=signup"
-             class="font-bold text-white text-center px-8 py-4 rounded-full whitespace-nowrap text-base transition-opacity hover:opacity-85"
-             style="background:#5a8a5a;">
-            無料で始める →
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start items-stretch sm:items-center">
+          <a href="https://nanitabe-ru.vercel.app/login?mode=signup" class="btn-primary">
+            <span>無料で始める</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
-          <a href="#demo"
-             class="font-bold text-center px-8 py-4 rounded-full whitespace-nowrap text-base transition-colors"
-             style="color:#5a8a5a;background:#fff;border:1.5px solid #5a8a5a;">
-            体験してみる
+          <a href="#demo" class="btn-secondary">
+            <span class="btn-play" aria-hidden="true">▶</span>
+            <span>体験してみる</span>
           </a>
         </div>
       </div>
