@@ -67,7 +67,7 @@
 
   <main class="article-card max-w-2xl mx-auto px-5 py-8">
     <h1 class="font-black text-2xl mb-2" style="color:#1a1a1a;">プライバシーポリシー</h1>
-    <p class="text-xs" style="color:#aaa;">最終更新日：2026年10月27日</p>
+    <p class="text-xs" style="color:#aaa;">最終更新日：2026年11月27日</p>
 
     <p class="mt-6">「なにたべ」（以下「本サービス」）は、利用者の個人情報を適切に保護することを重要な責務と考え、以下のとおりプライバシーポリシーを定めます。</p>
 
@@ -83,6 +83,7 @@
       <li>お問い合わせの内容（お問い合わせフォームをご利用の場合）</li>
       <li>IPアドレス（ゲスト体験の利用回数の制限・不正利用の防止のために取得します）</li>
       <li>アプリの利用状況（AI解析・AI検索の利用回数、アクセスログ等）</li>
+      <li>ログインした日（日本時間の日付。ログインボーナスの計算に使います）</li>
       <li>決済情報（Stripeを通じた有料プランご契約時。カード番号等は本サービスでは保持せずStripeが管理します）</li>
     </ul>
 
@@ -93,6 +94,7 @@
       <li>不正利用の防止・利用規約違反への対応のため</li>
       <li>有料プランの決済処理のため</li>
       <li>利用状況の分析によるサービス改善のため</li>
+      <li>ログインボーナスなど、特典の提供のため</li>
       <li>機能のご案内メールの送信のため（メール内のリンクから、いつでも配信を停止できます）</li>
     </ul>
 
@@ -103,8 +105,9 @@
       <li><strong>Google OAuth</strong>：Googleアカウントによるログイン機能</li>
       <li><strong>Stripe</strong>：有料プランの決済処理</li>
       <li><strong>Google Gemini API</strong>：レシピ内容のAI解析・AI検索</li>
-      <li><strong>YouTube</strong>：YouTubeのURLで保存したレシピの動画表示・再生（再生ボタンを押すまでは、サムネイル画像の取得のみを行います）</li>
-      <li><strong>Resend</strong>：お問い合わせ・機能のご案内メールの送信</li>
+      <li><strong>YouTube</strong>：YouTubeのURLで保存したレシピの動画表示・再生（再生ボタンを押すまでは、サムネイル画像の取得のみを行います）また、動画の説明欄（レシピの文章）を取得するために、YouTube API サービスを利用しています。YouTube API サービスの利用には、YouTube 利用規約（https://www.youtube.com/t/terms）が適用され、Google のプライバシーポリシー（https://policies.google.com/privacy）に従って情報が扱われます。</li>
+      <li><strong>Resend</strong>：お問い合わせフォームの内容を、運営者へ届けるメールの送信</li>
+      <li><strong>Gmail（Google）</strong>：機能のご案内・お知らせメールの送信</li>
       <li><strong>Vercel</strong>：本サービスの配信（ホスティング）</li>
       <li><strong>Amazonアソシエイト</strong>：書籍・調理器具などの紹介リンク（リンク先でのCookie等の取り扱いはAmazonのポリシーに従います）</li>
       <li><strong>Google Analytics</strong>：アクセス状況の分析（Cookieを使用）</li>
